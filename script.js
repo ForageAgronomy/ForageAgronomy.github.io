@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       FADE-IN ANIMATION
+       FADE-IN ANIMATIONS
     ===================================================== */
 
     const animatedElements = document.querySelectorAll(
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    const observer = new IntersectionObserver(
+    const animationObserver = new IntersectionObserver(
 
         function (entries) {
 
@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     entry.target.classList.add("visible");
 
-                    observer.unobserve(entry.target);
+                    animationObserver.unobserve(entry.target);
+
                 }
 
             });
@@ -43,14 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         element.classList.add("fade-in");
 
-        observer.observe(element);
+        animationObserver.observe(element);
 
     });
 
 
 
     /* =====================================================
-       SMOOTH SCROLLING
+       SMOOTH NAVIGATION
     ===================================================== */
 
     const navigationLinks = document.querySelectorAll(
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    const sectionObserver = new IntersectionObserver(
+    const navigationObserver = new IntersectionObserver(
 
         function (entries) {
 
@@ -141,23 +142,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sections.forEach(function (section) {
 
-        sectionObserver.observe(section);
+        navigationObserver.observe(section);
 
     });
 
 
 
     /* =====================================================
-       PUBLICATION LINKS
-       
-       Publication titles already contain their DOI/journal
-       links in index.html. This section adds a small
-       accessibility enhancement.
+       PUBLICATION LINK ACCESSIBILITY
     ===================================================== */
 
-    const publicationLinks = document.querySelectorAll(
-        ".publication h3 a"
-    );
+    const publicationLinks =
+        document.querySelectorAll(
+            ".publication h3 a"
+        );
 
 
     publicationLinks.forEach(function (link) {
@@ -172,22 +170,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       CURRENT YEAR
+       EXTERNAL LINKS
        
-       If an element with class .footer-year is added later,
-       it will automatically display the current year.
+       Make sure external links open safely.
     ===================================================== */
 
-    const footerYear = document.querySelector(
-        ".footer-year"
-    );
+    const externalLinks =
+        document.querySelectorAll(
+            'a[target="_blank"]'
+        );
 
 
-    if (footerYear) {
+    externalLinks.forEach(function (link) {
 
-        footerYear.textContent =
-            new Date().getFullYear();
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
 
-    }
+    });
 
 });
