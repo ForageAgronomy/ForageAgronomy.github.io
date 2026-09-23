@@ -47,7 +47,7 @@ h4 {
 }
 
 h1 {
-    font-size: clamp(44px, 6vw, 76px);
+    font-size: clamp(46px, 6vw, 78px);
     font-weight: 700;
 }
 
@@ -85,6 +85,7 @@ p {
     gap: 30px;
 
     background: rgba(255, 255, 255, 0.97);
+
     border-bottom: 1px solid #e1e6e1;
 
     backdrop-filter: blur(10px);
@@ -98,18 +99,23 @@ p {
 
 .logo span {
     display: block;
+
     font-size: 21px;
     font-weight: 800;
+
     letter-spacing: 2px;
 }
 
 .logo small {
     display: block;
+
     margin-top: 5px;
 
     color: #6b746d;
+
     font-size: 9px;
     font-weight: 700;
+
     letter-spacing: 1.4px;
 }
 
@@ -119,6 +125,7 @@ p {
     justify-content: flex-end;
 
     flex-wrap: wrap;
+
     gap: 22px;
 }
 
@@ -126,6 +133,7 @@ p {
     position: relative;
 
     color: #465249;
+
     font-size: 13px;
     font-weight: 600;
 
@@ -138,6 +146,7 @@ p {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: 20px;
 
@@ -153,16 +162,13 @@ p {
     color: #31583d;
 }
 
-.navbar nav a:hover::after {
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
     width: 100%;
 }
 
 .navbar nav a.active {
     color: #31583d;
-}
-
-.navbar nav a.active::after {
-    width: 100%;
 }
 
 
@@ -190,16 +196,17 @@ p {
         linear-gradient(
             90deg,
             rgba(22, 48, 31, 0.95) 0%,
-            rgba(30, 65, 42, 0.87) 45%,
+            rgba(30, 65, 42, 0.86) 43%,
             rgba(30, 65, 42, 0.40) 100%
         );
 }
 
 .hero-content {
     width: min(1200px, 92%);
+
     margin: 0 auto;
 
-    padding: 100px 0;
+    padding: 110px 0;
 }
 
 .eyebrow {
@@ -214,7 +221,8 @@ p {
 }
 
 .hero h1 {
-    max-width: 850px;
+    max-width: 900px;
+
     margin-bottom: 25px;
 
     color: #ffffff;
@@ -230,11 +238,13 @@ p {
     color: #edf3ed;
 
     font-size: 20px;
+
     line-height: 1.7;
 }
 
 .hero-buttons {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 15px;
@@ -278,6 +288,7 @@ p {
 
 .button.secondary {
     background: transparent;
+
     color: #ffffff;
 
     border: 1px solid rgba(255, 255, 255, 0.65);
@@ -285,12 +296,13 @@ p {
 
 .button.secondary:hover {
     background: #ffffff;
+
     color: #31583d;
 }
 
 
 /* =========================================================
-   SECTIONS
+   GENERAL SECTIONS
 ========================================================= */
 
 .section {
@@ -315,6 +327,7 @@ p {
     margin-bottom: 50px;
 
     font-size: 17px;
+
     line-height: 1.75;
 }
 
@@ -324,12 +337,14 @@ p {
 ========================================================= */
 
 .intro {
-    padding: 90px 0;
+    padding: 95px 0;
+
     background: #ffffff;
 }
 
 .intro h2 {
-    max-width: 850px;
+    max-width: 900px;
+
     margin-bottom: 25px;
 }
 
@@ -338,9 +353,10 @@ p {
 }
 
 .large-text {
-    max-width: 850px;
+    max-width: 900px;
 
     font-size: 20px;
+
     line-height: 1.8;
 }
 
@@ -351,10 +367,6 @@ p {
 
 .research {
     background: #f4f7f3;
-}
-
-.research h2 {
-    margin-bottom: 0;
 }
 
 .research-grid {
@@ -368,11 +380,14 @@ p {
 .research-card {
     position: relative;
 
-    padding: 34px 27px 30px;
+    min-height: 340px;
+
+    padding: 30px 27px 30px;
 
     background: #ffffff;
 
     border: 1px solid #dfe6df;
+
     border-top: 4px solid #31583d;
 
     transition:
@@ -384,16 +399,30 @@ p {
     transform: translateY(-5px);
 
     box-shadow:
-        0 14px 35px rgba(37, 61, 44, 0.10);
+        0 15px 35px rgba(37, 61, 44, 0.10);
+}
+
+.card-number {
+    margin-bottom: 18px;
+
+    color: #9b7b3b;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
 }
 
 .research-card h3 {
     margin-bottom: 14px;
+
     color: #31583d;
+
+    font-size: 21px;
 }
 
 .research-card p {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
     font-size: 14px;
 }
@@ -403,7 +432,7 @@ p {
 }
 
 .research-card li {
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
     color: #536158;
 
@@ -427,13 +456,10 @@ p {
     gap: 60px;
 
     margin-top: 45px;
+
     padding-bottom: 70px;
 
     border-bottom: 1px solid #dfe5df;
-}
-
-.pi-photo {
-    width: 100%;
 }
 
 .photo-placeholder {
@@ -482,9 +508,10 @@ p {
 
 .links {
     display: flex;
+
     flex-wrap: wrap;
 
-    gap: 18px;
+    gap: 20px;
 
     margin-top: 25px;
 }
@@ -500,6 +527,7 @@ p {
 
 .links a:hover {
     color: #9b7b3b;
+
     border-color: #9b7b3b;
 }
 
@@ -524,15 +552,26 @@ p {
 }
 
 .person-card {
-    padding-bottom: 22px;
+    padding-bottom: 25px;
 
     background: #f5f7f4;
 
     border: 1px solid #dfe5df;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 28px rgba(37, 61, 44, 0.08);
 }
 
 .person-photo {
-    height: 260px;
+    height: 270px;
 
     display: flex;
     align-items: center;
@@ -577,22 +616,14 @@ p {
     background: #ffffff;
 }
 
-/* Make the publication section wider */
 .publications .container {
     width: min(1250px, 94%);
     margin: 0 auto;
 }
 
-.publications h2 {
-    margin-bottom: 0;
-}
-
 .publications .section-intro {
     max-width: 900px;
 }
-
-
-/* Year headings */
 
 .publication-year {
     width: 100%;
@@ -600,7 +631,7 @@ p {
     margin-top: 55px;
     margin-bottom: 0;
 
-    padding: 0 0 10px;
+    padding-bottom: 10px;
 
     color: #31583d;
 
@@ -614,14 +645,10 @@ p {
     margin-top: 15px;
 }
 
-
-/* Individual publication */
-
 .publication {
     width: 100%;
-    max-width: none;
 
-    padding: 22px 5px 21px 0;
+    padding: 23px 5px 22px 0;
 
     border-bottom: 1px solid #e2e6e2;
 
@@ -636,23 +663,22 @@ p {
     background: #fafbf9;
 }
 
-
-/* Publication title */
-
 .publication h3 {
     width: 100%;
+
     max-width: 1100px;
 
     margin-bottom: 7px;
 
     font-size: 18px;
+
     font-weight: 700;
 
     line-height: 1.45;
 }
 
 
-/* Clickable publication title */
+/* Publication title is the link */
 
 .publication h3 a {
     color: #29372e;
@@ -667,21 +693,21 @@ p {
     color: #31583d;
 
     text-decoration: underline;
+
     text-underline-offset: 4px;
 }
 
-
-/* Publication authors and journal */
-
 .publication p {
     width: 100%;
+
     max-width: 1100px;
 
-    margin-bottom: 7px;
+    margin-bottom: 0;
 
     color: #5a655e;
 
     font-size: 14px;
+
     line-height: 1.55;
 }
 
@@ -713,16 +739,20 @@ p {
 }
 
 .extension-grid > div {
+    min-height: 170px;
+
     padding: 32px;
 
     background: #ffffff;
 
     border: 1px solid #dfe6df;
+
     border-top: 3px solid #31583d;
 }
 
 .extension-grid h3 {
     margin-bottom: 12px;
+
     color: #31583d;
 }
 
@@ -751,6 +781,7 @@ p {
     max-width: 900px;
 
     margin-top: 45px;
+
     padding: 35px;
 
     background: #f4f7f3;
@@ -798,10 +829,6 @@ p {
     background: #f4f7f3;
 }
 
-.opportunities h2 {
-    margin-bottom: 0;
-}
-
 .opportunity-grid {
     display: grid;
 
@@ -813,11 +840,24 @@ p {
 }
 
 .opportunity-grid > div {
+    min-height: 190px;
+
     padding: 32px;
 
     background: #ffffff;
 
     border: 1px solid #dfe6df;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.opportunity-grid > div:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 28px rgba(37, 61, 44, 0.08);
 }
 
 .opportunity-grid h3 {
@@ -853,11 +893,13 @@ p {
 
 .contact a {
     color: #31583d;
+
     font-weight: 600;
 }
 
 .contact a:hover {
     color: #9b7b3b;
+
     text-decoration: underline;
 }
 
@@ -897,7 +939,7 @@ footer {
 
 
 /* =========================================================
-   FADE-IN ANIMATION
+   FADE-IN
 ========================================================= */
 
 .fade-in {
@@ -923,6 +965,7 @@ footer {
 
 a:focus-visible {
     outline: 3px solid #d0ae64;
+
     outline-offset: 3px;
 }
 
@@ -986,12 +1029,6 @@ a:focus-visible {
     .opportunity-grid {
         grid-template-columns: 1fr 1fr;
     }
-
-
-    .publication h3,
-    .publication p {
-        max-width: 100%;
-    }
 }
 
 
@@ -1036,7 +1073,6 @@ a:focus-visible {
         font-size: 17px;
     }
 
-
     .hero-buttons {
         flex-direction: column;
 
@@ -1058,6 +1094,11 @@ a:focus-visible {
     .extension-grid,
     .opportunity-grid {
         grid-template-columns: 1fr;
+    }
+
+
+    .research-card {
+        min-height: auto;
     }
 
 
@@ -1197,6 +1238,7 @@ a:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+
 }
 
 
