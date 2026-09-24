@@ -1,10 +1,22 @@
 /* =========================================================
    LINKS PAGE
-   Forage Agronomy & Breeding Lab
+   Forage Agronomy Lab
    University of Wyoming
-   ========================================================= */
+========================================================= */
 
-/* ---------- Base ---------- */
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --uw-dark: #492f24;
+    --uw-gold: #ffc425;
+    --uw-gray: #666666;
+    --uw-light: #f5f5f5;
+    --uw-border: #dddddd;
+    --white: #ffffff;
+}
 
 * {
     box-sizing: border-box;
@@ -17,53 +29,241 @@ html {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
     color: #333333;
+    background: #ffffff;
     line-height: 1.6;
 }
 
+a {
+    text-decoration: none;
+}
 
-/* ---------- Links Page ---------- */
+button {
+    font-family: inherit;
+}
 
-.links-page {
-    width: 100%;
-    max-width: 1000px;
+.container {
+    width: 92%;
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 80px 30px 100px;
 }
 
 
-/* ---------- Page Heading ---------- */
+/* =========================================================
+   TOP UNIVERSITY BAR
+========================================================= */
 
-.links-page h1 {
-    margin: 0 0 15px;
-    color: #492f24;
-    font-size: 36px;
+.uw-topbar {
+    background: var(--uw-dark);
+    height: 8px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    background: var(--white);
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand a {
+    display: flex;
+    flex-direction: column;
+    color: var(--uw-dark);
+}
+
+.brand-title {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.brand-subtitle {
+    margin-top: 4px;
+    color: #777777;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.main-nav > a,
+.dropdown-button {
+    position: relative;
+    padding: 10px 0;
+    border: none;
+    background: none;
+    color: #444444;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.main-nav > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background: var(--uw-gold);
+    transition: width 0.2s ease;
+}
+
+.main-nav > a:hover::after,
+.main-nav > a.active::after {
+    width: 100%;
+}
+
+.main-nav > a:hover,
+.main-nav > a.active,
+.dropdown-button:hover {
+    color: var(--uw-dark);
+}
+
+
+/* =========================================================
+   EXTENSION DROPDOWN
+========================================================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-button span {
+    margin-left: 4px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+
+    min-width: 220px;
+
+    background: var(--white);
+    border: 1px solid var(--uw-border);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    display: none;
+    padding: 8px 0;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 11px 18px;
+    color: #444444;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: var(--uw-light);
+    color: var(--uw-dark);
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--uw-dark);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   LINKS SECTION
+========================================================= */
+
+.links-section {
+    padding: 90px 0 110px;
+    background: #ffffff;
+}
+
+.links-container {
+    max-width: 980px;
+}
+
+
+/* =========================================================
+   LINKS HEADING
+========================================================= */
+
+.links-heading {
+    max-width: 800px;
+    margin-bottom: 45px;
+}
+
+.section-kicker {
+    margin: 0 0 10px;
+    color: var(--uw-dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.links-heading h1 {
+    margin: 0;
+    color: var(--uw-dark);
+    font-size: 42px;
     font-weight: 700;
     line-height: 1.2;
 }
 
-.links-page h1::after {
-    content: "";
-    display: block;
+.gold-line {
     width: 60px;
     height: 4px;
-    margin-top: 18px;
-    background: #ffc425;
+    margin: 18px 0 22px;
+    background: var(--uw-gold);
 }
 
-
-/* ---------- Introduction ---------- */
-
 .links-intro {
-    max-width: 750px;
-    margin: 0 0 40px;
-    color: #666666;
+    max-width: 760px;
+    margin: 0;
+    color: var(--uw-gray);
     font-size: 17px;
 }
 
 
-/* ---------- Links List ---------- */
+/* =========================================================
+   LINKS LIST
+========================================================= */
 
 .links-list {
     display: grid;
@@ -71,18 +271,27 @@ body {
 }
 
 
-/* ---------- Individual Links ---------- */
+/* =========================================================
+   RESOURCE LINKS
+========================================================= */
 
-.links-list a {
-    display: block;
-    padding: 20px 24px;
-    background: #f5f5f5;
-    border-left: 5px solid #ffc425;
-    color: #492f24;
-    text-decoration: none;
+.resource-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 21px 24px;
+
+    background: #f7f7f7;
+    border: 1px solid #e2e2e2;
+    border-left: 5px solid var(--uw-gold);
+
+    color: var(--uw-dark);
+
     font-size: 17px;
     font-weight: 600;
-    border-radius: 2px;
+
     transition:
         background-color 0.2s ease,
         color 0.2s ease,
@@ -90,65 +299,261 @@ body {
         box-shadow 0.2s ease;
 }
 
-
-/* ---------- Hover ---------- */
-
-.links-list a:hover {
-    background: #492f24;
-    color: #ffffff;
+.resource-link:hover {
+    background: var(--uw-dark);
+    color: var(--white);
     transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
 }
 
 
-/* ---------- Keyboard Accessibility ---------- */
+/* =========================================================
+   LINK ARROW
+========================================================= */
 
-.links-list a:focus-visible {
-    outline: 3px solid #ffc425;
+.link-arrow {
+    flex-shrink: 0;
+    color: var(--uw-dark);
+    font-size: 22px;
+    transition: transform 0.2s ease;
+}
+
+.resource-link:hover .link-arrow {
+    color: var(--uw-gold);
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    background: var(--uw-dark);
+    color: var(--white);
+}
+
+.footer-grid {
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-grid h3,
+.footer-grid h4 {
+    margin: 0 0 15px;
+}
+
+.footer-grid h3 {
+    font-size: 21px;
+}
+
+.footer-grid h4 {
+    font-size: 16px;
+}
+
+.footer-grid p {
+    margin: 0;
+    color: #cccccc;
+}
+
+.footer-grid a {
+    display: block;
+    margin-bottom: 8px;
+    color: #cccccc;
+    transition: color 0.2s ease;
+}
+
+.footer-grid a:hover {
+    color: var(--uw-gold);
+}
+
+
+/* Contact */
+
+.footer-grid h4 a {
+    margin: 0;
+    color: var(--white);
+}
+
+.footer-grid h4 a:hover {
+    color: var(--uw-gold);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 18px 0;
+    color: #aaaaaa;
+    font-size: 13px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--uw-gold);
     outline-offset: 3px;
 }
 
 
-/* ---------- Mobile ---------- */
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .header-inner {
+        min-height: 80px;
+    }
+
+    .brand-title {
+        font-size: 22px;
+    }
+
+    .main-nav {
+        gap: 18px;
+    }
+
+    .links-section {
+        padding: 70px 0 90px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
-    .links-page {
-        padding: 60px 20px 80px;
+    .menu-toggle {
+        display: block;
     }
 
-    .links-page h1 {
-        font-size: 30px;
+    .main-nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        background: var(--white);
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+    }
+
+    .main-nav.show {
+        display: flex;
+    }
+
+    .main-nav > a,
+    .dropdown-button {
+        width: 100%;
+        padding: 14px 20px;
+        text-align: left;
+    }
+
+    .main-nav > a::after {
+        display: none;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        min-width: 0;
+
+        border: none;
+        border-top: 1px solid #eeeeee;
+
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .dropdown-menu a {
+        padding: 12px 35px;
+    }
+
+    .links-section {
+        padding: 60px 0 80px;
+    }
+
+    .links-heading h1 {
+        font-size: 34px;
     }
 
     .links-intro {
         font-size: 16px;
     }
 
-    .links-list a {
-        padding: 17px 19px;
+    .resource-link {
+        padding: 18px 19px;
+    }
+
+    .resource-link span:first-child {
         font-size: 16px;
     }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 45px 0;
+    }
+
 }
 
 
-/* ---------- Small Mobile ---------- */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 450px) {
 
-    .links-page {
-        padding: 45px 16px 60px;
+    .brand-title {
+        font-size: 19px;
     }
 
-    .links-page h1 {
-        font-size: 27px;
+    .brand-subtitle {
+        font-size: 12px;
     }
 
-    .links-list {
-        gap: 12px;
+    .links-heading h1 {
+        font-size: 30px;
     }
 
-    .links-list a {
-        padding: 15px 17px;
+    .resource-link {
+        padding: 17px;
     }
+
+    .resource-link span:first-child {
+        font-size: 15px;
+    }
+
+    .link-arrow {
+        font-size: 19px;
+    }
+
 }
