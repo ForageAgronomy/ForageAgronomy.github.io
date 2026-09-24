@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,86 +9,81 @@
     <title>Forage Agronomy Lab | University of Wyoming</title>
 
     <meta name="description"
-          content="Forage Agronomy Lab at the University of Wyoming led by Dr. Surendra Bhattarai. Research in forage agronomy, crop physiology, forage systems, and Extension.">
+          content="Forage Agronomy Lab at the University of Wyoming led by Dr. Surendra Bhattarai.">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+    <!-- HEADER -->
+    <header class="site-header">
 
-<header class="site-header">
+        <div class="header-container">
 
-    <div class="header-container">
+            <div class="lab-title">
+                <a href="index.html">
+                    <span class="lab-name">Forage Agronomy Lab</span>
+                    <span class="university-name">
+                        University of Wyoming
+                    </span>
+                </a>
+            </div>
 
-        <div class="lab-title">
-            <a href="index.html">
-                <span class="lab-name">Forage Agronomy Lab</span>
-                <span class="university-name">
-                    University of Wyoming
-                </span>
-            </a>
-        </div>
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
 
-        <button class="menu-toggle" id="menuToggle">
-            ☰
-        </button>
+            <nav class="main-nav" id="mainNav">
 
-        <nav class="main-nav" id="mainNav">
+                <a href="index.html">Home</a>
 
-            <a href="index.html">Home</a>
+                <a href="people.html" target="_blank">
+                    People
+                </a>
 
-            <a href="people.html" target="_blank">
-                People
-            </a>
+                <a href="research.html" target="_blank">
+                    Research
+                </a>
 
-            <a href="research.html" target="_blank">
-                Research
-            </a>
+                <div class="dropdown">
 
-            <div class="dropdown">
+                    <button class="dropdown-button">
+                        Extension <span>⌄</span>
+                    </button>
 
-                <button class="dropdown-button">
-                    Extension
-                    <span>⌄</span>
-                </button>
+                    <div class="dropdown-content">
 
-                <div class="dropdown-content">
+                        <a href="extension/extension-articles.html">
+                            Extension Articles
+                        </a>
 
-                    <a href="extension/extension-articles.html">
-                        Extension Articles
-                    </a>
+                        <a href="extension/producer-resources.html">
+                            Producer Resources
+                        </a>
 
-                    <a href="extension/producer-resources.html">
-                        Producer Resources
-                    </a>
+                    </div>
 
                 </div>
 
-            </div>
+                <a href="links.html" target="_blank">
+                    Links
+                </a>
 
-            <a href="links.html" target="_blank">
-                Links
-            </a>
+            </nav>
 
-        </nav>
+        </div>
 
-    </div>
-
-</header>
+    </header>
 
 
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-overlay">
+    <!-- HERO -->
+    <section class="hero">
 
         <div class="hero-content">
 
             <p class="hero-kicker">
-                University of Wyoming • Department of Plant Sciences
+                University of Wyoming | Department of Plant Sciences
             </p>
 
             <h1>
@@ -99,14 +95,16 @@
             </h2>
 
             <p>
-                We conduct applied research to improve forage crop productivity,
-                quality, persistence, and resilience under diverse environmental
-                and management conditions.
+                Our lab conducts applied research to improve forage crop
+                productivity, quality, persistence, and resilience under
+                diverse environmental and management conditions.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="research.html" target="_blank" class="button primary-button">
+                <a href="research.html"
+                   target="_blank"
+                   class="button primary-button">
                     Explore Our Research
                 </a>
 
@@ -119,335 +117,261 @@
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================= ABOUT ================= -->
+    <!-- ABOUT -->
+    <section class="section">
 
-<section class="section about-section">
+        <div class="section-container">
 
-    <div class="section-container">
-
-        <div class="section-heading">
-
-            <p class="section-label">
-                About the Lab
-            </p>
-
-            <h2>
-                Research for resilient forage production
-            </h2>
-
-        </div>
-
-        <div class="about-grid">
-
-            <div class="about-text">
-
-                <p>
-                    The Forage Agronomy Lab at the University of Wyoming
-                    conducts research focused on improving the productivity,
-                    quality, persistence, and sustainability of forage crops
-                    and forage-based systems.
-                </p>
-
-                <p>
-                    Our research integrates forage agronomy, crop physiology,
-                    plant–environment interactions, and field-based
-                    experimentation to address challenges affecting forage
-                    production in Wyoming and the broader western United States.
-                </p>
-
-                <p>
-                    We work across field and controlled-environment settings
-                    to understand how forage crops respond to environmental
-                    conditions and management practices and to develop
-                    practical approaches that can benefit producers.
-                </p>
-
-            </div>
-
-            <div class="research-focus">
-
-                <div class="focus-card">
-                    <div class="focus-icon">🌱</div>
-                    <h3>Forage Agronomy</h3>
-                    <p>
-                        Improving establishment, growth, productivity,
-                        persistence, and management of forage crops.
-                    </p>
-                </div>
-
-                <div class="focus-card">
-                    <div class="focus-icon">🔬</div>
-                    <h3>Crop Physiology</h3>
-                    <p>
-                        Understanding plant responses to environmental
-                        conditions and management practices.
-                    </p>
-                </div>
-
-                <div class="focus-card">
-                    <div class="focus-icon">🌎</div>
-                    <h3>Forage Systems</h3>
-                    <p>
-                        Developing productive and resilient forage systems
-                        for challenging environments.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= RESEARCH INTERESTS ================= -->
-
-<section class="section research-interest-section">
-
-    <div class="section-container">
-
-        <div class="section-heading centered">
-
-            <p class="section-label">
-                Research Interests
-            </p>
-
-            <h2>
-                Understanding forage crops in changing environments
-            </h2>
-
-            <p class="section-intro">
-                Our research addresses biological and agronomic factors
-                that influence forage production, quality, persistence,
-                and resilience.
-            </p>
-
-        </div>
-
-        <div class="interest-grid">
-
-            <div class="interest-card">
-                <h3>Forage Crop Productivity</h3>
-                <p>
-                    Agronomic practices that improve forage yield,
-                    quality, establishment, and persistence.
-                </p>
-            </div>
-
-            <div class="interest-card">
-                <h3>Environmental Stress</h3>
-                <p>
-                    Plant responses to environmental conditions that
-                    constrain forage production and persistence.
-                </p>
-            </div>
-
-            <div class="interest-card">
-                <h3>Water & Nutrient Management</h3>
-                <p>
-                    Understanding how water and nutrient availability
-                    influence forage crop performance.
-                </p>
-            </div>
-
-            <div class="interest-card">
-                <h3>Perennial Forage Systems</h3>
-                <p>
-                    Improving the productivity and long-term persistence
-                    of perennial forage crops and mixtures.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= PI ================= -->
-
-<section class="section pi-section">
-
-    <div class="section-container">
-
-        <div class="pi-grid">
-
-            <div class="pi-photo">
-
-                <img src="images/pi.jpg"
-                     alt="Dr. Surendra Bhattarai">
-
-            </div>
-
-            <div class="pi-info">
+            <div class="section-heading">
 
                 <p class="section-label">
-                    Principal Investigator
+                    About the Lab
                 </p>
 
                 <h2>
-                    Dr. Surendra Bhattarai
+                    Research for resilient forage production
                 </h2>
 
-                <h3>
-                    Assistant Professor, Forage Agronomy
-                </h3>
+            </div>
 
-                <p>
-                    Department of Plant Sciences<br>
-                    University of Wyoming
-                </p>
+            <div class="about-grid">
 
-                <div class="contact-info">
+                <div class="about-text">
 
                     <p>
-                        <strong>Office:</strong>
-                        Agriculture Building, Room 4011
+                        The Forage Agronomy Lab at the University of Wyoming
+                        conducts research focused on improving the productivity,
+                        quality, persistence, and sustainability of forage
+                        crops and forage-based systems.
                     </p>
 
                     <p>
-                        <strong>Phone:</strong>
-                        <a href="tel:+13077664151">
-                            (307) 766-4151
-                        </a>
+                        Our research integrates forage agronomy, crop
+                        physiology, plant-environment interactions, and
+                        field-based experimentation to address challenges
+                        affecting forage production in Wyoming and the
+                        broader western United States.
                     </p>
 
                     <p>
-                        <strong>Email:</strong>
-                        <a href="mailto:surendra.bhattarai@uwyo.edu">
-                            surendra.bhattarai@uwyo.edu
-                        </a>
+                        We combine field research and controlled-environment
+                        studies to understand how forage crops respond to
+                        environmental conditions and management practices
+                        and to develop practical approaches for producers.
                     </p>
 
                 </div>
 
-                <a href="https://www.uwyo.edu/plantsciences/department-directory/bhattarai-surendra-bio-faculty.html"
-                   target="_blank"
-                   class="text-link">
-                    View UW Faculty Profile →
-                </a>
+
+                <div class="research-focus">
+
+                    <div class="focus-card">
+
+                        <div class="focus-icon">
+                            🌱
+                        </div>
+
+                        <h3>
+                            Forage Agronomy
+                        </h3>
+
+                        <p>
+                            Improving establishment, growth, productivity,
+                            persistence, and management of forage crops.
+                        </p>
+
+                    </div>
+
+
+                    <div class="focus-card">
+
+                        <div class="focus-icon">
+                            🔬
+                        </div>
+
+                        <h3>
+                            Crop Physiology
+                        </h3>
+
+                        <p>
+                            Understanding plant responses to environmental
+                            conditions and management practices.
+                        </p>
+
+                    </div>
+
+
+                    <div class="focus-card">
+
+                        <div class="focus-icon">
+                            🌎
+                        </div>
+
+                        <h3>
+                            Forage Systems
+                        </h3>
+
+                        <p>
+                            Developing productive and resilient forage
+                            systems for challenging environments.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================= PRODUCER RESOURCES CTA ================= -->
+    <!-- RESEARCH INTERESTS -->
+    <section class="section research-interest-section">
 
-<section class="producer-cta">
+        <div class="section-container">
 
-    <div class="producer-cta-content">
+            <div class="section-heading centered">
 
-        <p class="section-label light">
-            University of Wyoming Extension
-        </p>
+                <p class="section-label">
+                    Research Interests
+                </p>
 
-        <h2>
-            Practical information for forage producers
-        </h2>
+                <h2>
+                    Understanding forage crops in changing environments
+                </h2>
 
-        <p>
-            Explore research-based forage management information,
-            Extension articles, field resources, and practical tools
-            developed for producers and agricultural professionals.
-        </p>
+                <p class="section-intro">
+                    Our research addresses biological and agronomic factors
+                    that influence forage production, quality, persistence,
+                    and resilience.
+                </p>
 
-        <a href="extension/producer-resources.html"
-           class="button cta-button">
-
-            Explore Producer Resources →
-
-        </a>
-
-    </div>
-
-</section>
+            </div>
 
 
-<!-- ================= FOOTER ================= -->
+            <div class="interest-grid">
 
-<footer class="site-footer">
+                <div class="interest-card">
 
-    <div class="footer-container">
+                    <h3>
+                        Forage Crop Productivity
+                    </h3>
 
-        <div>
-            <h3>Forage Agronomy Lab</h3>
+                    <p>
+                        Agronomic practices that improve forage yield,
+                        quality, establishment, and persistence.
+                    </p>
 
-            <p>
-                Department of Plant Sciences<br>
-                University of Wyoming<br>
-                Laramie, Wyoming
-            </p>
-        </div>
+                </div>
 
-        <div>
 
-            <h3>Quick Links</h3>
+                <div class="interest-card">
 
-            <a href="research.html" target="_blank">
-                Research
-            </a>
+                    <h3>
+                        Environmental Stress
+                    </h3>
 
-            <a href="people.html" target="_blank">
-                People
-            </a>
+                    <p>
+                        Understanding forage crop responses to environmental
+                        conditions that constrain production and persistence.
+                    </p>
 
-            <a href="extension/producer-resources.html">
-                Producer Resources
-            </a>
+                </div>
 
-            <a href="links.html" target="_blank">
-                Useful Links
-            </a>
 
-        </div>
+                <div class="interest-card">
 
-        <div>
+                    <h3>
+                        Water & Nutrient Management
+                    </h3>
 
-            <h3>Contact</h3>
+                    <p>
+                        Evaluating how water and nutrient availability
+                        influence forage crop performance.
+                    </p>
 
-            <p>
-                Dr. Surendra Bhattarai
-            </p>
+                </div>
 
-            <a href="mailto:surendra.bhattarai@uwyo.edu">
-                surendra.bhattarai@uwyo.edu
-            </a>
 
-            <p>
-                (307) 766-4151
-            </p>
+                <div class="interest-card">
+
+                    <h3>
+                        Perennial Forage Systems
+                    </h3>
+
+                    <p>
+                        Improving the productivity and long-term persistence
+                        of perennial forage crops and mixtures.
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
-
-    <div class="footer-bottom">
-
-        <p>
-            © <span id="year"></span> Forage Agronomy Lab |
-            University of Wyoming
-        </p>
-
-    </div>
-
-</footer>
+    </section>
 
 
-<script src="js/script.js"></script>
+    <!-- PI SECTION -->
+    <section class="section pi-section">
 
-</body>
-</html>
+        <div class="section-container">
+
+            <div class="pi-grid">
+
+                <div class="pi-photo">
+
+                    <img src="images/pi.jpg"
+                         alt="Dr. Surendra Bhattarai">
+
+                </div>
+
+
+                <div class="pi-info">
+
+                    <p class="section-label">
+                        Principal Investigator
+                    </p>
+
+                    <h2>
+                        Dr. Surendra Bhattarai
+                    </h2>
+
+                    <h3>
+                        Assistant Professor, Forage Agronomy
+                    </h3>
+
+                    <p>
+                        Department of Plant Sciences<br>
+                        University of Wyoming<br>
+                        Laramie, Wyoming
+                    </p>
+
+
+                    <div class="contact-info">
+
+                        <p>
+                            <strong>Email:</strong>
+                            <a href="mailto:surendra.bhattarai@uwyo.edu">
+                                surendra.bhattarai@uwyo.edu
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Phone:</strong>
+                            <a href="tel:+13077664151">
+                                (307) 766-4151
+                            </a>
+                        </p>
+
+                    </div>
+
+
+                    <a href="https://www.uwyo.edu/plantsciences/department-directory/bhattarai-surendra-bio-faculty.html"
 ```
