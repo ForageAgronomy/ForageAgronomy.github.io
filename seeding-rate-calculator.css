@@ -1,1 +1,1694 @@
+/* =====================================================
+   FORAGE AGRONOMY LAB — SEEDING RATE CALCULATOR
+===================================================== */
 
+:root {
+
+    --brown-dark: #3b2a20;
+    --brown: #5a4030;
+    --brown-light: #7a5a43;
+
+    --cream: #f5f1e9;
+    --cream-dark: #ebe4d7;
+
+    --green: #536b45;
+    --green-dark: #3e5435;
+
+    --text: #302a25;
+    --text-light: #6d645d;
+
+    --white: #ffffff;
+
+    --border: #ddd4c7;
+
+    --success-bg: #edf3e9;
+
+    --warning-bg: #f8f0df;
+
+    --max-width: 1180px;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    background: var(--cream);
+
+    line-height: 1.7;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+input,
+select {
+
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--max-width)
+        );
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.12);
+}
+
+
+.header-inner {
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--max-width)
+        );
+
+    margin: 0 auto;
+
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.site-title {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+}
+
+
+.university {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.72;
+
+    margin-bottom: 5px;
+}
+
+
+.department {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    opacity: 0.68;
+
+    margin-bottom: 7px;
+}
+
+
+.lab-name {
+
+    font-size: 24px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+.main-nav > a,
+.dropdown-button {
+
+    color:
+        rgba(255,255,255,0.88);
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.main-nav > a:hover,
+.dropdown-button:hover {
+
+    color: var(--white);
+}
+
+
+.dropdown {
+
+    position: relative;
+}
+
+
+.dropdown-button {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.dropdown-button span {
+
+    margin-left: 4px;
+}
+
+
+.dropdown-menu {
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+
+    right: 0;
+
+    min-width: 220px;
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-8px);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+
+    z-index: 100;
+}
+
+
+.dropdown:hover .dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+
+.dropdown-menu a {
+
+    display: block;
+
+    color: var(--text);
+
+    padding:
+        12px 18px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+}
+
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+
+    background: var(--cream);
+
+    color: var(--brown);
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.menu-toggle {
+
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 26px;
+
+    height: 2px;
+
+    background: var(--white);
+
+    margin: 5px 0;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.page-hero {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    padding:
+        85px 0 90px;
+}
+
+
+.eyebrow {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 700;
+
+    color: var(--green);
+
+    margin-bottom: 13px;
+}
+
+
+.page-hero .eyebrow {
+
+    color: #c9d2bf;
+}
+
+
+.page-hero h1 {
+
+    font-size:
+        clamp(42px, 6vw, 70px);
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+}
+
+
+.hero-text {
+
+    max-width: 800px;
+
+    font-size: 19px;
+
+    color:
+        rgba(255,255,255,0.82);
+}
+
+
+/* =====================================================
+   CALCULATOR SECTION
+===================================================== */
+
+.calculator-section {
+
+    padding:
+        90px 0;
+
+    background: var(--cream);
+}
+
+
+.calculator-intro {
+
+    max-width: 800px;
+
+    margin-bottom: 35px;
+}
+
+
+.calculator-intro h2 {
+
+    font-size:
+        clamp(34px, 5vw, 50px);
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 18px;
+}
+
+
+.calculator-intro p:not(.eyebrow) {
+
+    color: var(--text-light);
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   DATA STATUS
+===================================================== */
+
+.data-status {
+
+    padding:
+        14px 18px;
+
+    margin-bottom: 28px;
+
+    background: var(--success-bg);
+
+    border:
+        1px solid #d3dfcc;
+
+    color: var(--green-dark);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+}
+
+
+.data-status.warning {
+
+    background: var(--warning-bg);
+
+    border-color: #e6d5aa;
+
+    color: #6a5422;
+}
+
+
+/* =====================================================
+   CALCULATOR CARD
+===================================================== */
+
+.calculator-card {
+
+    background: var(--white);
+
+    padding:
+        40px;
+
+    border:
+        1px solid rgba(90,64,48,0.08);
+
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(59,42,32,0.06);
+}
+
+
+.card-heading {
+
+    margin-bottom: 32px;
+}
+
+
+.card-heading h2 {
+
+    font-size: 31px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 8px;
+}
+
+
+.card-heading p:last-child {
+
+    color: var(--text-light);
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    border:
+        1px solid var(--border);
+
+    background: #fff;
+
+    color: var(--text);
+
+    padding:
+        10px 12px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: var(--brown);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(90,64,48,0.08);
+}
+
+
+.input-with-unit {
+
+    position: relative;
+}
+
+
+.input-with-unit input {
+
+    padding-right: 45px;
+}
+
+
+.input-with-unit span {
+
+    position: absolute;
+
+    right: 13px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    color: var(--text-light);
+}
+
+
+/* =====================================================
+   UNIT TOGGLE
+===================================================== */
+
+.unit-toggle {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border:
+        1px solid var(--border);
+}
+
+
+.unit-button {
+
+    min-height: 48px;
+
+    background: var(--white);
+
+    border: none;
+
+    color: var(--text-light);
+
+    cursor: pointer;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.unit-button + .unit-button {
+
+    border-left:
+        1px solid var(--border);
+}
+
+
+.unit-button.active {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   HELP TEXT
+===================================================== */
+
+.help-text {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 16px;
+
+    height: 16px;
+
+    margin-left: 4px;
+
+    border-radius: 50%;
+
+    background: var(--brown);
+
+    color: white;
+
+    font-size: 10px;
+
+    cursor: help;
+}
+
+
+/* =====================================================
+   GUIDANCE BOX
+===================================================== */
+
+.guidance-box {
+
+    margin-top: 25px;
+
+    padding:
+        20px 22px;
+
+    background: var(--cream);
+
+    border-left:
+        4px solid var(--green);
+}
+
+
+.guidance-box strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--brown-dark);
+}
+
+
+.guidance-box p {
+
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   SPECIES SECTION
+===================================================== */
+
+.species-section {
+
+    margin-bottom: 35px;
+}
+
+
+.section-top {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.section-top h2,
+.summary-heading h2,
+.method-content h2 {
+
+    font-size:
+        clamp(32px, 4vw, 45px);
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 8px;
+}
+
+
+.section-top p:last-child {
+
+    color: var(--text-light);
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary-button {
+
+    flex-shrink: 0;
+
+    background: var(--brown);
+
+    color: var(--white);
+
+    border: none;
+
+    padding:
+        13px 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.primary-button:hover {
+
+    background: var(--green-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =====================================================
+   SPECIES CARD
+===================================================== */
+
+.species-card {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    margin-bottom: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(59,42,32,0.045);
+}
+
+
+.species-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding:
+        20px 24px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background: var(--cream);
+}
+
+
+.species-number {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--green);
+}
+
+
+.remove-species {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    color: var(--text-light);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.remove-species:hover {
+
+    color: var(--brown);
+}
+
+
+/* =====================================================
+   SPECIES BODY
+===================================================== */
+
+.species-body {
+
+    padding:
+        28px 24px 30px;
+}
+
+
+.species-form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.8fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 18px;
+}
+
+
+.species-form-grid.secondary {
+
+    margin-top: 20px;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1fr;
+}
+
+
+.field-label {
+
+    display: block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 7px;
+}
+
+
+.species-field input,
+.species-field select {
+
+    width: 100%;
+
+    min-height: 44px;
+
+    border:
+        1px solid var(--border);
+
+    background: var(--white);
+
+    padding:
+        9px 11px;
+
+    font-size: 14px;
+
+    color: var(--text);
+
+    outline: none;
+}
+
+
+.species-field input:focus,
+.species-field select:focus {
+
+    border-color: var(--brown);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(90,64,48,0.08);
+}
+
+
+/* =====================================================
+   CALCULATED RATE
+===================================================== */
+
+.species-result {
+
+    margin-top: 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+.result-box {
+
+    background: var(--cream);
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        17px 18px;
+}
+
+
+.result-box span {
+
+    display: block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: var(--text-light);
+
+    margin-bottom: 5px;
+}
+
+
+.result-box strong {
+
+    color: var(--brown-dark);
+
+    font-size: 23px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   MIXTURE TOTAL
+===================================================== */
+
+.mixture-total {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    margin-top: 25px;
+}
+
+
+.total-item {
+
+    padding:
+        25px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,0.14);
+}
+
+
+.total-item:last-child {
+
+    border-right: none;
+}
+
+
+.total-item span {
+
+    display: block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    margin-bottom: 5px;
+}
+
+
+.total-item strong {
+
+    font-size: 26px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary-section {
+
+    background: var(--white);
+
+    padding:
+        45px;
+
+    margin-bottom: 35px;
+
+    border:
+        1px solid rgba(90,64,48,0.08);
+
+    box-shadow:
+        0 15px 40px
+        rgba(59,42,32,0.06);
+}
+
+
+.summary-heading {
+
+    margin-bottom: 28px;
+}
+
+
+/* =====================================================
+   SUMMARY TABLE
+===================================================== */
+
+.summary-table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.summary-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+
+.summary-table th {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    padding:
+        14px 13px;
+
+    text-align: left;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+}
+
+
+.summary-table td {
+
+    padding:
+        14px 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    font-size: 14px;
+
+    color: var(--text-light);
+}
+
+
+.summary-table tbody tr:hover {
+
+    background: var(--cream);
+}
+
+
+.summary-table tfoot td {
+
+    background: var(--cream-dark);
+
+    color: var(--brown-dark);
+
+    font-weight: 700;
+
+    border-top:
+        2px solid var(--brown);
+}
+
+
+.empty-summary {
+
+    text-align: center;
+
+    padding:
+        30px !important;
+
+    color: var(--text-light) !important;
+}
+
+
+/* =====================================================
+   METHOD SECTION
+===================================================== */
+
+.method-section {
+
+    background: var(--cream-dark);
+
+    padding:
+        60px 45px;
+
+    margin-bottom: 35px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.method-content {
+
+    max-width: 850px;
+}
+
+
+.method-content p:not(.eyebrow) {
+
+    color: var(--text-light);
+
+    font-size: 16px;
+
+    margin-bottom: 16px;
+}
+
+
+.formula-box {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        22px 25px;
+
+    margin:
+        25px 0;
+}
+
+
+.formula-box p {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    color: var(--brown);
+
+    margin-bottom: 8px;
+}
+
+
+.formula-box p:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.method-note {
+
+    font-size: 13px !important;
+
+    color: var(--text-light);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    background: var(--brown-dark);
+
+    color:
+        rgba(255,255,255,0.75);
+
+    padding-top: 55px;
+}
+
+
+.footer-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding-bottom: 45px;
+}
+
+
+.footer-title {
+
+    color: var(--white);
+
+    font-size: 23px;
+
+    margin-bottom: 12px;
+}
+
+
+.footer-contact {
+
+    text-align: right;
+}
+
+
+.footer-contact strong {
+
+    color: var(--white);
+}
+
+
+.copyright {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    padding:
+        18px 24px;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.55);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .main-nav {
+
+        gap: 18px;
+    }
+
+
+    .form-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .species-form-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .species-form-grid.secondary {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .header-inner {
+
+        min-height: 76px;
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+    }
+
+
+    .main-nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: var(--brown-dark);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding:
+            10px 24px 25px;
+
+        z-index: 99;
+    }
+
+
+    .main-nav.open {
+
+        display: flex;
+    }
+
+
+    .main-nav > a {
+
+        padding: 14px 0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,0.10);
+    }
+
+
+    .dropdown {
+
+        padding: 14px 0;
+    }
+
+
+    .dropdown-button {
+
+        width: 100%;
+
+        text-align: left;
+
+        padding: 0;
+    }
+
+
+    .dropdown-menu {
+
+        position: static;
+
+        display: none;
+
+        min-width: 0;
+
+        margin-top: 12px;
+
+        box-shadow: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+    }
+
+
+    .dropdown:hover .dropdown-menu {
+
+        display: block;
+    }
+
+
+    .page-hero {
+
+        padding:
+            60px 0 65px;
+    }
+
+
+    .calculator-section {
+
+        padding:
+            65px 0;
+    }
+
+
+    .calculator-card,
+    .summary-section {
+
+        padding:
+            28px 22px;
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .section-top {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .primary-button {
+
+        width: 100%;
+    }
+
+
+    .species-form-grid,
+    .species-form-grid.secondary {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .species-result {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .mixture-total {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .total-item {
+
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,0.14);
+    }
+
+
+    .total-item:last-child {
+
+        border-bottom: none;
+    }
+
+
+    .method-section {
+
+        padding:
+            45px 22px;
+    }
+
+
+    .footer-inner {
+
+        flex-direction: column;
+    }
+
+
+    .footer-contact {
+
+        text-align: left;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .container,
+    .header-inner {
+
+        width:
+            calc(100% - 32px);
+    }
+
+
+    .page-hero h1 {
+
+        font-size: 42px;
+    }
+
+}
