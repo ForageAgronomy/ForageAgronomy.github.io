@@ -48,6 +48,8 @@
 ===================================================== */
 
 .data-status {
+   display: none;
+   
     padding: 15px 19px;
     margin-bottom: 30px;
 
