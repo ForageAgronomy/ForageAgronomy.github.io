@@ -1,35 +1,36 @@
-```javascript
-document.addEventListener("DOMContentLoaded", function () {
+/* =====================================================
+   FORAGE AGRONOMY LAB
+   Main Site JavaScript
+===================================================== */
 
+document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        MOBILE MENU
     ===================================================== */
 
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const mainNav =
-        document.getElementById("mainNav");
-
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
 
     if (menuToggle && mainNav) {
 
-        menuToggle.addEventListener(
-            "click",
-            function () {
+        menuToggle.addEventListener("click", function () {
 
+            const isOpen =
                 mainNav.classList.toggle("active");
 
-            }
-        );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        });
 
     }
 
 
-
     /* =====================================================
-       EXTENSION DROPDOWN ON MOBILE
+       EXTENSION DROPDOWN
     ===================================================== */
 
     const extensionButton =
@@ -37,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const extensionDropdown =
         document.querySelector(".nav-dropdown");
-
 
     if (
         extensionButton &&
@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
         extensionButton.addEventListener(
             "click",
             function () {
+
+                /* Mobile only */
 
                 if (window.innerWidth <= 950) {
 
@@ -62,6 +64,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* =====================================================
+       CURRENT PAGE NAVIGATION
+       Automatically highlights the current page
+    ===================================================== */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop() || "index.html";
+
+    const navLinks =
+        document.querySelectorAll(
+            ".main-nav a"
+        );
+
+    navLinks.forEach(function (link) {
+
+        const linkPage =
+            link.getAttribute("href");
+
+        if (linkPage === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
 
     /* =====================================================
        CURRENT YEAR
@@ -69,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const year =
         document.getElementById("year");
-
 
     if (year) {
 
@@ -79,4 +108,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
-```
