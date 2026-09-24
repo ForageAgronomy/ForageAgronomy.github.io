@@ -1,3 +1,4 @@
+```javascript
 document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -9,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ".research-card, " +
         ".person-card, " +
         ".publication, " +
-        ".extension-grid > div, " +
         ".opportunity-grid > div, " +
         ".course"
     );
@@ -52,10 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        SMOOTH NAVIGATION
+
+       Excludes the Extension dropdown toggle.
     ===================================================== */
 
     const navigationLinks = document.querySelectorAll(
-        '.navbar nav a[href^="#"]'
+        '.navbar nav a[href^="#"]:not(.dropdown-toggle)'
     );
 
 
@@ -93,8 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
         "section[id]"
     );
 
+
     const navLinks = document.querySelectorAll(
-        '.navbar nav a[href^="#"]'
+        '.navbar nav a[href^="#"]:not(.dropdown-toggle)'
     );
 
 
@@ -171,8 +174,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        EXTERNAL LINKS
-       
-       Make sure external links open safely.
+
+       Make sure links opening in a new tab
+       are handled safely.
     ===================================================== */
 
     const externalLinks =
@@ -190,4 +194,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    /* =====================================================
+       EXTENSION DROPDOWN
+
+       The Extension dropdown is controlled entirely
+       by CSS using hover and keyboard focus.
+
+       No JavaScript is needed here.
+    ===================================================== */
+
+
 });
+```
