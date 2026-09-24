@@ -1,0 +1,1207 @@
+/* =====================================================
+   FORAGE AGRONOMY LAB — PEOPLE PAGE
+===================================================== */
+
+:root {
+
+    --brown-dark: #3b2a20;
+    --brown: #5a4030;
+    --brown-light: #7a5a43;
+
+    --cream: #f5f1e9;
+    --cream-dark: #ebe4d7;
+
+    --green: #536b45;
+    --green-dark: #3e5435;
+
+    --text: #302a25;
+    --text-light: #6d645d;
+
+    --white: #ffffff;
+
+    --border: #ddd4c7;
+
+    --max-width: 1180px;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    background: var(--cream);
+
+    line-height: 1.7;
+
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width: min(
+        calc(100% - 48px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.12);
+
+}
+
+
+.header-inner {
+
+    width: min(
+        calc(100% - 48px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+}
+
+
+.site-title {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+
+}
+
+
+.university {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.72;
+
+    margin-bottom: 5px;
+
+}
+
+
+.department {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    opacity: 0.68;
+
+    margin-bottom: 7px;
+
+}
+
+
+.lab-name {
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+}
+
+
+.main-nav > a,
+.dropdown-button {
+
+    color: rgba(255,255,255,0.88);
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.main-nav > a:hover,
+.main-nav > a.active,
+.dropdown-button:hover {
+
+    color: #ffffff;
+
+}
+
+
+.main-nav > a.active {
+
+    border-bottom:
+        2px solid #ffffff;
+
+    padding-bottom: 5px;
+
+}
+
+
+/* =====================================================
+   DROPDOWN
+===================================================== */
+
+.dropdown {
+
+    position: relative;
+
+}
+
+
+.dropdown-button {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+.dropdown-button span {
+
+    margin-left: 4px;
+
+}
+
+
+.dropdown-menu {
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+
+    right: 0;
+
+    min-width: 220px;
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        all 0.2s ease;
+
+    z-index: 100;
+
+}
+
+
+.dropdown:hover .dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+.dropdown-menu a {
+
+    display: block;
+
+    color: var(--text);
+
+    padding: 12px 18px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+.dropdown-menu a:hover {
+
+    background: var(--cream);
+
+    color: var(--brown);
+
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.menu-toggle {
+
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 26px;
+
+    height: 2px;
+
+    background: white;
+
+    margin: 5px 0;
+
+}
+
+
+/* =====================================================
+   PAGE HERO
+===================================================== */
+
+.page-hero {
+
+    background:
+        linear-gradient(
+            rgba(59,42,32,0.96),
+            rgba(59,42,32,0.96)
+        );
+
+    color: white;
+
+    padding:
+        85px 0
+        90px;
+
+}
+
+
+.eyebrow {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 700;
+
+    color: var(--green);
+
+    margin-bottom: 13px;
+
+}
+
+
+.page-hero .eyebrow {
+
+    color: #c9d2bf;
+
+}
+
+
+.page-hero h1 {
+
+    font-size: clamp(
+        48px,
+        7vw,
+        76px
+    );
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+
+}
+
+
+.hero-text {
+
+    max-width: 720px;
+
+    font-size: 19px;
+
+    color: rgba(255,255,255,0.82);
+
+}
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.people-section {
+
+    padding: 90px 0;
+
+    background: var(--cream);
+
+}
+
+
+.light-section {
+
+    background: var(--cream-dark);
+
+}
+
+
+.section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: clamp(
+        34px,
+        5vw,
+        48px
+    );
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 18px;
+
+}
+
+
+.section-heading > p:last-child {
+
+    color: var(--text-light);
+
+    font-size: 17px;
+
+}
+
+
+.centered {
+
+    text-align: center;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+/* =====================================================
+   PI CARD
+===================================================== */
+
+.pi-card {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 430px)
+        1fr;
+
+    background: white;
+
+    box-shadow:
+        0 20px 55px rgba(59,42,32,0.10);
+
+}
+
+
+.pi-image {
+
+    min-height: 470px;
+
+    background: var(--cream-dark);
+
+}
+
+
+.pi-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.pi-content {
+
+    padding: 55px 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.role,
+.person-role {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--green);
+
+    margin-bottom: 12px;
+
+}
+
+
+.pi-content h3 {
+
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 15px;
+
+}
+
+
+.position {
+
+    font-size: 19px;
+
+    color: var(--brown);
+
+    margin-bottom: 18px;
+
+}
+
+
+.pi-content > p {
+
+    margin-bottom: 15px;
+
+}
+
+
+.bio {
+
+    max-width: 600px;
+
+    color: var(--text-light);
+
+}
+
+
+.pi-links {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+}
+
+
+.pi-links a {
+
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border:
+        1px solid var(--brown);
+
+    color: var(--brown);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.pi-links a:hover {
+
+    background: var(--brown);
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   PEOPLE GRID
+===================================================== */
+
+.people-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 28px;
+
+}
+
+
+.person-card {
+
+    background: white;
+
+    border:
+        1px solid rgba(90,64,48,0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.person-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px rgba(59,42,32,0.12);
+
+}
+
+
+.person-image {
+
+    height: 300px;
+
+    background: var(--cream-dark);
+
+    overflow: hidden;
+
+}
+
+
+.person-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+.person-card:hover .person-image img {
+
+    transform: scale(1.03);
+
+}
+
+
+.person-content {
+
+    padding: 28px 28px 32px;
+
+}
+
+
+.person-content h3 {
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    line-height: 1.25;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 16px;
+
+}
+
+
+.research-label {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    color: var(--brown);
+
+    margin-bottom: 5px;
+
+}
+
+
+.person-content p:last-child {
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   FUNDING
+===================================================== */
+
+.funding-section {
+
+    background: white;
+
+    padding: 90px 0;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.logos-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 28px;
+
+    align-items: center;
+
+    margin-top: 50px;
+
+}
+
+
+.funding-logo {
+
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    background: #ffffff;
+
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.funding-logo:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(59,42,32,0.10);
+
+}
+
+
+.funding-logo img {
+
+    max-width: 170px;
+
+    max-height: 90px;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    background: var(--brown-dark);
+
+    color: rgba(255,255,255,0.75);
+
+    padding-top: 55px;
+
+}
+
+
+.footer-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding-bottom: 45px;
+
+}
+
+
+.footer-title {
+
+    color: white;
+
+    font-size: 23px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.footer-contact {
+
+    text-align: right;
+
+}
+
+
+.footer-contact strong {
+
+    color: white;
+
+}
+
+
+.copyright {
+
+    border-top:
+        1px solid rgba(255,255,255,0.12);
+
+    padding:
+        18px 24px;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    color: rgba(255,255,255,0.55);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .main-nav {
+
+        gap: 18px;
+
+    }
+
+
+    .pi-card {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .pi-image {
+
+        min-height: 420px;
+
+    }
+
+
+    .people-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .logos-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .header-inner {
+
+        min-height: 76px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    .main-nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: var(--brown-dark);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px 24px 25px;
+
+        z-index: 99;
+
+    }
+
+
+    .main-nav.open {
+
+        display: flex;
+
+    }
+
+
+    .main-nav > a {
+
+        padding: 14px 0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.10);
+
+    }
+
+
+    .main-nav > a.active {
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.10);
+
+    }
+
+
+    .dropdown {
+
+        padding: 14px 0;
+
+    }
+
+
+    .dropdown-menu {
+
+        position: static;
+
+        margin-top: 12px;
+
+        box-shadow: none;
+
+        display: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+    }
+
+
+    .dropdown:hover .dropdown-menu {
+
+        display: block;
+
+    }
+
+
+    .page-hero {
+
+        padding:
+            60px 0
+            65px;
+
+    }
+
+
+    .people-section,
+    .funding-section {
+
+        padding: 65px 0;
+
+    }
+
+
+    .pi-content {
+
+        padding: 38px 30px;
+
+    }
+
+
+    .pi-content h3 {
+
+        font-size: 34px;
+
+    }
+
+
+    .people-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .logos-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 15px;
+
+    }
+
+
+    .funding-logo {
+
+        height: 120px;
+
+    }
+
+
+    .footer-inner {
+
+        flex-direction: column;
+
+    }
+
+
+    .footer-contact {
+
+        text-align: left;
+
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .container,
+    .header-inner {
+
+        width:
+            calc(100% - 32px);
+
+    }
+
+
+    .logos-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .pi-links {
+
+        flex-direction: column;
+
+    }
+
+
+    .pi-links a {
+
+        text-align: center;
+
+    }
+
+}
