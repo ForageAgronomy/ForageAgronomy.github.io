@@ -1,181 +1,83 @@
-/* =====================================================
+/* =========================================================
    FORAGE AGRONOMY LAB
-   HOMEPAGE SLIDESHOW
-===================================================== */
+   HOME PAGE JAVASCRIPT
+========================================================= */
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const slideshow = document.getElementById("labSlideshow");
-
-    if (!slideshow) {
-        return;
-    }
-
-    const slides =
-        slideshow.querySelectorAll(".slide");
-
-    const dots =
-        slideshow.querySelectorAll(".slide-dot");
-
-    const previousButton =
-        slideshow.querySelector(".slide-prev");
-
-    const nextButton =
-        slideshow.querySelector(".slide-next");
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
 
-    if (slides.length === 0) {
+    if (!revealElements.length) {
         return;
     }
 
 
-    let currentSlide = 0;
+    /*
+     * Respect reduced-motion preferences.
+     */
 
-    let slideTimer;
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
 
+        revealElements.forEach(function (element) {
 
-    /* =================================================
-       SHOW SLIDE
-    ================================================= */
-
-    function showSlide(index) {
-
-        if (index >= slides.length) {
-            currentSlide = 0;
-        }
-
-        else if (index < 0) {
-            currentSlide = slides.length - 1;
-        }
-
-        else {
-            currentSlide = index;
-        }
-
-
-        slides.forEach(function (slide, i) {
-
-            slide.classList.toggle(
-                "active",
-                i === currentSlide
-            );
+            element.classList.add("visible");
 
         });
 
-
-        dots.forEach(function (dot, i) {
-
-            dot.classList.toggle(
-                "active",
-                i === currentSlide
-            );
-
-        });
-
+        return;
     }
 
 
-    /* =================================================
-       NEXT SLIDE
-    ================================================= */
+    /*
+     * Intersection Observer
+     */
 
-    function nextSlide() {
+    const observer =
+        new IntersectionObserver(
 
-        showSlide(currentSlide + 1);
+            function (entries) {
 
-        restartTimer();
+                entries.forEach(function (entry) {
 
-    }
+                    if (entry.isIntersecting) {
 
+                        entry.target.classList.add("visible");
 
-    /* =================================================
-       PREVIOUS SLIDE
-    ================================================= */
+                        observer.unobserve(
+                            entry.target
+                        );
 
-    function previousSlide() {
+                    }
 
-        showSlide(currentSlide - 1);
+                });
 
-        restartTimer();
+            },
 
-    }
+            {
+                threshold: 0.12,
 
-
-    /* =================================================
-       AUTOMATIC SLIDESHOW
-       10 SECONDS
-    ================================================= */
-
-    function startTimer() {
-
-        slideTimer = setInterval(function () {
-
-            showSlide(currentSlide + 1);
-
-        }, 10000);
-
-    }
-
-
-    function restartTimer() {
-
-        clearInterval(slideTimer);
-
-        startTimer();
-
-    }
-
-
-    /* =================================================
-       BUTTONS
-    ================================================= */
-
-    if (nextButton) {
-
-        nextButton.addEventListener(
-            "click",
-            nextSlide
-        );
-
-    }
-
-
-    if (previousButton) {
-
-        previousButton.addEventListener(
-            "click",
-            previousSlide
-        );
-
-    }
-
-
-    /* =================================================
-       DOT NAVIGATION
-    ================================================= */
-
-    dots.forEach(function (dot, index) {
-
-        dot.addEventListener(
-            "click",
-            function () {
-
-                showSlide(index);
-
-                restartTimer();
-
+                rootMargin:
+                    "0px 0px -40px 0px"
             }
+
         );
+
+
+    revealElements.forEach(function (element) {
+
+        observer.observe(element);
 
     });
-
-
-    /* =================================================
-       INITIALIZE
-    ================================================= */
-
-    showSlide(0);
-
-    startTimer();
 
 });
