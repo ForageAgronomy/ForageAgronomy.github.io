@@ -1,1 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seeding Rate Calculator | Forage Agronomy Lab</title>
+
+    <meta name="description"
+          content="Interactive forage seeding rate calculator from the Forage Agronomy Lab at the University of Wyoming.">
+
+    <link rel="stylesheet"
+          href="seeding-rate-calculator.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+
+        <a href="index.html"
+           class="site-title">
+
+            <span class="university">
+                UNIVERSITY OF WYOMING
+            </span>
+
+            <span class="department">
+                Department of Plant Sciences
+            </span>
+
+            <span class="lab-name">
+                Forage Agronomy Lab
+            </span>
+
+        </a>
+
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <nav class="main-nav">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="people.html">
+                People
+            </a>
+
+
+            <a href="research.html">
+                Research
+            </a>
+
+
+            <div class="dropdown">
+
+                <button class="dropdown-button"
+                        type="button">
+
+                    Extension
+                    <span>▾</span>
+
+                </button>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="extension-articles.html">
+                        Extension Articles
+                    </a>
+
+                    <a href="producer-resources.html"
+                       class="active">
+
+                        Producer Resources
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="links.html">
+                Links
+            </a>
+
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            PRODUCER RESOURCE
+        </p>
+
+        <h1>
+            Seeding Rate Calculator
+        </h1>
+
+        <p class="hero-text">
+
+            Estimate forage seeding rates and seed costs for
+            single-species stands or forage mixtures using
+            species-specific seed weight and seed quality
+            information.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CALCULATOR
+===================================================== -->
+
+<main>
+
+<section class="calculator-section">
+
+    <div class="container">
+
+
+        <!-- =================================================
+             INTRODUCTION
+        ================================================== -->
+
+        <div class="calculator-intro">
+
+            <p class="eyebrow">
+                FORAGE ESTABLISHMENT
+            </p>
+
+            <h2>
+                Calculate Your Seeding Rate
+            </h2>
+
+            <p>
+                Enter your production conditions and seed information
+                below. The calculator will estimate the bulk seeding
+                rate required to achieve the selected target plant
+                density after accounting for species proportion,
+                seed quality, and establishment adjustments.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EXCEL DATA STATUS
+        ================================================== -->
+
+        <div id="data-status"
+             class="data-status">
+
+            Loading seed weight data...
+
+        </div>
+
+
+
+        <!-- =================================================
+             OVERALL MIXTURE
+        ================================================== -->
+
+        <section class="calculator-card">
+
+            <div class="card-heading">
+
+                <p class="eyebrow">
+                    STEP 01
+                </p>
+
+                <h2>
+                    Overall Mixture
+                </h2>
+
+                <p>
+                    Set the overall target for your forage stand.
+                </p>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="growing-region">
+                        Production Environment
+                    </label>
+
+                    <select id="growing-region">
+
+                        <option value="dryland">
+                            Dryland
+                        </option>
+
+                        <option value="moderate">
+                            Moderate Moisture
+                        </option>
+
+                        <option value="irrigated">
+                            Irrigated
+                        </option>
+
+                        <option value="custom">
+                            Custom Target
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="target-density">
+                        Target PLS Seeds / ft²
+                    </label>
+
+                    <input
+                        type="number"
+                        id="target-density"
+                        min="1"
+                        max="100"
+                        step="0.1"
+                        value="20">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="overage">
+
+                        Establishment Adjustment
+
+                        <span
+                            class="help-text"
+                            title="Additional seed to account for establishment challenges.">
+                            ?
+                        </span>
+
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="overage"
+                            min="0"
+                            max="100"
+                            step="1"
+                            value="0">
+
+                        <span>%</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Output Units
+                    </label>
+
+                    <div class="unit-toggle">
+
+                        <button
+                            type="button"
+                            class="unit-button active"
+                            data-unit="lb-ac">
+
+                            lb/ac
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="unit-button"
+                            data-unit="kg-ha">
+
+                            kg/ha
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="guidance-box">
+
+                <strong>
+                    Establishment adjustment
+                </strong>
+
+                <p>
+                    An increased seeding rate may be appropriate
+                    under challenging establishment conditions,
+                    including broadcast seeding, no-till establishment,
+                    frost or dormant seeding, or difficult soil and
+                    moisture conditions. Adjust this value according
+                    to local conditions and management practices.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FORAGE SPECIES
+        ================================================== -->
+
+        <section class="species-section">
+
+            <div class="section-top">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STEP 02
+                    </p>
+
+                    <h2>
+                        Forage Species
+                    </h2>
+
+                    <p>
+                        Add one or more species to your forage mixture.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="add-forage"
+                    class="primary-button">
+
+                    + Add Forage
+
+                </button>
+
+            </div>
+
+
+            <div id="species-container">
+
+                <!-- JavaScript inserts forage cards here -->
+
+            </div>
+
+
+            <!-- =================================================
+                 MIXTURE TOTAL
+            ================================================== -->
+
+            <div class="mixture-total">
+
+                <div class="total-item">
+
+                    <span>
+                        Total Species Percentage
+                    </span>
+
+                    <strong id="total-percentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="total-item">
+
+                    <span>
+                        Total Seeding Rate
+                    </span>
+
+                    <strong id="total-rate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="total-item">
+
+                    <span>
+                        Total Seed Cost
+                    </span>
+
+                    <strong id="total-cost">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <section class="summary-section">
+
+            <div class="summary-heading">
+
+                <p class="eyebrow">
+                    STEP 03
+                </p>
+
+                <h2>
+                    Mixture Summary
+                </h2>
+
+            </div>
+
+
+            <div class="summary-table-wrapper">
+
+                <table class="summary-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Forage
+                            </th>
+
+                            <th>
+                                % in Stand
+                            </th>
+
+                            <th>
+                                1,000 Seed Weight
+                            </th>
+
+                            <th>
+                                PLS
+                            </th>
+
+                            <th>
+                                Seeding Rate
+                            </th>
+
+                            <th>
+                                Cost / Acre
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="summary-body">
+
+                        <tr>
+
+                            <td colspan="6"
+                                class="empty-summary">
+
+                                Add a forage species to begin.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                    <tfoot>
+
+                        <tr>
+
+                            <td colspan="1">
+                                <strong>Total</strong>
+                            </td>
+
+                            <td id="summary-total-percent">
+                                0%
+                            </td>
+
+                            <td colspan="2">
+                            </td>
+
+                            <td id="summary-total-rate">
+                                —
+                            </td>
+
+                            <td id="summary-total-cost">
+                                —
+                            </td>
+
+                        </tr>
+
+                    </tfoot>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CALCULATION NOTES
+        ================================================== -->
+
+        <section class="method-section">
+
+            <div class="method-content">
+
+                <p class="eyebrow">
+                    CALCULATION METHOD
+                </p>
+
+                <h2>
+                    How the calculator works
+                </h2>
+
+                <p>
+                    The calculator uses the target Pure Live Seed
+                    (PLS) density, the species proportion in the
+                    mixture, species-specific seed weight, and
+                    seedlot quality to estimate the amount of bulk
+                    seed required.
+                </p>
+
+                <div class="formula-box">
+
+                    <p>
+                        <strong>
+                            PLS =
+                        </strong>
+
+                        Purity × Germination
+                    </p>
+
+                    <p>
+                        <strong>
+                            Seeds/lb =
+                        </strong>
+
+                        453,592 ÷ 1,000-seed weight (g)
+                    </p>
+
+                    <p>
+                        <strong>
+                            Species seeding rate =
+                        </strong>
+
+                        Target seeds/ft² × Species proportion ×
+                        43,560 ÷ Seeds/lb ÷ PLS
+                    </p>
+
+                </div>
+
+                <p class="method-note">
+
+                    The calculated value is an estimate intended
+                    to support forage establishment decisions.
+                    Seed quality, seedbed conditions, seeding
+                    equipment, weather, and local management
+                    conditions should also be considered.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+
+        <div>
+
+            <p class="footer-title">
+                Forage Agronomy Lab
+            </p>
+
+            <p>
+                Department of Plant Sciences
+                <br>
+                University of Wyoming
+                <br>
+                Laramie, Wyoming 82071
+            </p>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <p>
+
+                <strong>
+                    Dr. Surendra Bhattarai
+                </strong>
+
+            </p>
+
+            <p>
+                Surendra.Bhattarai@uwyo.edu
+                <br>
+                307-766-4151
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © <span id="year"></span>
+        Forage Agronomy Lab · University of Wyoming
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SHEETJS
+     Used to read the Excel seed-weight file.
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js">
+</script>
+
+
+<script src="seeding-rate-calculator.js"></script>
+
+</body>
+
+</html>
