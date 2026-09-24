@@ -8,10 +8,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Seeding Rate Calculator | Forage Agronomy Lab</title>
+    <title>
+        Seeding Rate Calculator | Forage Agronomy Lab
+    </title>
 
     <meta name="description"
           content="Interactive forage seeding rate calculator from the Forage Agronomy Lab at the University of Wyoming.">
+
+    <link rel="stylesheet"
+          href="css/style.css">
 
     <link rel="stylesheet"
           href="css/seeding-rate-calculator.css">
@@ -23,101 +28,10 @@
 
 
 <!-- =====================================================
-     HEADER
+     SHARED HEADER
 ===================================================== -->
 
-<header class="site-header">
-
-    <div class="header-inner">
-
-
-        <a href="index.html"
-           class="site-title">
-
-            <span class="university">
-                UNIVERSITY OF WYOMING
-            </span>
-
-            <span class="department">
-                Department of Plant Sciences
-            </span>
-
-            <span class="lab-name">
-                Forage Agronomy Lab
-            </span>
-
-        </a>
-
-
-        <button class="menu-toggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <nav class="main-nav">
-
-
-            <a href="index.html">
-                Home
-            </a>
-
-
-            <a href="people.html">
-                People
-            </a>
-
-
-            <a href="research.html">
-                Research
-            </a>
-
-
-            <div class="dropdown">
-
-                <button class="dropdown-button"
-                        type="button">
-
-                    Extension
-                    <span>▾</span>
-
-                </button>
-
-
-                <div class="dropdown-menu">
-
-                    <a href="extension-articles.html">
-                        Extension Articles
-                    </a>
-
-                    <a href="producer-resources.html"
-                       class="active">
-
-                        Producer Resources
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <a href="links.html">
-                Links
-            </a>
-
-
-        </nav>
-
-    </div>
-
-</header>
+<div id="header-placeholder"></div>
 
 
 
@@ -194,7 +108,9 @@
         ================================================== -->
 
         <div id="data-status"
-             class="data-status">
+             class="data-status"
+             role="status"
+             aria-live="polite">
 
             Loading seed weight data...
 
@@ -282,7 +198,8 @@
 
                         <span
                             class="help-text"
-                            title="Additional seed to account for establishment challenges.">
+                            title="Additional seed to account for establishment challenges."
+                            aria-label="Additional seed to account for establishment challenges.">
                             ?
                         </span>
 
@@ -316,7 +233,8 @@
                         <button
                             type="button"
                             class="unit-button active"
-                            data-unit="lb-ac">
+                            data-unit="lb-ac"
+                            aria-pressed="true">
 
                             lb/ac
 
@@ -325,7 +243,8 @@
                         <button
                             type="button"
                             class="unit-button"
-                            data-unit="kg-ha">
+                            data-unit="kg-ha"
+                            aria-pressed="false">
 
                             kg/ha
 
@@ -402,6 +321,7 @@
                 <!-- JavaScript inserts forage cards here -->
 
             </div>
+
 
 
             <!-- =================================================
@@ -530,7 +450,7 @@
 
                         <tr>
 
-                            <td colspan="1">
+                            <td>
                                 <strong>Total</strong>
                             </td>
 
@@ -585,34 +505,44 @@
                     seed required.
                 </p>
 
+
                 <div class="formula-box">
 
                     <p>
+
                         <strong>
                             PLS =
                         </strong>
 
                         Purity × Germination
+
                     </p>
 
+
                     <p>
+
                         <strong>
                             Seeds/lb =
                         </strong>
 
                         453,592 ÷ 1,000-seed weight (g)
+
                     </p>
 
+
                     <p>
+
                         <strong>
                             Species seeding rate =
                         </strong>
 
                         Target seeds/ft² × Species proportion ×
                         43,560 ÷ Seeds/lb ÷ PLS
+
                     </p>
 
                 </div>
+
 
                 <p class="method-note">
 
@@ -638,60 +568,10 @@
 
 
 <!-- =====================================================
-     FOOTER
+     SHARED FOOTER
 ===================================================== -->
 
-<footer class="site-footer">
-
-    <div class="container footer-inner">
-
-
-        <div>
-
-            <p class="footer-title">
-                Forage Agronomy Lab
-            </p>
-
-            <p>
-                Department of Plant Sciences
-                <br>
-                University of Wyoming
-                <br>
-                Laramie, Wyoming 82071
-            </p>
-
-        </div>
-
-
-        <div class="footer-contact">
-
-            <p>
-
-                <strong>
-                    Dr. Surendra Bhattarai
-                </strong>
-
-            </p>
-
-            <p>
-                Surendra.Bhattarai@uwyo.edu
-                <br>
-                307-766-4151
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        Forage Agronomy Lab · University of Wyoming
-
-    </div>
-
-</footer>
+<div id="footer-placeholder"></div>
 
 
 
@@ -705,7 +585,23 @@
 </script>
 
 
+
+<!-- =====================================================
+     SHARED JAVASCRIPT
+===================================================== -->
+
+<script src="js/components.js"></script>
+
+<script src="js/script.js"></script>
+
+
+
+<!-- =====================================================
+     PAGE-SPECIFIC JAVASCRIPT
+===================================================== -->
+
 <script src="js/seeding-rate-calculator.js"></script>
+
 
 </body>
 
