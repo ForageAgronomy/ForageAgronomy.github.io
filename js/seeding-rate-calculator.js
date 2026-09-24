@@ -1,5 +1,7 @@
 /* =====================================================
-   FORAGE AGRONOMY LAB — SEEDING RATE CALCULATOR
+   FORAGE AGRONOMY LAB
+   SEEDING RATE CALCULATOR
+   Page-specific JavaScript only
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -16,25 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const KG_PER_HECTARE_PER_LB_PER_ACRE =
         1.120851156;
 
-    const LB_PER_ACRE_PER_KG_PER_HECTARE =
-        0.892179845;
-
 
     /*
        Excel file expected here:
 
        data/1000-seed-weight.xlsx
-
-       The parser attempts to identify columns such as:
-
-       Species
-       Variety
-       1000 Seed Weight
-       TKW
-       Thousand Seed Weight
-
-       Once you upload your actual Excel file, this can be
-       adjusted to its exact column names if necessary.
     */
 
     const EXCEL_FILE =
@@ -110,11 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "summary-total-cost"
         );
 
-    const year =
-        document.getElementById(
-            "year"
-        );
-
 
     /* =================================================
        STATE
@@ -127,15 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let cardCounter = 0;
 
 
-    /*
-       Default target densities.
-
-       These are starting values only and remain editable
-       by the user.
-
-       The specific target values can be changed later
-       to match your Wyoming recommendations.
-    */
+    /* =================================================
+       DEFAULT TARGET DENSITIES
+    ================================================= */
 
     const targetDensities = {
 
@@ -151,127 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       CURRENT YEAR
-    ================================================= */
-
-    if (year) {
-
-        year.textContent =
-            new Date().getFullYear();
-
-    }
-
-
-    /* =================================================
-       MOBILE NAVIGATION
-    ================================================= */
-
-    const menuToggle =
-        document.querySelector(
-            ".menu-toggle"
-        );
-
-    const mainNav =
-        document.querySelector(
-            ".main-nav"
-        );
-
-
-    if (menuToggle && mainNav) {
-
-        menuToggle.addEventListener(
-            "click",
-            function () {
-
-                const isOpen =
-                    mainNav.classList.toggle(
-                        "open"
-                    );
-
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    isOpen
-                        ? "true"
-                        : "false"
-                );
-
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    isOpen
-                        ? "Close navigation"
-                        : "Open navigation"
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =================================================
-       CLOSE MENU
-    ================================================= */
-
-    document
-        .querySelectorAll(
-            ".main-nav a"
-        )
-        .forEach(function (link) {
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    if (
-                        window.innerWidth <= 700 &&
-                        mainNav
-                    ) {
-
-                        mainNav.classList.remove(
-                            "open"
-                        );
-
-                    }
-
-                }
-            );
-
-        });
-
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                !mainNav ||
-                !menuToggle ||
-                window.innerWidth > 700
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                !mainNav.contains(event.target) &&
-                !menuToggle.contains(event.target)
-            ) {
-
-                mainNav.classList.remove(
-                    "open"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =================================================
        LOAD EXCEL DATA
     ================================================= */
 
@@ -283,8 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
 
             if (
-                typeof XLSX ===
-                "undefined"
+                typeof XLSX === "undefined"
             ) {
 
                 throw new Error(
@@ -325,6 +180,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
+            if (
+                !workbook.SheetNames.length
+            ) {
+
+                throw new Error(
+                    "No worksheets were found in the Excel file."
+                );
+
+            }
+
+
             const firstSheetName =
                 workbook.SheetNames[0];
 
@@ -353,33 +219,42 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 throw new Error(
-                    "No usable species and 1000-seed-weight data were found in the spreadsheet."
+                    "No usable species and 1,000-seed-weight data were found in the spreadsheet."
                 );
 
             }
 
 
-            dataStatus.textContent =
-                `${speciesData.length} forage species loaded from the seed-weight spreadsheet.`;
+            if (dataStatus) {
 
-            dataStatus.classList.remove(
-                "warning"
-            );
+                dataStatus.textContent =
+                    `${speciesData.length} forage species loaded from the seed-weight spreadsheet.`;
+
+                dataStatus.classList.remove(
+                    "warning"
+                );
+
+            }
 
 
             addSpeciesCard();
+
 
         } catch (error) {
 
             console.error(error);
 
 
-            dataStatus.textContent =
-                "Seed-weight data could not be loaded. Upload the Excel file to data/1000-seed-weight.xlsx.";
+            if (dataStatus) {
 
-            dataStatus.classList.add(
-                "warning"
-            );
+                dataStatus.textContent =
+                    "Seed-weight data could not be loaded. Upload the Excel file to data/1000-seed-weight.xlsx.";
+
+                dataStatus.classList.add(
+                    "warning"
+                );
+
+            }
 
 
             /*
@@ -412,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 Object.keys(row);
 
 
-            let speciesKey =
+            const speciesKey =
                 findColumn(
                     keys,
                     [
@@ -425,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-            let weightKey =
+            const weightKey =
                 findColumn(
                     keys,
                     [
@@ -475,7 +350,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 output.push({
 
-                    species: species,
+                    species:
+                        species,
 
                     oneThousandSeedWeightG:
                         weight
@@ -506,7 +382,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return {
 
-                    original: key,
+                    original:
+                        key,
 
                     normalized:
                         normalizeHeader(key)
@@ -515,6 +392,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
+
+        /*
+           First try exact normalized matches.
+        */
 
         for (
             const candidate of candidates
@@ -543,7 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Partial match fallback.
+           Then try partial matches.
         */
 
         for (
@@ -555,10 +436,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     function (item) {
 
                         return (
-                            item.normalized
-                                .includes(
-                                    candidate
-                                )
+                            item.normalized.includes(
+                                candidate
+                            )
                         );
 
                     }
@@ -600,6 +480,11 @@ document.addEventListener("DOMContentLoaded", function () {
     ================================================= */
 
     function addSpeciesCard() {
+
+        if (!speciesContainer) {
+            return;
+        }
+
 
         cardCounter++;
 
@@ -868,14 +753,17 @@ document.addEventListener("DOMContentLoaded", function () {
        POPULATE SPECIES SELECT
     ================================================= */
 
-    function populateSpeciesSelect(
-        card
-    ) {
+    function populateSpeciesSelect(card) {
 
         const select =
             card.querySelector(
                 ".species-select"
             );
+
+
+        if (!select) {
+            return;
+        }
 
 
         speciesData.forEach(
@@ -896,8 +784,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 option.dataset.weight =
-                    item
-                        .oneThousandSeedWeightG;
+                    item.oneThousandSeedWeightG;
 
 
                 select.appendChild(
@@ -911,96 +798,96 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       SPECIES CARD EVENT LISTENERS
+       SPECIES CARD LISTENERS
     ================================================= */
 
-    function attachCardListeners(
-        card
-    ) {
+    function attachCardListeners(card) {
 
         const select =
             card.querySelector(
                 ".species-select"
             );
 
-
         const standPercentage =
             card.querySelector(
                 ".stand-percentage"
             );
-
 
         const weightInput =
             card.querySelector(
                 ".seed-weight"
             );
 
-
         const coating =
             card.querySelector(
                 ".coating"
             );
-
 
         const pls =
             card.querySelector(
                 ".pls"
             );
 
-
         const purity =
             card.querySelector(
                 ".purity"
             );
-
 
         const germination =
             card.querySelector(
                 ".germination"
             );
 
-
         const cost =
             card.querySelector(
                 ".cost"
             );
 
-
-        select.addEventListener(
-            "change",
-            function () {
-
-                const option =
-                    select.options[
-                        select.selectedIndex
-                    ];
+        const removeButton =
+            card.querySelector(
+                ".remove-species"
+            );
 
 
-                const weight =
-                    Number(
-                        option.dataset.weight
-                    );
+        if (select) {
+
+            select.addEventListener(
+                "change",
+                function () {
+
+                    const option =
+                        select.options[
+                            select.selectedIndex
+                        ];
 
 
-                if (
-                    Number.isFinite(weight)
-                ) {
+                    const weight =
+                        Number(
+                            option.dataset.weight
+                        );
 
-                    weightInput.value =
-                        weight;
 
-                } else {
+                    if (
+                        Number.isFinite(weight)
+                    ) {
 
-                    weightInput.value =
-                        "";
+                        weightInput.value =
+                            weight;
+
+                    } else {
+
+                        weightInput.value =
+                            "";
+
+                    }
+
+
+                    calculateAll();
 
                 }
+            );
 
-
-                calculateAll();
-
-            }
-        );
+        }
 
 
         [
@@ -1011,6 +898,7 @@ document.addEventListener("DOMContentLoaded", function () {
             germination,
             cost
         ]
+        .filter(Boolean)
         .forEach(function (input) {
 
             input.addEventListener(
@@ -1018,39 +906,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 function () {
 
                     /*
-                       Keep PLS calculation synchronized
-                       with purity × germination.
+                       Keep PLS synchronized with:
+
+                       PLS =
+                       Purity × Germination / 100
                     */
 
-                    const purityValue =
-                        Number(
-                            purity.value
-                        );
-
-                    const germinationValue =
-                        Number(
-                            germination.value
-                        );
-
-
                     if (
-                        Number.isFinite(
-                            purityValue
-                        ) &&
-                        Number.isFinite(
-                            germinationValue
-                        ) &&
-                        purityValue > 0 &&
-                        germinationValue > 0
+                        input === purity ||
+                        input === germination
                     ) {
 
-                        pls.value =
-                            (
-                                purityValue *
-                                germinationValue /
-                                100
-                            )
-                            .toFixed(1);
+                        const purityValue =
+                            Number(
+                                purity.value
+                            );
+
+                        const germinationValue =
+                            Number(
+                                germination.value
+                            );
+
+
+                        if (
+                            Number.isFinite(
+                                purityValue
+                            ) &&
+                            Number.isFinite(
+                                germinationValue
+                            ) &&
+                            purityValue > 0 &&
+                            germinationValue > 0
+                        ) {
+
+                            pls.value =
+                                (
+                                    purityValue *
+                                    germinationValue /
+                                    100
+                                ).toFixed(1);
+
+                        }
 
                     }
 
@@ -1063,26 +959,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        card.querySelector(
-            ".remove-species"
-        ).addEventListener(
-            "click",
-            function () {
+        if (removeButton) {
 
-                card.remove();
+            removeButton.addEventListener(
+                "click",
+                function () {
 
-                renumberSpeciesCards();
+                    card.remove();
 
-                calculateAll();
+                    renumberSpeciesCards();
 
-            }
-        );
+                    calculateAll();
+
+                }
+            );
+
+        }
 
     }
 
 
     /* =================================================
-       RENUMBER CARDS
+       RENUMBER SPECIES CARDS
     ================================================= */
 
     function renumberSpeciesCards() {
@@ -1102,8 +1000,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
-                number.textContent =
-                    `FORAGE ${index + 1}`;
+                if (number) {
+
+                    number.textContent =
+                        `FORAGE ${index + 1}`;
+
+                }
 
             }
         );
@@ -1116,6 +1018,14 @@ document.addEventListener("DOMContentLoaded", function () {
     ================================================= */
 
     function calculateAll() {
+
+        if (
+            !targetDensityInput ||
+            !overageInput
+        ) {
+            return;
+        }
+
 
         const cards =
             document.querySelectorAll(
@@ -1148,50 +1058,81 @@ document.addEventListener("DOMContentLoaded", function () {
         cards.forEach(
             function (card) {
 
-                const species =
+                const select =
                     card.querySelector(
                         ".species-select"
-                    ).value;
+                    );
+
+                const percentageInput =
+                    card.querySelector(
+                        ".stand-percentage"
+                    );
+
+                const weightInput =
+                    card.querySelector(
+                        ".seed-weight"
+                    );
+
+                const coatingInput =
+                    card.querySelector(
+                        ".coating"
+                    );
+
+                const plsInput =
+                    card.querySelector(
+                        ".pls"
+                    );
+
+                const costInput =
+                    card.querySelector(
+                        ".cost"
+                    );
+
+
+                const species =
+                    select
+                        ? select.value
+                        : "";
 
 
                 const standPercentage =
-                    Number(
-                        card.querySelector(
-                            ".stand-percentage"
-                        ).value
-                    ) || 0;
+                    percentageInput
+                        ? Number(
+                            percentageInput.value
+                        ) || 0
+                        : 0;
 
 
                 const weight =
-                    Number(
-                        card.querySelector(
-                            ".seed-weight"
-                        ).value
-                    );
+                    weightInput
+                        ? Number(
+                            weightInput.value
+                        )
+                        : NaN;
 
 
                 const coating =
-                    Number(
-                        card.querySelector(
-                            ".coating"
-                        ).value
-                    ) || 0;
+                    coatingInput
+                        ? Number(
+                            coatingInput.value
+                        ) || 0
+                        : 0;
 
 
                 const pls =
-                    Number(
-                        card.querySelector(
-                            ".pls"
-                        ).value
-                    );
+                    plsInput
+                        ? Number(
+                            plsInput.value
+                        )
+                        : NaN;
 
 
                 const cost =
-                    Number(
-                        card.querySelector(
-                            ".cost"
-                        ).value
-                    ) || 0;
+                    costInput
+                        ? Number(
+                            costInput.value
+                        ) || 0
+                        : 0;
 
 
                 percentageSum +=
@@ -1217,13 +1158,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /*
-                   Base seeds/lb from 1,000-seed weight.
+                   Base seeds per pound:
 
                    seeds/lb =
-                   453,592.37 / 1,000-seed weight (g)
-
-                   A coating that increases seed weight
-                   reduces seeds/lb accordingly.
+                   453.59237 × 1000 /
+                   1,000-seed weight (g)
                 */
 
                 const baseSeedsPerLb =
@@ -1231,6 +1170,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     1000 /
                     weight;
 
+
+                /*
+                   Adjust seeds per pound for coating.
+                */
 
                 const adjustedSeedsPerLb =
                     baseSeedsPerLb /
@@ -1260,7 +1203,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /*
-                   Live seed density allocated to species.
+                   Target live seed density allocated
+                   to this species.
                 */
 
                 const speciesTargetSeeds =
@@ -1269,10 +1213,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /*
-                   Bulk seeding rate before overage.
+                   Base bulk seeding rate:
 
-                   lbs/ac =
-                   target seeds/ft2 ×
+                   lb/ac =
+                   target seeds/ft² ×
                    43,560 /
                    seeds/lb /
                    PLS
@@ -1286,7 +1230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /*
-                   Establishment adjustment.
+                   Apply establishment adjustment.
                 */
 
                 const adjustedRateLbAc =
@@ -1297,18 +1241,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
+                /*
+                   Seed cost per acre.
+                */
+
                 const speciesCost =
                     adjustedRateLbAc *
                     cost;
 
 
+                /*
+                   Convert to kg/ha.
+                */
+
                 const adjustedRateKgHa =
                     adjustedRateLbAc *
                     KG_PER_HECTARE_PER_LB_PER_ACRE;
-
-
-                percentageSum =
-                    percentageSum || 0;
 
 
                 totalRateLbAc +=
@@ -1369,11 +1317,15 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        totalPercentage.textContent =
-            `${formatNumber(
-                percentageSum,
-                1
-            )}%`;
+        if (totalPercentage) {
+
+            totalPercentage.textContent =
+                `${formatNumber(
+                    percentageSum,
+                    1
+                )}%`;
+
+        }
 
 
         const displayRate =
@@ -1389,17 +1341,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 )} kg/ha`;
 
 
-        totalRate.textContent =
-            displayRate;
+        if (totalRate) {
+
+            totalRate.textContent =
+                displayRate;
+
+        }
 
 
-        totalCost.textContent =
-            totalCostAc > 0
-                ? `$${formatNumber(
-                    totalCostAc,
-                    2
-                )}/ac`
-                : "—";
+        if (totalCost) {
+
+            totalCost.textContent =
+                totalCostAc > 0
+                    ? `$${formatNumber(
+                        totalCostAc,
+                        2
+                    )}/ac`
+                    : "—";
+
+        }
 
 
         renderSummary(
@@ -1426,17 +1386,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 ".seeds-per-pound"
             );
 
-
         const rate =
             card.querySelector(
                 ".species-rate"
             );
 
-
         const cost =
             card.querySelector(
                 ".species-cost"
             );
+
+
+        if (
+            !seedsPerLb ||
+            !rate ||
+            !cost
+        ) {
+            return;
+        }
 
 
         if (!result) {
@@ -1496,6 +1463,11 @@ document.addEventListener("DOMContentLoaded", function () {
         totalCostAc
     ) {
 
+        if (!summaryBody) {
+            return;
+        }
+
+
         summaryBody.innerHTML = "";
 
 
@@ -1516,6 +1488,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </td>
 
                 </tr>
+
             `;
 
         } else {
@@ -1600,33 +1573,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        summaryTotalPercent.textContent =
-            `${formatNumber(
-                percentageSum,
-                1
-            )}%`;
+        if (summaryTotalPercent) {
+
+            summaryTotalPercent.textContent =
+                `${formatNumber(
+                    percentageSum,
+                    1
+                )}%`;
+
+        }
 
 
-        summaryTotalRate.textContent =
-            unit === "lb-ac"
-                ? `${formatNumber(
-                    totalRateLbAc,
-                    2
-                )} lb/ac`
-                : `${formatNumber(
-                    totalRateLbAc *
-                    KG_PER_HECTARE_PER_LB_PER_ACRE,
-                    2
-                )} kg/ha`;
+        if (summaryTotalRate) {
+
+            summaryTotalRate.textContent =
+                unit === "lb-ac"
+                    ? `${formatNumber(
+                        totalRateLbAc,
+                        2
+                    )} lb/ac`
+                    : `${formatNumber(
+                        totalRateLbAc *
+                        KG_PER_HECTARE_PER_LB_PER_ACRE,
+                        2
+                    )} kg/ha`;
+
+        }
 
 
-        summaryTotalCost.textContent =
-            totalCostAc > 0
-                ? `$${formatNumber(
-                    totalCostAc,
-                    2
-                )}/ac`
-                : "—";
+        if (summaryTotalCost) {
+
+            summaryTotalCost.textContent =
+                totalCostAc > 0
+                    ? `$${formatNumber(
+                        totalCostAc,
+                        2
+                    )}`
+                    : "—";
+
+        }
 
     }
 
@@ -1635,58 +1620,80 @@ document.addEventListener("DOMContentLoaded", function () {
        ADD FORAGE BUTTON
     ================================================= */
 
-    addForageButton.addEventListener(
-        "click",
-        function () {
+    if (addForageButton) {
 
-            addSpeciesCard();
+        addForageButton.addEventListener(
+            "click",
+            function () {
 
-        }
-    );
+                addSpeciesCard();
+
+            }
+        );
+
+    }
 
 
     /* =================================================
-       TARGET DENSITY / REGION
+       PRODUCTION REGION
     ================================================= */
 
-    regionInput.addEventListener(
-        "change",
-        function () {
+    if (regionInput) {
 
-            const value =
-                regionInput.value;
+        regionInput.addEventListener(
+            "change",
+            function () {
+
+                const value =
+                    regionInput.value;
 
 
-            if (
-                targetDensities[
-                    value
-                ] !== undefined
-            ) {
+                if (
+                    targetDensities[value] !==
+                    undefined &&
+                    targetDensityInput
+                ) {
 
-                targetDensityInput.value =
-                    targetDensities[
-                        value
-                    ];
+                    targetDensityInput.value =
+                        targetDensities[value];
+
+                }
+
+
+                calculateAll();
 
             }
+        );
+
+    }
 
 
-            calculateAll();
+    /* =================================================
+       TARGET DENSITY
+    ================================================= */
 
-        }
-    );
+    if (targetDensityInput) {
+
+        targetDensityInput.addEventListener(
+            "input",
+            calculateAll
+        );
+
+    }
 
 
-    targetDensityInput.addEventListener(
-        "input",
-        calculateAll
-    );
+    /* =================================================
+       ESTABLISHMENT ADJUSTMENT
+    ================================================= */
 
+    if (overageInput) {
 
-    overageInput.addEventListener(
-        "input",
-        calculateAll
-    );
+        overageInput.addEventListener(
+            "input",
+            calculateAll
+        );
+
+    }
 
 
     /* =================================================
@@ -1718,12 +1725,23 @@ document.addEventListener("DOMContentLoaded", function () {
                                     "active"
                                 );
 
+                                item.setAttribute(
+                                    "aria-pressed",
+                                    "false"
+                                );
+
                             }
                         );
 
 
                     button.classList.add(
                         "active"
+                    );
+
+
+                    button.setAttribute(
+                        "aria-pressed",
+                        "true"
                     );
 
 
@@ -1772,27 +1790,30 @@ document.addEventListener("DOMContentLoaded", function () {
        HTML ESCAPE
     ================================================= */
 
-    function escapeHtml(
-        value
-    ) {
+    function escapeHtml(value) {
 
         return String(value)
+
             .replace(
                 /&/g,
                 "&amp;"
             )
+
             .replace(
                 /</g,
                 "&lt;"
             )
+
             .replace(
                 />/g,
                 "&gt;"
             )
+
             .replace(
                 /"/g,
                 "&quot;"
             )
+
             .replace(
                 /'/g,
                 "&#039;"
@@ -1800,15 +1821,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       INITIAL CALCULATION
-    ================================================= */
-
-    /*
-       If Excel data is not yet available, the card is still
-       displayed. Once the Excel file loads, species options
-       are populated automatically.
-    */
 
 });
