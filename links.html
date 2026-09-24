@@ -13,6 +13,10 @@
     <meta name="description"
           content="Useful links to the University of Wyoming and agricultural programs, research, and Extension resources.">
 
+    <!-- Shared site styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Links page styles -->
     <link rel="stylesheet" href="css/links.css">
 
 </head>
@@ -22,122 +26,30 @@
 
 
 <!-- =====================================================
-     HEADER
+     SHARED HEADER
 ===================================================== -->
 
-<header class="site-header">
+<div id="header-placeholder"></div>
 
-    <div class="header-inner">
-
-
-        <!-- LAB NAME -->
-
-        <a href="index.html" class="site-title">
-
-            <span class="university">
-                UNIVERSITY OF WYOMING
-            </span>
-
-            <span class="department">
-                DEPARTMENT OF PLANT SCIENCES
-            </span>
-
-            <span class="lab-name">
-                Forage Agronomy Lab
-            </span>
-
-        </a>
-
-
-        <!-- MOBILE MENU BUTTON -->
-
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <!-- NAVIGATION -->
-
-        <nav class="main-nav" id="mainNav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="people.html">
-                People
-            </a>
-
-            <a href="research.html">
-                Research
-            </a>
-
-
-            <!-- EXTENSION -->
-
-            <div class="dropdown">
-
-                <button
-                    class="dropdown-button"
-                    id="extensionButton"
-                    type="button"
-                    aria-expanded="false">
-
-                    Extension
-                    <span>▾</span>
-
-                </button>
-
-
-                <div
-                    class="dropdown-menu"
-                    id="extensionMenu">
-
-                    <a href="extension-articles.html">
-                        Extension Articles
-                    </a>
-
-                    <a href="producer-resources.html">
-                        Producer Resources
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <a href="links.html" class="active">
-                Links
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
 
 
 <!-- =====================================================
-     PAGE HERO
+     MAIN
 ===================================================== -->
 
 <main>
+
+
+    <!-- =================================================
+         PAGE HERO
+    ================================================== -->
 
     <section class="page-hero">
 
         <div class="container">
 
             <p class="eyebrow">
-                UNIVERSITY & AGRICULTURAL RESOURCES
+                UNIVERSITY &amp; AGRICULTURAL RESOURCES
             </p>
 
             <h1>
@@ -152,6 +64,7 @@
         </div>
 
     </section>
+
 
 
     <!-- =================================================
@@ -169,7 +82,7 @@
                 </p>
 
                 <h2>
-                    University & Agricultural Resources
+                    University &amp; Agricultural Resources
                 </h2>
 
             </div>
@@ -190,8 +103,9 @@
                         University of Wyoming
                     </span>
 
-                    <span class="link-arrow"
-                          aria-hidden="true">
+                    <span
+                        class="link-arrow"
+                        aria-hidden="true">
                         →
                     </span>
 
@@ -207,11 +121,13 @@
                     rel="noopener noreferrer">
 
                     <span>
-                        College of Agriculture, Life Sciences & Natural Resources
+                        College of Agriculture, Life Sciences &amp;
+                        Natural Resources
                     </span>
 
-                    <span class="link-arrow"
-                          aria-hidden="true">
+                    <span
+                        class="link-arrow"
+                        aria-hidden="true">
                         →
                     </span>
 
@@ -230,8 +146,9 @@
                         Department of Plant Sciences
                     </span>
 
-                    <span class="link-arrow"
-                          aria-hidden="true">
+                    <span
+                        class="link-arrow"
+                        aria-hidden="true">
                         →
                     </span>
 
@@ -250,8 +167,9 @@
                         Wyoming Agricultural Experiment Station
                     </span>
 
-                    <span class="link-arrow"
-                          aria-hidden="true">
+                    <span
+                        class="link-arrow"
+                        aria-hidden="true">
                         →
                     </span>
 
@@ -270,8 +188,9 @@
                         University of Wyoming Extension
                     </span>
 
-                    <span class="link-arrow"
-                          aria-hidden="true">
+                    <span
+                        class="link-arrow"
+                        aria-hidden="true">
                         →
                     </span>
 
@@ -284,92 +203,25 @@
 
     </section>
 
+
 </main>
 
 
+
 <!-- =====================================================
-     FOOTER
+     SHARED FOOTER
 ===================================================== -->
 
-<footer class="site-footer">
-
-    <div class="container footer-inner">
+<div id="footer-placeholder"></div>
 
 
-        <!-- LAB -->
 
-        <div>
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-            <h3 class="footer-title">
-                Forage Agronomy Lab
-            </h3>
-
-            <p>
-                Department of Plant Sciences<br>
-                University of Wyoming<br>
-                Laramie, Wyoming 82071
-            </p>
-
-        </div>
-
-
-        <!-- EXPLORE -->
-
-        <div>
-
-            <h4>
-                Explore
-            </h4>
-
-            <a href="research.html">
-                Research
-            </a>
-
-            <a href="people.html">
-                People
-            </a>
-
-            <a href="producer-resources.html">
-                Producer Resources
-            </a>
-
-            <a href="links.html">
-                Useful Links
-            </a>
-
-        </div>
-
-
-        <!-- CONTACT -->
-
-        <div class="footer-contact">
-
-            <h4>
-                <a href="mailto:Surendra.Bhattarai@uwyo.edu">
-                    Contact
-                </a>
-            </h4>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- COPYRIGHT -->
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        Forage Agronomy Lab
-        ·
-        University of Wyoming
-
-    </div>
-
-</footer>
-
-
+<script src="js/components.js"></script>
+<script src="js/script.js"></script>
 <script src="js/links.js"></script>
 
 </body>
