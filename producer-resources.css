@@ -1,0 +1,982 @@
+/* =====================================================
+   FORAGE AGRONOMY LAB — PRODUCER RESOURCES
+===================================================== */
+
+:root {
+
+    --brown-dark: #3b2a20;
+    --brown: #5a4030;
+    --brown-light: #7a5a43;
+
+    --cream: #f5f1e9;
+    --cream-dark: #ebe4d7;
+
+    --green: #536b45;
+    --green-dark: #3e5435;
+
+    --text: #302a25;
+    --text-light: #6d645d;
+
+    --white: #ffffff;
+
+    --border: #ddd4c7;
+
+    --max-width: 1180px;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    background: var(--cream);
+
+    line-height: 1.7;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--max-width)
+        );
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.12);
+}
+
+
+.header-inner {
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--max-width)
+        );
+
+    margin: 0 auto;
+
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.site-title {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+}
+
+
+.university {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.72;
+
+    margin-bottom: 5px;
+}
+
+
+.department {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    opacity: 0.68;
+
+    margin-bottom: 7px;
+}
+
+
+.lab-name {
+
+    font-size: 24px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+.main-nav > a,
+.dropdown-button {
+
+    color:
+        rgba(255,255,255,0.88);
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.main-nav > a:hover,
+.dropdown-button:hover {
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   DROPDOWN
+===================================================== */
+
+.dropdown {
+
+    position: relative;
+}
+
+
+.dropdown-button {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    color:
+        rgba(255,255,255,0.88);
+}
+
+
+.dropdown-button span {
+
+    margin-left: 4px;
+}
+
+
+.dropdown-menu {
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+
+    right: 0;
+
+    min-width: 220px;
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-8px);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+
+    z-index: 100;
+}
+
+
+.dropdown:hover .dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+
+.dropdown-menu a {
+
+    display: block;
+
+    color: var(--text);
+
+    padding:
+        12px 18px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+}
+
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+
+    background: var(--cream);
+
+    color: var(--brown);
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.menu-toggle {
+
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 26px;
+
+    height: 2px;
+
+    background: var(--white);
+
+    margin: 5px 0;
+}
+
+
+/* =====================================================
+   PAGE HERO
+===================================================== */
+
+.page-hero {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    padding:
+        85px 0 90px;
+}
+
+
+.eyebrow {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 700;
+
+    color: var(--green);
+
+    margin-bottom: 13px;
+}
+
+
+.page-hero .eyebrow {
+
+    color: #c9d2bf;
+}
+
+
+.page-hero h1 {
+
+    font-size:
+        clamp(44px, 6vw, 70px);
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+}
+
+
+.hero-text {
+
+    max-width: 760px;
+
+    font-size: 19px;
+
+    color:
+        rgba(255,255,255,0.82);
+}
+
+
+/* =====================================================
+   RESOURCES SECTION
+===================================================== */
+
+.resources-section {
+
+    background: var(--cream);
+
+    padding:
+        100px 0;
+}
+
+
+.section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 55px;
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(36px, 5vw, 50px);
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 18px;
+}
+
+
+.section-heading > p:last-child {
+
+    font-size: 17px;
+
+    color: var(--text-light);
+}
+
+
+/* =====================================================
+   RESOURCE GRID
+===================================================== */
+
+.resources-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+
+    max-width: 1050px;
+}
+
+
+/* =====================================================
+   RESOURCE CARD
+===================================================== */
+
+.resource-card {
+
+    display: grid;
+
+    grid-template-columns: 85px minmax(0, 1fr);
+
+    min-height: 350px;
+
+    background: var(--white);
+
+    border:
+        1px solid rgba(90,64,48,0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.resource-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(59,42,32,0.12);
+}
+
+
+/* =====================================================
+   RESOURCE NUMBER
+===================================================== */
+
+.resource-number {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding-top: 34px;
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   RESOURCE CONTENT
+===================================================== */
+
+.resource-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding:
+        40px 35px;
+}
+
+
+.resource-category {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--green);
+
+    margin-bottom: 12px;
+}
+
+
+.resource-content h3 {
+
+    font-size:
+        clamp(27px, 3vw, 35px);
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 18px;
+}
+
+
+.resource-content p:not(.resource-category) {
+
+    font-size: 16px;
+
+    color: var(--text-light);
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   RESOURCE LINK
+===================================================== */
+
+.resource-link {
+
+    margin-top: auto;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: fit-content;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+    color: var(--brown);
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.resource-link span {
+
+    font-size: 17px;
+
+    line-height: 1;
+}
+
+
+.resource-card:hover .resource-link {
+
+    color: var(--green-dark);
+}
+
+
+/* =====================================================
+   INFORMATION SECTION
+===================================================== */
+
+.info-section {
+
+    background: var(--cream-dark);
+
+    padding:
+        85px 0;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.info-content {
+
+    max-width: 850px;
+}
+
+
+.info-content h2 {
+
+    font-size:
+        clamp(32px, 4vw, 46px);
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+    margin-bottom: 20px;
+}
+
+
+.info-content p:not(.eyebrow) {
+
+    font-size: 17px;
+
+    color: var(--text-light);
+
+    max-width: 780px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    background: var(--brown-dark);
+
+    color:
+        rgba(255,255,255,0.75);
+
+    padding-top: 55px;
+}
+
+
+.footer-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding-bottom: 45px;
+}
+
+
+.footer-title {
+
+    color: var(--white);
+
+    font-size: 23px;
+
+    margin-bottom: 12px;
+}
+
+
+.footer-contact {
+
+    text-align: right;
+}
+
+
+.footer-contact strong {
+
+    color: var(--white);
+}
+
+
+.copyright {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    padding:
+        18px 24px;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.55);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .main-nav {
+
+        gap: 18px;
+    }
+
+
+    .resources-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .header-inner {
+
+        min-height: 76px;
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+    }
+
+
+    .main-nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: var(--brown-dark);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding:
+            10px 24px 25px;
+
+        z-index: 99;
+    }
+
+
+    .main-nav.open {
+
+        display: flex;
+    }
+
+
+    .main-nav > a {
+
+        padding: 14px 0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,0.10);
+    }
+
+
+    .dropdown {
+
+        padding: 14px 0;
+    }
+
+
+    .dropdown-button {
+
+        width: 100%;
+
+        text-align: left;
+
+        padding: 0;
+    }
+
+
+    .dropdown-menu {
+
+        position: static;
+
+        display: none;
+
+        min-width: 0;
+
+        margin-top: 12px;
+
+        box-shadow: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+    }
+
+
+    .dropdown:hover .dropdown-menu {
+
+        display: block;
+    }
+
+
+    .page-hero {
+
+        padding:
+            60px 0 65px;
+    }
+
+
+    .resources-section {
+
+        padding:
+            65px 0;
+    }
+
+
+    .resource-card {
+
+        grid-template-columns:
+            60px minmax(0, 1fr);
+
+        min-height: 0;
+    }
+
+
+    .resource-content {
+
+        padding:
+            30px 25px;
+    }
+
+
+    .resource-content h3 {
+
+        font-size: 27px;
+    }
+
+
+    .info-section {
+
+        padding:
+            65px 0;
+    }
+
+
+    .footer-inner {
+
+        flex-direction: column;
+    }
+
+
+    .footer-contact {
+
+        text-align: left;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .container,
+    .header-inner {
+
+        width:
+            calc(100% - 32px);
+    }
+
+
+    .resource-card {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .resource-number {
+
+        min-height: 48px;
+
+        align-items: center;
+
+        padding-top: 0;
+    }
+
+
+    .resource-content {
+
+        padding:
+            28px 22px 30px;
+    }
+
+}
