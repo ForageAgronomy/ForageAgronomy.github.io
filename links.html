@@ -1,74 +1,377 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Links | Forage Agronomy & Breeding Lab</title>
+    <title>
+        Links | Forage Agronomy Lab | University of Wyoming
+    </title>
 
     <meta name="description"
-        content="Useful links to the University of Wyoming, College of Agriculture, Life Sciences & Natural Resources, Department of Plant Sciences, Agricultural Experiment Station, and University of Wyoming Extension.">
+          content="Useful links to the University of Wyoming and agricultural programs, research, and Extension resources.">
 
-    <link rel="stylesheet" href="css/links.css">
+    <link rel="stylesheet"
+          href="css/links.css">
 
 </head>
 
 
 <body>
 
-    <main class="links-page">
 
-        <h1>Links</h1>
+<!-- =====================================================
+     TOP UNIVERSITY BAR
+===================================================== -->
 
-        <p class="links-intro">
-            Useful links to the University of Wyoming and its agricultural
-            research, teaching, and Extension programs.
-        </p>
+<div class="uw-topbar">
 
+    <div class="container topbar-inner">
+    </div>
 
-        <div class="links-list">
-
-            <a href="https://www.uwyo.edu/"
-               target="_blank"
-               rel="noopener noreferrer">
-                University of Wyoming
-            </a>
+</div>
 
 
-            <a href="https://www.uwyo.edu/uwag/"
-               target="_blank"
-               rel="noopener noreferrer">
-                College of Agriculture, Life Sciences & Natural Resources
-            </a>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
 
 
-            <a href="https://www.uwyo.edu/plantsciences/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Department of Plant Sciences
-            </a>
+        <!-- LAB NAME -->
 
+        <div class="brand">
 
-            <a href="https://www.uwyo.edu/uwexpstn/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Wyoming Agricultural Experiment Station
-            </a>
+            <a href="index.html">
 
+                <span class="brand-title">
+                    Forage Agronomy Lab
+                </span>
 
-            <a href="https://www.uwyo.edu/uwe/"
-               target="_blank"
-               rel="noopener noreferrer">
-                University of Wyoming Extension
+                <span class="brand-subtitle">
+                    University of Wyoming
+                </span>
+
             </a>
 
         </div>
 
-    </main>
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <nav
+            class="main-nav"
+            id="mainNav">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="people.html">
+                People
+            </a>
+
+
+            <a href="research.html">
+                Research
+            </a>
+
+
+            <!-- EXTENSION DROPDOWN -->
+
+            <div class="nav-dropdown">
+
+                <button
+                    class="dropdown-button"
+                    id="extensionButton"
+                    aria-expanded="false">
+
+                    Extension
+
+                    <span>▾</span>
+
+                </button>
+
+
+                <div
+                    class="dropdown-menu"
+                    id="extensionMenu">
+
+
+                    <a href="extension-articles.html">
+                        Extension Articles
+                    </a>
+
+
+                    <a href="producer-resources.html">
+                        Producer Resources
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <a href="links.html"
+               class="active">
+
+                Links
+
+            </a>
+
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     LINKS PAGE
+===================================================== -->
+
+<main>
+
+    <section class="links-section">
+
+        <div class="container links-container">
+
+
+            <div class="links-heading">
+
+                <p class="section-kicker">
+                    UNIVERSITY & AGRICULTURAL RESOURCES
+                </p>
+
+
+                <h1>
+                    Links
+                </h1>
+
+
+                <div class="gold-line"></div>
+
+
+                <p class="links-intro">
+                    Useful links to University of Wyoming programs,
+                    departments, research, and Extension resources
+                    related to agriculture and plant sciences.
+                </p>
+
+            </div>
+
+
+            <!-- LINK 1 -->
+
+            <div class="links-list">
+
+                <a href="https://www.uwyo.edu/"
+                   class="resource-link">
+
+                    <span>
+                        University of Wyoming
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- LINK 2 -->
+
+                <a href="https://www.uwyo.edu/uwag/"
+                   class="resource-link">
+
+                    <span>
+                        College of Agriculture, Life Sciences & Natural Resources
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- LINK 3 -->
+
+                <a href="https://www.uwyo.edu/plantsciences/"
+                   class="resource-link">
+
+                    <span>
+                        Department of Plant Sciences
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- LINK 4 -->
+
+                <a href="https://www.uwyo.edu/uwexpstn/"
+                   class="resource-link">
+
+                    <span>
+                        Wyoming Agricultural Experiment Station
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- LINK 5 -->
+
+                <a href="https://www.uwyo.edu/uwe/"
+                   class="resource-link">
+
+                    <span>
+                        University of Wyoming Extension
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+
+    <div class="container footer-grid">
+
+
+        <!-- LAB -->
+
+        <div>
+
+            <h3>
+                Forage Agronomy Lab
+            </h3>
+
+            <p>
+                Department of Plant Sciences<br>
+                University of Wyoming<br>
+                Laramie, Wyoming 82071
+            </p>
+
+        </div>
+
+
+        <!-- EXPLORE -->
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+
+            <a href="research.html">
+                Research
+            </a>
+
+
+            <a href="people.html">
+                People
+            </a>
+
+
+            <a href="producer-resources.html">
+                Producer Resources
+            </a>
+
+
+            <a href="links.html">
+                Useful Links
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+            <h4>
+
+                <a href="mailto:Surendra.Bhattarai@uwyo.edu">
+                    Contact
+                </a>
+
+            </h4>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © <span id="year"></span>
+                Forage Agronomy Lab
+                ·
+                University of Wyoming
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="js/links.js"></script>
 
 </body>
 
