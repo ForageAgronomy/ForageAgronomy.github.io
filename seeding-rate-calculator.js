@@ -296,7 +296,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const response =
                 await fetch(
-                    EXCEL_FILE
+                    `${EXCEL_FILE}?v=${Date.now()}`,
+                    {
+                        cache: "no-store"
+                    }
                 );
 
 
