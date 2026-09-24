@@ -168,18 +168,19 @@ img {
 /* ================= HERO ================= */
 
 .hero {
-    min-height: 650px;
+    min-height: 720px;
+
     background:
         linear-gradient(
-            rgba(73, 47, 36, 0.85),
-            rgba(73, 47, 36, 0.60)
+            90deg,
+            rgba(73,47,36,0.92) 0%,
+            rgba(73,47,36,0.65) 45%,
+            rgba(73,47,36,0.15) 100%
         ),
         url("../images/hero-forage.jpg");
 
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
 }
 
 .hero-content {
