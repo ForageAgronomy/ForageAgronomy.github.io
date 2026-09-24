@@ -1,41 +1,36 @@
-/* ================= FOOTER ================= */
+/* ================= LINKS PAGE ================= */
 
-.site-footer {
+.links-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.links-page h1 {
+    margin-bottom: 40px;
+    color: var(--uw-dark);
+}
+
+.links-list {
+    display: grid;
+    gap: 15px;
+}
+
+.links-list a {
+    display: block;
+    padding: 18px 22px;
+    background: #f5f5f5;
+    border-left: 4px solid var(--uw-gold);
+    color: var(--uw-dark);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.links-list a:hover {
     background: var(--uw-dark);
     color: #ffffff;
-}
-
-.footer-grid {
-    padding: 60px 0;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 50px;
-}
-
-.footer-grid h3,
-.footer-grid h4 {
-    margin-bottom: 15px;
-}
-
-.footer-grid p {
-    color: #cccccc;
-}
-
-.footer-grid a {
-    display: block;
-    color: #cccccc;
-    margin-bottom: 8px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-grid a:hover {
-    color: var(--uw-gold);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.15);
-    padding: 18px 0;
-    color: #aaaaaa;
-    font-size: 13px;
+    border-left-color: var(--uw-gold);
+    transform: translateX(4px);
 }
