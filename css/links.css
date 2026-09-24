@@ -1,559 +1,1093 @@
-/* =========================================================
-   LINKS PAGE
-   Forage Agronomy Lab
+/* =====================================================
+   FORAGE AGRONOMY LAB — LINKS PAGE
    University of Wyoming
-========================================================= */
+===================================================== */
 
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 :root {
-    --uw-dark: #492f24;
-    --uw-gold: #ffc425;
-    --uw-gray: #666666;
-    --uw-light: #f5f5f5;
-    --uw-border: #dddddd;
+
+    --brown-dark: #3b2a20;
+    --brown: #5a4030;
+    --brown-light: #7a5a43;
+
+    --cream: #f5f1e9;
+    --cream-dark: #ebe4d7;
+
+    --green: #536b45;
+    --green-dark: #3e5435;
+
+    --text: #302a25;
+    --text-light: #6d645d;
+
     --white: #ffffff;
+
+    --border: #ddd4c7;
+
+    --max-width: 1180px;
+
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
+
     box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333333;
-    background: #ffffff;
-    line-height: 1.6;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    background: var(--cream);
+
+    line-height: 1.7;
+
 }
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
 
 a {
+
+    color: inherit;
+
     text-decoration: none;
+
 }
+
 
 button {
+
     font-family: inherit;
+
 }
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container {
-    width: 92%;
-    max-width: 1180px;
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--max-width)
+        );
+
     margin: 0 auto;
+
 }
 
 
-/* =========================================================
-   TOP UNIVERSITY BAR
-========================================================= */
-
-.uw-topbar {
-    background: var(--uw-dark);
-    height: 8px;
-}
-
-
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .site-header {
-    background: var(--white);
-    border-bottom: 1px solid #e5e5e5;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.12);
+
 }
+
 
 .header-inner {
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--max-width)
+        );
+
+    margin: 0 auto;
+
     min-height: 92px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
-    gap: 30px;
+
+    gap: 40px;
+
 }
 
 
-/* =========================================================
-   BRAND
-========================================================= */
+/* =====================================================
+   SITE TITLE
+===================================================== */
 
-.brand a {
+.site-title {
+
     display: flex;
+
     flex-direction: column;
-    color: var(--uw-dark);
-}
 
-.brand-title {
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1.15;
-}
+    line-height: 1.1;
 
-.brand-subtitle {
-    margin-top: 4px;
-    color: #777777;
-    font-size: 14px;
 }
 
 
-/* =========================================================
-   MAIN NAVIGATION
-========================================================= */
+.university {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.72;
+
+    margin-bottom: 5px;
+
+}
+
+
+.department {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    opacity: 0.68;
+
+    margin-bottom: 7px;
+
+}
+
+
+.lab-name {
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .main-nav {
+
     display: flex;
+
     align-items: center;
-    gap: 28px;
+
+    gap: 30px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
 }
+
 
 .main-nav > a,
 .dropdown-button {
-    position: relative;
-    padding: 10px 0;
-    border: none;
-    background: none;
-    color: #444444;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
+
+    color:
+        rgba(255,255,255,0.88);
+
+    transition:
+        color 0.2s ease;
+
 }
 
-.main-nav > a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background: var(--uw-gold);
-    transition: width 0.2s ease;
-}
-
-.main-nav > a:hover::after,
-.main-nav > a.active::after {
-    width: 100%;
-}
 
 .main-nav > a:hover,
 .main-nav > a.active,
 .dropdown-button:hover {
-    color: var(--uw-dark);
+
+    color: var(--white);
+
 }
 
 
-/* =========================================================
+.main-nav > a.active {
+
+    border-bottom:
+        2px solid
+        var(--white);
+
+    padding-bottom: 5px;
+
+}
+
+
+/* =====================================================
    EXTENSION DROPDOWN
-========================================================= */
+===================================================== */
 
-.nav-dropdown {
+.dropdown {
+
     position: relative;
+
 }
+
+
+.dropdown-button {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    color:
+        rgba(255,255,255,0.88);
+
+}
+
 
 .dropdown-button span {
+
     margin-left: 4px;
+
 }
 
+
 .dropdown-menu {
+
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
+
+    top: calc(100% + 14px);
+
+    right: 0;
 
     min-width: 220px;
 
     background: var(--white);
-    border: 1px solid var(--uw-border);
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border:
+        1px solid
+        var(--border);
 
-    display: none;
-    padding: 8px 0;
-}
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,0.12);
 
-.dropdown-menu.show {
-    display: block;
-}
+    opacity: 0;
 
-.dropdown-menu a {
-    display: block;
-    padding: 11px 18px;
-    color: #444444;
-    font-size: 14px;
-}
+    visibility: hidden;
 
-.dropdown-menu a:hover {
-    background: var(--uw-light);
-    color: var(--uw-dark);
-}
-
-
-/* =========================================================
-   MOBILE BUTTON
-========================================================= */
-
-.menu-toggle {
-    display: none;
-    border: none;
-    background: transparent;
-    color: var(--uw-dark);
-    font-size: 28px;
-    cursor: pointer;
-}
-
-
-/* =========================================================
-   LINKS SECTION
-========================================================= */
-
-.links-section {
-    padding: 90px 0 110px;
-    background: #ffffff;
-}
-
-.links-container {
-    max-width: 980px;
-}
-
-
-/* =========================================================
-   LINKS HEADING
-========================================================= */
-
-.links-heading {
-    max-width: 800px;
-    margin-bottom: 45px;
-}
-
-.section-kicker {
-    margin: 0 0 10px;
-    color: var(--uw-dark);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
-
-.links-heading h1 {
-    margin: 0;
-    color: var(--uw-dark);
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.gold-line {
-    width: 60px;
-    height: 4px;
-    margin: 18px 0 22px;
-    background: var(--uw-gold);
-}
-
-.links-intro {
-    max-width: 760px;
-    margin: 0;
-    color: var(--uw-gray);
-    font-size: 17px;
-}
-
-
-/* =========================================================
-   LINKS LIST
-========================================================= */
-
-.links-list {
-    display: grid;
-    gap: 16px;
-}
-
-
-/* =========================================================
-   RESOURCE LINKS
-========================================================= */
-
-.resource-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-
-    padding: 21px 24px;
-
-    background: #f7f7f7;
-    border: 1px solid #e2e2e2;
-    border-left: 5px solid var(--uw-gold);
-
-    color: var(--uw-dark);
-
-    font-size: 17px;
-    font-weight: 600;
+    transform:
+        translateY(-8px);
 
     transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+
+    z-index: 100;
+
 }
+
+
+/* Desktop hover */
+
+.dropdown:hover .dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* JavaScript click */
+
+.dropdown-menu.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.dropdown-menu a {
+
+    display: block;
+
+    color: var(--text);
+
+    padding: 12px 18px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+.dropdown-menu a:hover {
+
+    background: var(--cream);
+
+    color: var(--brown);
+
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.menu-toggle {
+
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 26px;
+
+    height: 2px;
+
+    background: var(--white);
+
+    margin: 5px 0;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+}
+
+
+/* =====================================================
+   PAGE HERO
+===================================================== */
+
+.page-hero {
+
+    background: var(--brown-dark);
+
+    color: var(--white);
+
+    padding:
+        75px 0 80px;
+
+}
+
+
+.eyebrow {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 700;
+
+    color: var(--green);
+
+    margin-bottom: 13px;
+
+}
+
+
+.page-hero .eyebrow {
+
+    color: #c9d2bf;
+
+}
+
+
+.page-hero h1 {
+
+    font-size:
+        clamp(48px, 7vw, 76px);
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+
+}
+
+
+.hero-text {
+
+    max-width: 760px;
+
+    font-size: 19px;
+
+    color:
+        rgba(255,255,255,0.82);
+
+}
+
+
+/* =====================================================
+   LINKS SECTION
+===================================================== */
+
+.links-section {
+
+    padding:
+        90px 0;
+
+    background:
+        var(--cream);
+
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.section-heading .eyebrow {
+
+    color: var(--green);
+
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(34px, 5vw, 48px);
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: var(--brown-dark);
+
+}
+
+
+/* =====================================================
+   LINKS LIST
+===================================================== */
+
+.links-list {
+
+    display: grid;
+
+    gap: 18px;
+
+    max-width: 1000px;
+
+}
+
+
+/* =====================================================
+   RESOURCE LINK
+===================================================== */
+
+.resource-link {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding:
+        24px 28px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        rgba(90,64,48,0.10);
+
+    border-left:
+        5px solid
+        var(--green);
+
+    color:
+        var(--brown-dark);
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    box-shadow:
+        0 8px 25px
+        rgba(59,42,32,0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+
+}
+
 
 .resource-link:hover {
-    background: var(--uw-dark);
-    color: var(--white);
-    transform: translateX(5px);
-    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+
+    transform:
+        translateX(6px);
+
+    background:
+        var(--brown-dark);
+
+    color:
+        var(--white);
+
+    box-shadow:
+        0 15px 35px
+        rgba(59,42,32,0.14);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    LINK ARROW
-========================================================= */
+===================================================== */
 
 .link-arrow {
+
     flex-shrink: 0;
-    color: var(--uw-dark);
-    font-size: 22px;
-    transition: transform 0.2s ease;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 24px;
+
+    color:
+        var(--green);
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+
 }
+
 
 .resource-link:hover .link-arrow {
-    color: var(--uw-gold);
-    transform: translateX(5px);
+
+    color:
+        var(--white);
+
+    transform:
+        translateX(5px);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 .site-footer {
-    background: var(--uw-dark);
-    color: var(--white);
+
+    background:
+        var(--brown-dark);
+
+    color:
+        rgba(255,255,255,0.75);
+
+    padding-top:
+        55px;
+
 }
 
-.footer-grid {
-    padding: 60px 0;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+
+.footer-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
     gap: 50px;
+
+    padding-bottom:
+        45px;
+
 }
 
-.footer-grid h3,
-.footer-grid h4 {
-    margin: 0 0 15px;
+
+.footer-title {
+
+    color:
+        var(--white);
+
+    font-size: 23px;
+
+    margin-bottom: 12px;
+
 }
 
-.footer-grid h3 {
-    font-size: 21px;
+
+.footer-inner h4 {
+
+    color:
+        var(--white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+
 }
 
-.footer-grid h4 {
-    font-size: 16px;
+
+.footer-inner p {
+
+    color:
+        rgba(255,255,255,0.70);
+
 }
 
-.footer-grid p {
-    margin: 0;
-    color: #cccccc;
-}
 
-.footer-grid a {
+.footer-inner > div > a {
+
     display: block;
+
     margin-bottom: 8px;
-    color: #cccccc;
-    transition: color 0.2s ease;
-}
 
-.footer-grid a:hover {
-    color: var(--uw-gold);
-}
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-
-/* Contact */
-
-.footer-grid h4 a {
-    margin: 0;
-    color: var(--white);
-}
-
-.footer-grid h4 a:hover {
-    color: var(--uw-gold);
-}
-
-
-/* =========================================================
-   FOOTER BOTTOM
-========================================================= */
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 18px 0;
-    color: #aaaaaa;
     font-size: 13px;
+
+    color:
+        rgba(255,255,255,0.70);
+
+    transition:
+        color 0.2s ease;
+
 }
 
-.footer-bottom p {
-    margin: 0;
+
+.footer-inner > div > a:hover {
+
+    color:
+        var(--white);
+
 }
 
 
-/* =========================================================
-   FOCUS ACCESSIBILITY
-========================================================= */
+.footer-contact {
+
+    text-align: right;
+
+}
+
+
+.footer-contact a {
+
+    color:
+        var(--white);
+
+}
+
+
+.footer-contact a:hover {
+
+    color:
+        var(--green);
+
+}
+
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+
+.copyright {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    padding:
+        18px 24px;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.55);
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
 
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid var(--uw-gold);
-    outline-offset: 3px;
+
+    outline:
+        3px solid
+        var(--green);
+
+    outline-offset:
+        3px;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    TABLET
-========================================================= */
+===================================================== */
 
-@media (max-width: 850px) {
-
-    .header-inner {
-        min-height: 80px;
-    }
-
-    .brand-title {
-        font-size: 22px;
-    }
+@media (max-width: 1000px) {
 
     .main-nav {
-        gap: 18px;
-    }
 
-    .links-section {
-        padding: 70px 0 90px;
+        gap: 20px;
+
     }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
 @media (max-width: 700px) {
 
-    .menu-toggle {
-        display: block;
+    .header-inner {
+
+        min-height:
+            76px;
+
     }
+
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
 
     .main-nav {
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
 
         display: none;
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        background:
+            var(--brown-dark);
+
         flex-direction: column;
+
         align-items: stretch;
+
         gap: 0;
 
-        background: var(--white);
-        border-top: 1px solid #e5e5e5;
-        border-bottom: 1px solid #e5e5e5;
+        padding:
+            10px 24px 25px;
 
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+        z-index: 99;
+
     }
+
 
     .main-nav.show {
+
         display: flex;
+
     }
 
-    .main-nav > a,
+
+    .main-nav > a {
+
+        padding:
+            14px 0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,0.10);
+
+    }
+
+
+    .main-nav > a.active {
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,0.10);
+
+    }
+
+
+    .dropdown {
+
+        padding:
+            14px 0;
+
+    }
+
+
     .dropdown-button {
+
         width: 100%;
-        padding: 14px 20px;
+
         text-align: left;
+
+        padding: 0;
+
     }
 
-    .main-nav > a::after {
-        display: none;
-    }
-
-    .nav-dropdown {
-        width: 100%;
-    }
 
     .dropdown-menu {
+
         position: static;
-        width: 100%;
+
+        display: none;
+
         min-width: 0;
 
-        border: none;
-        border-top: 1px solid #eeeeee;
+        margin-top: 12px;
 
         box-shadow: none;
-        padding: 0;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
     }
 
-    .dropdown-menu a {
-        padding: 12px 35px;
+
+    .dropdown-menu.show {
+
+        display: block;
+
     }
+
+
+    .dropdown:hover .dropdown-menu {
+
+        display: none;
+
+    }
+
+
+    .dropdown:hover .dropdown-menu.show {
+
+        display: block;
+
+    }
+
+
+    .page-hero {
+
+        padding:
+            60px 0 65px;
+
+    }
+
 
     .links-section {
-        padding: 60px 0 80px;
+
+        padding:
+            65px 0;
+
     }
 
-    .links-heading h1 {
-        font-size: 34px;
-    }
-
-    .links-intro {
-        font-size: 16px;
-    }
 
     .resource-link {
-        padding: 18px 19px;
-    }
 
-    .resource-link span:first-child {
+        padding:
+            21px 20px;
+
         font-size: 16px;
+
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 45px 0;
+
+    .footer-inner {
+
+        flex-direction: column;
+
+    }
+
+
+    .footer-contact {
+
+        text-align: left;
+
     }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SMALL MOBILE
-========================================================= */
+===================================================== */
 
 @media (max-width: 450px) {
 
-    .brand-title {
-        font-size: 19px;
+    .container,
+    .header-inner {
+
+        width:
+            calc(100% - 32px);
+
     }
 
-    .brand-subtitle {
-        font-size: 12px;
+
+    .lab-name {
+
+        font-size: 21px;
+
     }
 
-    .links-heading h1 {
-        font-size: 30px;
+
+    .page-hero h1 {
+
+        font-size: 48px;
+
     }
+
+
+    .hero-text {
+
+        font-size: 17px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 34px;
+
+    }
+
 
     .resource-link {
-        padding: 17px;
+
+        padding:
+            19px 17px;
+
     }
+
 
     .resource-link span:first-child {
+
         font-size: 15px;
+
     }
 
+
     .link-arrow {
-        font-size: 19px;
+
+        font-size: 21px;
+
     }
 
 }
