@@ -1,6 +1,6 @@
 /* =========================================================
    FORAGE AGRONOMY & BREEDING LAB
-   University of Wyoming
+   UNIVERSITY OF WYOMING
 ========================================================= */
 
 
@@ -27,6 +27,7 @@ body {
 
 img {
     max-width: 100%;
+    display: block;
 }
 
 a {
@@ -77,12 +78,9 @@ p {
 
 .section-label {
     margin-bottom: 14px;
-
     color: #9b7b3b;
-
     font-size: 11px;
     font-weight: 800;
-
     letter-spacing: 2px;
 }
 
@@ -120,23 +118,19 @@ p {
 
 .logo span {
     display: block;
-
     font-size: 21px;
     font-weight: 800;
-
     letter-spacing: 2px;
 }
 
 .logo small {
     display: block;
-
     margin-top: 5px;
 
     color: #6b746d;
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: 1.4px;
 }
 
@@ -145,7 +139,7 @@ p {
     align-items: center;
     justify-content: flex-end;
 
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     gap: 22px;
 }
@@ -154,12 +148,16 @@ p {
 .nav-dropdown > a {
     position: relative;
 
+    display: block;
+
     color: #465249;
 
     font-size: 13px;
     font-weight: 600;
 
     padding: 28px 0;
+
+    white-space: nowrap;
 
     transition: color 0.2s ease;
 }
@@ -205,35 +203,43 @@ p {
 
 .nav-dropdown {
     position: relative;
+    display: block;
 }
+
+
+/* Extension label */
 
 .dropdown-toggle {
     cursor: default;
 }
 
 
-/* Dropdown menu */
+/* Dropdown box */
 
 .dropdown-menu {
     position: absolute;
 
     top: 100%;
-    right: 0;
+    left: 50%;
 
-    min-width: 220px;
+    width: 230px;
 
-    padding: 10px 0;
+    margin-left: -115px;
+
+    padding: 8px 0;
 
     background: #ffffff;
 
     border: 1px solid #dfe6df;
 
-    box-shadow: 0 12px 30px rgba(37, 61, 44, 0.12);
+    box-shadow: 0 12px 30px rgba(37, 61, 44, 0.14);
 
     opacity: 0;
     visibility: hidden;
 
     transform: translateY(8px);
+
+    z-index: 2000;
 
     transition:
         opacity 0.2s ease,
@@ -242,13 +248,12 @@ p {
 }
 
 
-/* Show dropdown */
+/* Show ONLY when Extension is hovered/focused */
 
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown:focus-within .dropdown-menu {
     opacity: 1;
     visibility: visible;
-
     transform: translateY(0);
 }
 
@@ -257,6 +262,8 @@ p {
 
 .dropdown-menu a {
     display: block;
+
+    width: 100%;
 
     padding: 12px 20px;
 
@@ -272,7 +279,7 @@ p {
     transition:
         background 0.2s ease,
         color 0.2s ease,
-        border-color 0.2s ease;
+        border-left-color 0.2s ease;
 }
 
 .dropdown-menu a:hover {
@@ -308,7 +315,6 @@ p {
 
 .hero-content {
     max-width: 850px;
-
     padding: 90px 0;
 }
 
@@ -318,9 +324,7 @@ p {
 
 .hero h1 {
     max-width: 900px;
-
     margin-bottom: 28px;
-
     color: #ffffff;
 }
 
@@ -392,10 +396,6 @@ p {
 
 .section {
     padding: 100px 0;
-}
-
-.section:nth-of-type(even) {
-    background: #f8faf7;
 }
 
 
@@ -479,7 +479,7 @@ p {
 }
 
 
-/* PI section */
+/* PI */
 
 .pi {
     display: grid;
@@ -688,6 +688,7 @@ p {
     background: #f4f7f3;
 
     border: 1px solid #dfe6df;
+
     border-left: 3px solid #31583d;
 }
 
@@ -871,7 +872,7 @@ button:focus-visible {
    TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 
     .navbar {
         min-height: auto;
@@ -903,7 +904,7 @@ button:focus-visible {
     }
 
 
-    /* People */
+    /* PI */
 
     .pi {
         grid-template-columns: 260px 1fr;
@@ -914,6 +915,9 @@ button:focus-visible {
     .pi-photo {
         height: 350px;
     }
+
+
+    /* People */
 
     .people-grid {
         grid-template-columns: 1fr 1fr;
@@ -954,42 +958,55 @@ button:focus-visible {
     }
 
     .navbar nav {
+        display: flex;
+
         justify-content: flex-start;
 
-        gap: 12px 18px;
+        flex-wrap: wrap;
+
+        gap: 10px 18px;
     }
 
     .navbar nav > a,
     .nav-dropdown > a {
+        padding: 4px 0;
+
         font-size: 12px;
     }
 
+    .navbar nav > a::after,
+    .nav-dropdown > a::after {
+        bottom: -2px;
+    }
 
-    /* Mobile dropdown */
+
+    /* Mobile dropdown remains a true dropdown */
 
     .dropdown-menu {
-        position: static;
+        position: absolute;
 
-        min-width: 200px;
+        top: 100%;
+        left: 0;
 
-        margin-top: 8px;
+        width: 210px;
 
-        box-shadow: none;
+        margin-left: 0;
 
-        transform: none;
+        margin-top: 5px;
+
+        padding: 8px 0;
+
+        background: #ffffff;
+
+        border: 1px solid #dfe6df;
+
+        box-shadow: 0 10px 25px rgba(37, 61, 44, 0.12);
+
+        z-index: 3000;
     }
 
-    .nav-dropdown:hover .dropdown-menu,
-    .nav-dropdown:focus-within .dropdown-menu {
-        opacity: 1;
 
-        visibility: visible;
-
-        transform: none;
-    }
-
-
-    /* General */
+    /* General sections */
 
     .section {
         padding: 75px 0;
@@ -1022,7 +1039,7 @@ button:focus-visible {
     }
 
 
-    /* People */
+    /* PI */
 
     .pi {
         grid-template-columns: 1fr;
@@ -1033,6 +1050,9 @@ button:focus-visible {
     .pi-photo {
         height: 350px;
     }
+
+
+    /* People */
 
     .people-grid {
         grid-template-columns: 1fr;
@@ -1086,7 +1106,7 @@ button:focus-visible {
     }
 
     .navbar nav {
-        gap: 10px 14px;
+        gap: 9px 14px;
     }
 
     .navbar nav > a,
