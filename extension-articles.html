@@ -8,13 +8,18 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Extension Articles | Forage Agronomy Lab</title>
+    <title>
+        Extension Articles | Forage Agronomy Lab | University of Wyoming
+    </title>
 
     <meta name="description"
           content="Extension articles from the Forage Agronomy Lab at the University of Wyoming providing research-based information for forage producers and agricultural professionals.">
 
-    <link rel="stylesheet"
-          href="css/extension-articles.css">
+    <!-- Shared site styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="css/extension-articles.css">
 
 </head>
 
@@ -23,284 +28,199 @@
 
 
 <!-- =====================================================
-     HEADER
+     SHARED HEADER
 ===================================================== -->
 
-<header class="site-header">
-
-    <div class="header-inner">
+<div id="header-placeholder"></div>
 
 
-        <!-- LAB TITLE -->
-
-        <a href="index.html"
-           class="site-title">
-
-            <span class="university">
-                UNIVERSITY OF WYOMING
-            </span>
-
-            <span class="department">
-                Department of Plant Sciences
-            </span>
-
-            <span class="lab-name">
-                Forage Agronomy Lab
-            </span>
-
-        </a>
+<main>
 
 
-        <!-- MOBILE MENU BUTTON -->
+    <!-- =================================================
+         PAGE HERO
+    ================================================== -->
 
-        <button class="menu-toggle"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                type="button">
+    <section class="page-hero">
 
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="container">
 
-        </button>
+            <p class="eyebrow">
+                EXTENSION
+            </p>
 
+            <h1>
+                Extension Articles
+            </h1>
 
-        <!-- NAVIGATION -->
+            <p class="hero-text">
+                Research-based information for forage producers,
+                agricultural professionals, and Wyoming's
+                forage industry.
+            </p>
 
-        <nav class="main-nav">
+        </div>
 
-
-            <a href="index.html">
-                Home
-            </a>
-
-
-            <a href="people.html">
-                People
-            </a>
+    </section>
 
 
-            <a href="research.html">
-                Research
-            </a>
+
+    <!-- =================================================
+         ARTICLES
+    ================================================== -->
+
+    <section class="articles-section">
+
+        <div class="container">
 
 
-            <!-- EXTENSION -->
+            <div class="section-heading">
 
-            <div class="dropdown">
+                <p class="eyebrow">
+                    PUBLICATIONS
+                </p>
 
+                <h2>
+                    Extension Articles
+                </h2>
 
-                <button class="dropdown-button"
-                        type="button">
-
-                    Extension
-
-                    <span>
-                        ▾
-                    </span>
-
-                </button>
-
-
-                <div class="dropdown-menu">
-
-
-                    <a href="extension-articles.html"
-                       class="active">
-
-                        Extension Articles
-
-                    </a>
-
-
-                    <a href="producer-resources.html">
-
-                        Producer Resources
-
-                    </a>
-
-
-                </div>
+                <p>
+                    Practical information from the Forage Agronomy Lab
+                    addressing forage production, management, and
+                    related agricultural topics.
+                </p>
 
             </div>
 
 
-            <a href="links.html">
-                Links
-            </a>
+
+            <div class="article-list">
 
 
-        </nav>
+                <!-- =================================================
+                     EXTENSION ARTICLE 1
+                ================================================= -->
 
-    </div>
+                <article class="extension-article">
 
-</header>
-
-
-
-<!-- =====================================================
-     PAGE HERO
-===================================================== -->
-
-<section class="page-hero">
-
-    <div class="container">
+                    <div class="article-year">
+                        2026
+                    </div>
 
 
-        <p class="eyebrow">
-            EXTENSION
-        </p>
+                    <div class="article-content">
+
+                        <p class="article-category">
+                            EXTENSION ARTICLE
+                        </p>
 
 
-        <h1>
-            Extension Articles
-        </h1>
+                        <h3>
+
+                            <a href="articles/extension-article-1.pdf"
+                               target="_blank"
+                               rel="noopener noreferrer">
+
+                                Title 1
+
+                            </a>
+
+                        </h3>
 
 
-        <p class="hero-text">
+                        <p class="article-description">
 
-        </p>
+                            Add a short description of the extension
+                            article here. This description can briefly
+                            explain the topic, key information, and
+                            relevance to forage producers.
 
-
-    </div>
-
-</section>
-
-        <!-- =================================================
-             ARTICLE LIST
-        ================================================== -->
-
-        <div class="article-list">
+                        </p>
 
 
-            <!-- =================================================
-                 EXTENSION ARTICLE 1
-            ================================================== -->
-
-            <article class="extension-article">
-
-
-                <div class="article-year">
-                    2026
-                </div>
-
-
-                <div class="article-content">
-
-
-                    <p class="article-category">
-                        EXTENSION ARTICLE
-                    </p>
-
-
-                    <h3>
-
-
-                        <!--
-                            The article title itself is the
-                            clickable PDF link.
-                        -->
-
-                        <a href="articles/extension-article-1.pdf"
+                        <a class="pdf-link"
+                           href="articles/extension-article-1.pdf"
                            target="_blank"
-                           rel="noopener">
+                           rel="noopener noreferrer">
 
-                            Title 1
+                            Read Article PDF
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
 
                         </a>
 
+                    </div>
 
-                    </h3>
-
-
-                    <p class="article-description">
-
-                        Add a short description of the extension
-                        article here. This description can briefly
-                        explain the topic, key information, and
-                        relevance to forage producers.
-
-                    </p>
-
-
-                    <a class="pdf-link"
-                       href="articles/extension-article-1.pdf"
-                       target="_blank"
-                       rel="noopener">
-
-                        Read Article PDF
-                        <span aria-hidden="true">
-                            →
-                        </span>
-
-                    </a>
-
-
-                </div>
-
-            </article>
+                </article>
 
 
 
-            <!-- =================================================
-                 EXTENSION ARTICLE 2
-                 COPY THIS BLOCK FOR EACH NEW ARTICLE
-            ================================================== -->
+                <!-- =================================================
+                     EXTENSION ARTICLE 2
+                     COPY THIS BLOCK FOR EACH NEW ARTICLE
+                ================================================== -->
 
-            <!--
+                <!--
 
-            <article class="extension-article">
+                <article class="extension-article">
 
-                <div class="article-year">
-                    2026
-                </div>
+                    <div class="article-year">
+                        2026
+                    </div>
 
-                <div class="article-content">
 
-                    <p class="article-category">
-                        EXTENSION ARTICLE
-                    </p>
+                    <div class="article-content">
 
-                    <h3>
+                        <p class="article-category">
+                            EXTENSION ARTICLE
+                        </p>
 
-                        <a href="articles/extension-article-2.pdf"
+
+                        <h3>
+
+                            <a href="articles/extension-article-2.pdf"
+                               target="_blank"
+                               rel="noopener noreferrer">
+
+                                Title 2
+
+                            </a>
+
+                        </h3>
+
+
+                        <p class="article-description">
+                            Short description of the article.
+                        </p>
+
+
+                        <a class="pdf-link"
+                           href="articles/extension-article-2.pdf"
                            target="_blank"
-                           rel="noopener">
+                           rel="noopener noreferrer">
 
-                            Title 2
+                            Read Article PDF
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
 
                         </a>
 
-                    </h3>
+                    </div>
 
-                    <p class="article-description">
-                        Short description of the article.
-                    </p>
+                </article>
 
-                    <a class="pdf-link"
-                       href="articles/extension-article-2.pdf"
-                       target="_blank"
-                       rel="noopener">
+                -->
 
-                        Read Article PDF
-                        <span aria-hidden="true">
-                            →
-                        </span>
 
-                    </a>
-
-                </div>
-
-            </article>
-
-            -->
-
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
 </main>
@@ -308,75 +228,23 @@
 
 
 <!-- =====================================================
-     FOOTER
+     SHARED FOOTER
 ===================================================== -->
 
-<footer class="site-footer">
-
-
-    <div class="container footer-inner">
-
-
-        <div>
-
-
-            <p class="footer-title">
-                Forage Agronomy Lab
-            </p>
-
-
-            <p>
-                Department of Plant Sciences
-                <br>
-                University of Wyoming
-                <br>
-                Laramie, Wyoming 82071
-            </p>
-
-
-        </div>
+<div id="footer-placeholder"></div>
 
 
 
-        <div class="footer-contact">
+<!-- =====================================================
+     SHARED JAVASCRIPT
+===================================================== -->
 
+<script src="js/components.js"></script>
+<script src="js/script.js"></script>
 
-            <p>
-
-                <strong>
-                    Dr. Surendra Bhattarai
-                </strong>
-
-            </p>
-
-
-            <p>
-                Surendra.Bhattarai@uwyo.edu
-                <br>
-                307-766-4151
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        Forage Agronomy Lab · University of Wyoming
-
-    </div>
-
-
-</footer>
-
-
-
+<!-- Page-specific JavaScript -->
 <script src="js/extension-articles.js"></script>
+
 
 </body>
 
