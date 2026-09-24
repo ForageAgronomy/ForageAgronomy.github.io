@@ -1,36 +1,43 @@
-/* =========================================================
-   LINKS PAGE JAVASCRIPT
-   Forage Agronomy Lab
-========================================================= */
+/* =====================================================
+   FORAGE AGRONOMY LAB — LINKS PAGE
+===================================================== */
 
 
-/* =========================================================
+/* =====================================================
    FOOTER YEAR
-========================================================= */
+===================================================== */
 
 const yearElement = document.getElementById("year");
 
 if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE NAVIGATION
-========================================================= */
+===================================================== */
 
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const mainNav =
+    document.getElementById("mainNav");
+
 
 if (menuToggle && mainNav) {
 
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", () => {
 
-        const isOpen = mainNav.classList.toggle("show");
+        const isOpen =
+            mainNav.classList.toggle("show");
 
         menuToggle.setAttribute(
             "aria-expanded",
-            isOpen.toString()
+            String(isOpen)
         );
 
         menuToggle.setAttribute(
@@ -45,9 +52,9 @@ if (menuToggle && mainNav) {
 }
 
 
-/* =========================================================
+/* =====================================================
    EXTENSION DROPDOWN
-========================================================= */
+===================================================== */
 
 const extensionButton =
     document.getElementById("extensionButton");
@@ -58,38 +65,65 @@ const extensionMenu =
 
 if (extensionButton && extensionMenu) {
 
-    extensionButton.addEventListener(
-        "click",
-        function (event) {
+    extensionButton.addEventListener("click", (event) => {
 
-            event.stopPropagation();
+        event.stopPropagation();
 
-            const isOpen =
-                extensionMenu.classList.toggle("show");
+        const isOpen =
+            extensionMenu.classList.toggle("show");
 
-            extensionButton.setAttribute(
-                "aria-expanded",
-                isOpen.toString()
-            );
+        extensionButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
 
-        }
-    );
+    });
 
 
-    /* Close dropdown when clicking outside */
+    /* Close dropdown when clicking elsewhere */
 
-    document.addEventListener(
-        "click",
-        function () {
+    document.addEventListener("click", () => {
 
-            extensionMenu.classList.remove("show");
+        extensionMenu.classList.remove("show");
 
-            extensionButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        extensionButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-        }
-    );
+    });
+
+}
+
+
+/* =====================================================
+   CLOSE MOBILE MENU AFTER CLICKING A LINK
+===================================================== */
+
+if (mainNav) {
+
+    mainNav.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mainNav.classList.remove("show");
+
+            if (menuToggle) {
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+            }
+
+        });
+
+    });
 
 }
