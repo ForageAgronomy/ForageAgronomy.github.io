@@ -13,6 +13,11 @@
     <meta name="description"
           content="Producer resources from the Forage Agronomy Lab, including forage seeding rate calculation and forage species selection tools.">
 
+    <!-- Shared site styles -->
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <!-- Page-specific styles -->
     <link rel="stylesheet"
           href="css/producer-resources.css">
 
@@ -23,105 +28,10 @@
 
 
 <!-- =====================================================
-     HEADER
+     SHARED HEADER
 ===================================================== -->
 
-<header class="site-header">
-
-    <div class="header-inner">
-
-
-        <a href="index.html"
-           class="site-title">
-
-            <span class="university">
-                UNIVERSITY OF WYOMING
-            </span>
-
-            <span class="department">
-                Department of Plant Sciences
-            </span>
-
-            <span class="lab-name">
-                Forage Agronomy Lab
-            </span>
-
-        </a>
-
-
-        <!-- MOBILE MENU -->
-
-        <button class="menu-toggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <!-- NAVIGATION -->
-
-        <nav class="main-nav">
-
-
-            <a href="index.html">
-                Home
-            </a>
-
-
-            <a href="people.html">
-                People
-            </a>
-
-
-            <a href="research.html">
-                Research
-            </a>
-
-
-            <!-- EXTENSION -->
-
-            <div class="dropdown">
-
-                <button class="dropdown-button"
-                        type="button">
-
-                    Extension
-                    <span>▾</span>
-
-                </button>
-
-
-                <div class="dropdown-menu">
-
-                    <a href="extension-articles.html">
-                        Extension Articles
-                    </a>
-
-                    <a href="producer-resources.html"
-                       class="active">
-                        Producer Resources
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <a href="links.html">
-                Links
-            </a>
-
-
-        </nav>
-
-    </div>
-
-</header>
+<div id="header-placeholder"></div>
 
 
 
@@ -137,11 +47,9 @@
             EXTENSION
         </p>
 
-
         <h1>
             Producer Resources
         </h1>
-
 
         <p class="hero-text">
 
@@ -168,17 +76,19 @@
     <div class="container">
 
 
+        <!-- =================================================
+             SECTION INTRODUCTION
+        ================================================== -->
+
         <div class="section-heading">
 
             <p class="eyebrow">
                 PRACTICAL TOOLS
             </p>
 
-
             <h2>
                 Producer Resources
             </h2>
-
 
             <p>
                 Use these tools to support forage production
@@ -356,65 +266,28 @@
 
 
 <!-- =====================================================
-     FOOTER
+     SHARED FOOTER
 ===================================================== -->
 
-<footer class="site-footer">
-
-    <div class="container footer-inner">
-
-
-        <div>
-
-            <p class="footer-title">
-                Forage Agronomy Lab
-            </p>
-
-
-            <p>
-                Department of Plant Sciences
-                <br>
-                University of Wyoming
-                <br>
-                Laramie, Wyoming 82071
-            </p>
-
-        </div>
+<div id="footer-placeholder"></div>
 
 
 
-        <div class="footer-contact">
+<!-- =====================================================
+     SHARED JAVASCRIPT
+===================================================== -->
 
-            <p>
-                <strong>
-                    Dr. Surendra Bhattarai
-                </strong>
-            </p>
+<script src="js/components.js"></script>
 
-
-            <p>
-                Surendra.Bhattarai@uwyo.edu
-                <br>
-                307-766-4151
-            </p>
-
-        </div>
-
-    </div>
+<script src="js/script.js"></script>
 
 
-    <div class="copyright">
-
-        © <span id="year"></span>
-        Forage Agronomy Lab · University of Wyoming
-
-    </div>
-
-</footer>
-
-
+<!-- =====================================================
+     PAGE-SPECIFIC JAVASCRIPT
+===================================================== -->
 
 <script src="js/producer-resources.js"></script>
+
 
 </body>
 
