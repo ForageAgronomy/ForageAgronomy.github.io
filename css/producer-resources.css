@@ -9,11 +9,8 @@
 ===================================================== */
 
 .resources-section {
-
+    padding: 100px 0 110px;
     background: var(--cream);
-
-    padding:
-        100px 0;
 }
 
 
@@ -21,34 +18,32 @@
    SECTION HEADING
 ===================================================== */
 
-.section-heading {
-
-    max-width: 760px;
-
+.resources-section .section-heading {
+    max-width: 800px;
     margin-bottom: 55px;
 }
 
-
-.section-heading h2 {
-
-    font-size:
-        clamp(36px, 5vw, 50px);
-
-    line-height: 1.15;
-
-    font-weight: 500;
+.resources-section .section-heading h2 {
+    margin-bottom: 18px;
 
     color: var(--brown-dark);
 
-    margin-bottom: 18px;
+    font-size:
+        clamp(36px, 5vw, 52px);
+
+    font-weight: 500;
+    line-height: 1.1;
+
+    letter-spacing: -0.6px;
 }
 
-
-.section-heading > p:last-child {
-
-    font-size: 17px;
+.resources-section .section-heading > p:last-child {
+    max-width: 760px;
 
     color: var(--text-light);
+
+    font-size: 17px;
+    line-height: 1.75;
 }
 
 
@@ -57,7 +52,6 @@
 ===================================================== */
 
 .resources-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -74,34 +68,39 @@
 ===================================================== */
 
 .resource-card {
+    position: relative;
 
     display: grid;
 
     grid-template-columns:
-        85px minmax(0, 1fr);
+        88px minmax(0, 1fr);
 
-    min-height: 350px;
+    min-height: 355px;
 
     background: var(--white);
 
     border:
         1px solid
-        rgba(90,64,48,0.10);
+        rgba(90, 64, 48, 0.10);
+
+    overflow: hidden;
 
     transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-
 .resource-card:hover {
+    border-color:
+        rgba(83, 107, 69, 0.25);
+
+    box-shadow:
+        0 20px 42px
+        rgba(59, 42, 32, 0.12);
 
     transform:
         translateY(-6px);
-
-    box-shadow:
-        0 18px 40px
-        rgba(59,42,32,0.12);
 }
 
 
@@ -110,11 +109,11 @@
 ===================================================== */
 
 .resource-number {
+    position: relative;
 
     display: flex;
 
     justify-content: center;
-
     align-items: flex-start;
 
     padding-top: 34px;
@@ -129,10 +128,33 @@
         sans-serif;
 
     font-size: 13px;
-
     font-weight: 700;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+
+    overflow: hidden;
+}
+
+
+/* Large decorative number effect */
+
+.resource-number::after {
+    content: "";
+
+    position: absolute;
+
+    right: -18px;
+    bottom: -25px;
+
+    width: 100px;
+    height: 100px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.14);
+
+    transform:
+        rotate(45deg);
 }
 
 
@@ -141,17 +163,16 @@
 ===================================================== */
 
 .resource-content {
-
     display: flex;
-
     flex-direction: column;
 
-    padding:
-        40px 35px;
+    padding: 40px 35px 38px;
 }
 
-
 .resource-category {
+    margin-bottom: 12px;
+
+    color: var(--green);
 
     font-family:
         Arial,
@@ -159,39 +180,34 @@
         sans-serif;
 
     font-size: 10px;
-
     font-weight: 700;
 
     letter-spacing: 2px;
 
-    color: var(--green);
-
-    margin-bottom: 12px;
+    text-transform: uppercase;
 }
 
-
 .resource-content h3 {
+    margin-bottom: 18px;
+
+    color: var(--brown-dark);
 
     font-size:
         clamp(27px, 3vw, 35px);
 
-    line-height: 1.2;
-
     font-weight: 500;
+    line-height: 1.18;
 
-    color: var(--brown-dark);
-
-    margin-bottom: 18px;
+    letter-spacing: -0.3px;
 }
 
-
 .resource-content p:not(.resource-category) {
-
-    font-size: 16px;
+    margin-bottom: 25px;
 
     color: var(--text-light);
 
-    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 
@@ -200,48 +216,62 @@
 ===================================================== */
 
 .resource-link {
-
-    margin-top: auto;
-
     display: inline-flex;
-
     align-items: center;
 
     gap: 8px;
 
     width: fit-content;
 
+    margin-top: auto;
+
+    color: var(--brown);
+
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 700;
 
-    letter-spacing: 0.8px;
+    letter-spacing: 0.9px;
 
     text-transform: uppercase;
 
-    color: var(--brown);
-
     transition:
-        color 0.2s ease;
+        color 0.2s ease,
+        gap 0.2s ease;
 }
-
 
 .resource-link span {
-
-    font-size: 17px;
-
+    font-size: 18px;
     line-height: 1;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.resource-card:hover .resource-link {
+    color: var(--green-dark);
+
+    gap: 11px;
+}
+
+.resource-card:hover .resource-link span {
+    transform:
+        translateX(2px);
 }
 
 
-.resource-card:hover .resource-link {
+/* =====================================================
+   RESOURCE CARD FOCUS
+===================================================== */
 
-    color: var(--green-dark);
+.resource-link:focus-visible {
+    outline: 2px solid var(--green);
+
+    outline-offset: 4px;
 }
 
 
@@ -250,47 +280,50 @@
 ===================================================== */
 
 .info-section {
+    padding: 88px 0;
 
     background: var(--cream-dark);
 
-    padding:
-        85px 0;
-
     border-top:
+        1px solid var(--border);
+
+    border-bottom:
         1px solid var(--border);
 }
 
-
 .info-content {
-
     max-width: 850px;
 }
 
-
 .info-content h2 {
+    max-width: 800px;
+
+    margin-bottom: 20px;
+
+    color: var(--brown-dark);
 
     font-size:
         clamp(32px, 4vw, 46px);
 
-    line-height: 1.15;
-
     font-weight: 500;
+    line-height: 1.12;
 
-    color: var(--brown-dark);
-
-    margin-bottom: 20px;
+    letter-spacing: -0.4px;
 }
 
-
 .info-content p:not(.eyebrow) {
-
-    font-size: 17px;
-
-    color: var(--text-light);
-
     max-width: 780px;
 
     margin-bottom: 15px;
+
+    color: var(--text-light);
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.info-content p:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -301,9 +334,7 @@
 @media (max-width: 900px) {
 
     .resources-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
 }
@@ -316,38 +347,48 @@
 @media (max-width: 700px) {
 
     .resources-section {
+        padding: 65px 0 75px;
+    }
 
-        padding:
-            65px 0;
+    .resources-section .section-heading {
+        margin-bottom: 38px;
+    }
+
+    .resources-section .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .resources-section .section-heading > p:last-child {
+        font-size: 16px;
     }
 
 
-    .resource-card {
+    /* Resource cards */
 
+    .resource-card {
         grid-template-columns:
             60px minmax(0, 1fr);
 
         min-height: 0;
     }
 
+    .resource-number {
+        padding-top: 29px;
+    }
 
     .resource-content {
-
-        padding:
-            30px 25px;
+        padding: 31px 25px 34px;
     }
-
 
     .resource-content h3 {
-
-        font-size: 27px;
+        font-size: 28px;
     }
 
 
-    .info-section {
+    /* Information */
 
-        padding:
-            65px 0;
+    .info-section {
+        padding: 65px 0;
     }
 
 }
@@ -359,27 +400,55 @@
 
 @media (max-width: 450px) {
 
-    .resource-card {
+    .resources-section {
+        padding: 55px 0 65px;
+    }
 
-        grid-template-columns:
-            1fr;
+    .resources-section .section-heading h2 {
+        font-size: 32px;
     }
 
 
-    .resource-number {
+    /* Stack number above content */
 
-        min-height: 48px;
+    .resource-card {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-number {
+        min-height: 52px;
 
         align-items: center;
 
         padding-top: 0;
     }
 
+    .resource-number::after {
+        right: 8px;
+        bottom: -45px;
+    }
 
     .resource-content {
+        padding: 28px 22px 31px;
+    }
 
-        padding:
-            28px 22px 30px;
+    .resource-content h3 {
+        font-size: 27px;
+    }
+
+    .resource-content p:not(.resource-category) {
+        font-size: 15px;
+    }
+
+
+    /* Information */
+
+    .info-section {
+        padding: 55px 0;
+    }
+
+    .info-content h2 {
+        font-size: 32px;
     }
 
 }
