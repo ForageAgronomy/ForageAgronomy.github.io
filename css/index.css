@@ -1,0 +1,191 @@
+/* =====================================================
+   LAB PHOTO SLIDESHOW
+===================================================== */
+
+.slideshow {
+    position: relative;
+
+    width: 100%;
+    height: 520px;
+
+    overflow: hidden;
+
+    background: var(--cream-dark);
+
+    border: 1px solid var(--border-light);
+
+    box-shadow: var(--shadow-medium);
+}
+
+.slide {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.slide.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    z-index: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   SLIDESHOW CONTROLS
+===================================================== */
+
+.slide-control {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 3;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.45);
+
+    background:
+        rgba(59, 42, 32, 0.55);
+
+    color: var(--white);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.slide-control:hover {
+    background: var(--green-dark);
+
+    border-color: var(--green-dark);
+}
+
+.slide-prev {
+    left: 20px;
+}
+
+.slide-next {
+    right: 20px;
+}
+
+
+/* =====================================================
+   SLIDESHOW DOTS
+===================================================== */
+
+.slide-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    z-index: 3;
+
+    display: flex;
+
+    gap: 8px;
+
+    transform: translateX(-50%);
+}
+
+.slide-dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: 1px solid var(--white);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.35);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.slide-dot.active {
+    background: var(--white);
+
+    transform: scale(1.25);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .slideshow {
+        height: 360px;
+    }
+
+    .slide-control {
+        width: 40px;
+        height: 40px;
+
+        font-size: 25px;
+    }
+
+    .slide-prev {
+        left: 12px;
+    }
+
+    .slide-next {
+        right: 12px;
+    }
+
+    .slide-dots {
+        bottom: 13px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .slideshow {
+        height: 280px;
+    }
+}
