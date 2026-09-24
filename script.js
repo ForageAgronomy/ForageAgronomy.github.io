@@ -1,4 +1,8 @@
-```javascript
+/* =========================================================
+   FORAGE AGRONOMY & BREEDING LAB
+   UNIVERSITY OF WYOMING
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -14,9 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ".course"
     );
 
-
     const animationObserver = new IntersectionObserver(
-
         function (entries) {
 
             entries.forEach(function (entry) {
@@ -26,19 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     entry.target.classList.add("visible");
 
                     animationObserver.unobserve(entry.target);
-
                 }
 
             });
 
         },
-
         {
             threshold: 0.08
         }
-
     );
-
 
     animatedElements.forEach(function (element) {
 
@@ -49,17 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
     /* =====================================================
-       SMOOTH NAVIGATION
-
-       Excludes the Extension dropdown toggle.
+       SMOOTH SCROLLING
+       Excludes the Extension dropdown toggle
     ===================================================== */
 
     const navigationLinks = document.querySelectorAll(
         '.navbar nav a[href^="#"]:not(.dropdown-toggle)'
     );
-
 
     navigationLinks.forEach(function (link) {
 
@@ -68,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const targetId = link.getAttribute("href");
 
             const target = document.querySelector(targetId);
-
 
             if (target) {
 
@@ -86,23 +80,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
     /* =====================================================
        ACTIVE NAVIGATION
     ===================================================== */
 
-    const sections = document.querySelectorAll(
-        "section[id]"
-    );
-
+    const sections = document.querySelectorAll("section[id]");
 
     const navLinks = document.querySelectorAll(
         '.navbar nav a[href^="#"]:not(.dropdown-toggle)'
     );
 
-
     const navigationObserver = new IntersectionObserver(
-
         function (entries) {
 
             entries.forEach(function (entry) {
@@ -112,11 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     const currentId =
                         entry.target.getAttribute("id");
 
-
                     navLinks.forEach(function (link) {
 
                         link.classList.remove("active");
-
 
                         if (
                             link.getAttribute("href") ===
@@ -134,14 +120,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
         },
-
         {
             rootMargin: "-30% 0px -60% 0px",
             threshold: 0
         }
-
     );
-
 
     sections.forEach(function (section) {
 
@@ -150,16 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
     /* =====================================================
-       PUBLICATION LINK ACCESSIBILITY
+       PUBLICATION LINKS
     ===================================================== */
 
     const publicationLinks =
-        document.querySelectorAll(
-            ".publication h3 a"
-        );
-
+        document.querySelectorAll(".publication h3 a");
 
     publicationLinks.forEach(function (link) {
 
@@ -171,19 +150,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
     /* =====================================================
        EXTERNAL LINKS
-
-       Make sure links opening in a new tab
-       are handled safely.
     ===================================================== */
 
     const externalLinks =
-        document.querySelectorAll(
-            'a[target="_blank"]'
-        );
-
+        document.querySelectorAll('a[target="_blank"]');
 
     externalLinks.forEach(function (link) {
 
@@ -197,13 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        EXTENSION DROPDOWN
-
-       The Extension dropdown is controlled entirely
-       by CSS using hover and keyboard focus.
-
+       CSS handles hover and keyboard focus.
        No JavaScript is needed here.
     ===================================================== */
 
 
 });
-```
