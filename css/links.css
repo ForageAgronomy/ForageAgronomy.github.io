@@ -1,0 +1,41 @@
+/* ================= FOOTER ================= */
+
+.site-footer {
+    background: var(--uw-dark);
+    color: #ffffff;
+}
+
+.footer-grid {
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-grid h3,
+.footer-grid h4 {
+    margin-bottom: 15px;
+}
+
+.footer-grid p {
+    color: #cccccc;
+}
+
+.footer-grid a {
+    display: block;
+    color: #cccccc;
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-grid a:hover {
+    color: var(--uw-gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 18px 0;
+    color: #aaaaaa;
+    font-size: 13px;
+}
