@@ -8,13 +8,18 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Forage Species Selection | Forage Agronomy Lab</title>
+    <title>
+        Forage Species Selection | Forage Agronomy Lab | University of Wyoming
+    </title>
 
     <meta name="description"
           content="Wyoming forage species selection tool from the Forage Agronomy Lab at the University of Wyoming.">
 
-    <link rel="stylesheet"
-          href="css/forage-species-selection.css">
+    <!-- Shared site styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="css/forage-species-selection.css">
 
 </head>
 
@@ -23,821 +28,87 @@
 
 
 <!-- =====================================================
-     HEADER
+     SHARED HEADER
 ===================================================== -->
 
-<header class="site-header">
+<div id="header-placeholder"></div>
 
-    <div class="header-inner">
-
-
-        <a href="index.html"
-           class="site-title">
-
-            <span class="university">
-                UNIVERSITY OF WYOMING
-            </span>
-
-            <span class="department">
-                Department of Plant Sciences
-            </span>
-
-            <span class="lab-name">
-                Forage Agronomy Lab
-            </span>
-
-        </a>
-
-
-        <button class="menu-toggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <nav class="main-nav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="people.html">
-                People
-            </a>
-
-            <a href="research.html">
-                Research
-            </a>
-
-
-            <div class="dropdown">
-
-                <button class="dropdown-button"
-                        type="button">
-
-                    Extension
-                    <span>▾</span>
-
-                </button>
-
-
-                <div class="dropdown-menu">
-
-                    <a href="extension-articles.html">
-                        Extension Articles
-                    </a>
-
-                    <a href="producer-resources.html">
-                        Producer Resources
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <a href="links.html">
-                Links
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     PAGE HERO
-===================================================== -->
-
-<section class="page-hero">
-
-    <div class="container">
-
-        <p class="eyebrow">
-            PRODUCER RESOURCE
-        </p>
-
-
-        <h1>
-            Forage Species Selection
-        </h1>
-
-
-        <p class="hero-text">
-
-            Select forage species based on your Wyoming production
-            conditions, soil characteristics, environmental
-            constraints, and intended use.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
 
 <main>
 
 
-<section class="selection-section">
+    <!-- =================================================
+         PAGE HERO
+    ================================================== -->
 
-    <div class="container">
+    <section class="page-hero">
 
-
-        <!-- =================================================
-             INTRODUCTION
-        ================================================== -->
-
-        <div class="tool-intro">
+        <div class="container">
 
             <p class="eyebrow">
-                WYOMING FORAGE DECISION TOOL
+                PRODUCER RESOURCE
             </p>
 
+            <h1>
+                Forage Species Selection
+            </h1>
 
-            <h2>
-                Select the forage species for your site
-            </h2>
-
-
-            <p>
-                Start with the conditions of your field, then
-                select the intended use. The tool will identify
-                forage species that may be appropriate for the
-                conditions you selected.
+            <p class="hero-text">
+                Select forage species based on your Wyoming
+                production conditions, soil characteristics,
+                environmental constraints, and intended use.
             </p>
-
-
-            <div class="notice">
-
-                <strong>
-                    How to use this tool
-                </strong>
-
-                <p>
-                    Choose the conditions that best describe your
-                    field. Recommendations are intended as a starting
-                    point and should be considered together with
-                    local soil tests, variety performance, weather,
-                    water availability, and management objectives.
-                </p>
-
-            </div>
 
         </div>
 
+    </section>
 
 
-        <!-- =================================================
-             STEP 1
-        ================================================== -->
 
-        <section class="tool-card">
+    <!-- =================================================
+         SPECIES SELECTION TOOL
+    ================================================== -->
 
-            <div class="step-heading">
+    <section class="selection-section">
 
-                <div class="step-number">
-                    01
-                </div>
+        <div class="container">
 
-                <div>
 
-                    <p class="eyebrow">
-                        SITE CONDITIONS
-                    </p>
+            <!-- =================================================
+                 INTRODUCTION
+            ================================================== -->
 
-                    <h2>
-                        Describe your field
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <!-- IRRIGATION -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Water availability
-                </label>
-
-
-                <div class="option-grid"
-                     data-group="water">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="dryland">
-
-                        <strong>
-                            Dryland
-                        </strong>
-
-                        <span>
-                            Rainfall-dependent production
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="irrigated">
-
-                        <strong>
-                            Irrigated
-                        </strong>
-
-                        <span>
-                            Reliable supplemental water
-                        </span>
-
-                    </button>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- DRAINAGE -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Soil drainage
-                </label>
-
-
-                <div class="option-grid three"
-                     data-group="drainage">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="well">
-
-                        <strong>
-                            Well drained
-                        </strong>
-
-                        <span>
-                            Water drains readily
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="moderate">
-
-                        <strong>
-                            Moderately drained
-                        </strong>
-
-                        <span>
-                            Some seasonal wetness
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="poor">
-
-                        <strong>
-                            Poorly drained
-                        </strong>
-
-                        <span>
-                            Wet or waterlogged periods
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- SOIL TEXTURE -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Soil texture
-                </label>
-
-
-                <div class="option-grid three"
-                     data-group="texture">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="sandy">
-
-                        <strong>
-                            Sandy
-                        </strong>
-
-                        <span>
-                            Coarse-textured soil
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="loam">
-
-                        <strong>
-                            Loam
-                        </strong>
-
-                        <span>
-                            Medium-textured soil
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="clay">
-
-                        <strong>
-                            Clay
-                        </strong>
-
-                        <span>
-                            Fine-textured soil
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- SOIL pH -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Soil pH
-                </label>
-
-
-                <div class="option-grid three"
-                     data-group="ph">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="acidic">
-
-                        <strong>
-                            Acidic
-                        </strong>
-
-                        <span>
-                            Below approximately pH 6.5
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="neutral">
-
-                        <strong>
-                            Near neutral
-                        </strong>
-
-                        <span>
-                            Approximately pH 6.5–7.8
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="alkaline">
-
-                        <strong>
-                            Alkaline
-                        </strong>
-
-                        <span>
-                            Above approximately pH 7.8
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- SALINITY -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Salinity
-                </label>
-
-
-                <div class="option-grid three"
-                     data-group="salinity">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="low">
-
-                        <strong>
-                            Low / none
-                        </strong>
-
-                        <span>
-                            No known salinity concern
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="moderate">
-
-                        <strong>
-                            Moderate
-                        </strong>
-
-                        <span>
-                            Some salt stress
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="high">
-
-                        <strong>
-                            High
-                        </strong>
-
-                        <span>
-                            Strong salt limitation
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- DROUGHT -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Drought pressure
-                </label>
-
-
-                <div class="option-grid three"
-                     data-group="drought">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="low">
-
-                        <strong>
-                            Low
-                        </strong>
-
-                        <span>
-                            Moisture usually adequate
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="moderate">
-
-                        <strong>
-                            Moderate
-                        </strong>
-
-                        <span>
-                            Periodic moisture limitation
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="high">
-
-                        <strong>
-                            High
-                        </strong>
-
-                        <span>
-                            Frequent moisture limitation
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- WINTER -->
-
-            <div class="question">
-
-                <label class="question-label">
-                    Winter conditions
-                </label>
-
-
-                <div class="option-grid three"
-                     data-group="winter">
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="mild">
-
-                        <strong>
-                            Mild
-                        </strong>
-
-                        <span>
-                            Lower winter stress
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="cold">
-
-                        <strong>
-                            Cold
-                        </strong>
-
-                        <span>
-                            Regular severe winter conditions
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="severe">
-
-                        <strong>
-                            Very severe
-                        </strong>
-
-                        <span>
-                            High winter survival requirement
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             STEP 2
-        ================================================== -->
-
-        <section class="tool-card">
-
-            <div class="step-heading">
-
-                <div class="step-number">
-                    02
-                </div>
-
-                <div>
-
-                    <p class="eyebrow">
-                        PRODUCTION OBJECTIVE
-                    </p>
-
-                    <h2>
-                        What is your intended use?
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="question">
-
-                <div class="option-grid four"
-                     data-group="use">
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="hay">
-
-                        <strong>
-                            Hay
-                        </strong>
-
-                        <span>
-                            Harvested forage
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="grazing">
-
-                        <strong>
-                            Grazing
-                        </strong>
-
-                        <span>
-                            Pasture or grazing
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="haylage">
-
-                        <strong>
-                            Haylage
-                        </strong>
-
-                        <span>
-                            Stored fermented forage
-                        </span>
-
-                    </button>
-
-
-                    <button type="button"
-                            class="option-button"
-                            data-value="seed">
-
-                        <strong>
-                            Seed production
-                        </strong>
-
-                        <span>
-                            Forage or grass seed crop
-                        </span>
-
-                    </button>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ACTION
-        ================================================== -->
-
-        <div class="action-area">
-
-            <button type="button"
-                    id="find-species"
-                    class="primary-button">
-
-                Find Suitable Forage Species
-
-            </button>
-
-
-            <button type="button"
-                    id="reset-tool"
-                    class="secondary-button">
-
-                Reset
-
-            </button>
-
-        </div>
-
-
-
-        <!-- =================================================
-             STEP 3 — RESULTS
-        ================================================== -->
-
-        <section class="results-section"
-                 id="results-section"
-                 aria-live="polite">
-
-
-            <div class="results-heading">
+            <div class="tool-intro">
 
                 <p class="eyebrow">
-                    RESULTS
+                    WYOMING FORAGE DECISION TOOL
                 </p>
-
 
                 <h2>
-                    Forage Species
+                    Select the forage species for your site
                 </h2>
 
-
-                <p id="results-summary">
-                    Select your field conditions and intended use
-                    to view forage species.
+                <p>
+                    Start with the conditions of your field, then
+                    select the intended use. The tool will identify
+                    forage species that may be appropriate for the
+                    conditions you selected.
                 </p>
 
-            </div>
 
+                <div class="notice">
 
-
-            <!-- RESULT FILTER -->
-
-            <div class="results-controls">
-
-                <label for="result-search">
-                    Search species
-                </label>
-
-                <input type="search"
-                       id="result-search"
-                       placeholder="Search forage species...">
-
-            </div>
-
-
-
-            <!-- RESULTS -->
-
-            <div id="results-container"
-                 class="results-grid">
-
-                <div class="initial-result">
+                    <strong>
+                        How to use this tool
+                    </strong>
 
                     <p>
-                        Select your conditions above and click
-                        <strong>
-                            Find Suitable Forage Species
-                        </strong>
-                        to view results.
+                        Choose the conditions that best describe your
+                        field. Recommendations are intended as a
+                        starting point and should be considered
+                        together with local soil tests, variety
+                        performance, weather, water availability,
+                        and management objectives.
                     </p>
 
                 </div>
@@ -845,113 +116,698 @@
             </div>
 
 
-        </section>
+
+            <!-- =================================================
+                 STEP 1
+            ================================================== -->
+
+            <section class="tool-card">
+
+                <div class="step-heading">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <p class="eyebrow">
+                            SITE CONDITIONS
+                        </p>
+
+                        <h2>
+                            Describe your field
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WATER -->
+
+                <div class="question">
+
+                    <label class="question-label">
+                        Water availability
+                    </label>
+
+                    <div class="option-grid"
+                         data-group="water">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="dryland">
+
+                            <strong>
+                                Dryland
+                            </strong>
+
+                            <span>
+                                Rainfall-dependent production
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="irrigated">
+
+                            <strong>
+                                Irrigated
+                            </strong>
+
+                            <span>
+                                Reliable supplemental water
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
 
 
 
-        <!-- =================================================
-             NOTE
-        ================================================== -->
+                <!-- DRAINAGE -->
 
-        <section class="method-section">
+                <div class="question">
 
-            <p class="eyebrow">
-                IMPORTANT
-            </p>
+                    <label class="question-label">
+                        Soil drainage
+                    </label>
 
-            <h2>
-                Using the results
-            </h2>
+                    <div class="option-grid three"
+                         data-group="drainage">
 
-            <p>
+                        <button type="button"
+                                class="option-button"
+                                data-value="well">
 
-                Species adaptation varies among varieties,
-                locations, management systems, and years.
-                The results are intended as a decision-support
-                starting point rather than a substitute for
-                local agronomic recommendations or field trials.
+                            <strong>
+                                Well drained
+                            </strong>
 
-            </p>
+                            <span>
+                                Water drains readily
+                            </span>
 
-            <p>
-
-                Soil testing, water availability, winter conditions,
-                establishment method, intended harvest or grazing
-                system, and local variety performance should all be
-                considered before selecting a forage species.
-
-            </p>
-
-        </section>
+                        </button>
 
 
-    </div>
+                        <button type="button"
+                                class="option-button"
+                                data-value="moderate">
 
-</section>
+                            <strong>
+                                Moderately drained
+                            </strong>
+
+                            <span>
+                                Some seasonal wetness
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="poor">
+
+                            <strong>
+                                Poorly drained
+                            </strong>
+
+                            <span>
+                                Wet or waterlogged periods
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SOIL TEXTURE -->
+
+                <div class="question">
+
+                    <label class="question-label">
+                        Soil texture
+                    </label>
+
+                    <div class="option-grid three"
+                         data-group="texture">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="sandy">
+
+                            <strong>
+                                Sandy
+                            </strong>
+
+                            <span>
+                                Coarse-textured soil
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="loam">
+
+                            <strong>
+                                Loam
+                            </strong>
+
+                            <span>
+                                Medium-textured soil
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="clay">
+
+                            <strong>
+                                Clay
+                            </strong>
+
+                            <span>
+                                Fine-textured soil
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SOIL pH -->
+
+                <div class="question">
+
+                    <label class="question-label">
+                        Soil pH
+                    </label>
+
+                    <div class="option-grid three"
+                         data-group="ph">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="acidic">
+
+                            <strong>
+                                Acidic
+                            </strong>
+
+                            <span>
+                                Below approximately pH 6.5
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="neutral">
+
+                            <strong>
+                                Near neutral
+                            </strong>
+
+                            <span>
+                                Approximately pH 6.5–7.8
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="alkaline">
+
+                            <strong>
+                                Alkaline
+                            </strong>
+
+                            <span>
+                                Above approximately pH 7.8
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SALINITY -->
+
+                <div class="question">
+
+                    <label class="question-label">
+                        Salinity
+                    </label>
+
+                    <div class="option-grid three"
+                         data-group="salinity">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="low">
+
+                            <strong>
+                                Low / none
+                            </strong>
+
+                            <span>
+                                No known salinity concern
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="moderate">
+
+                            <strong>
+                                Moderate
+                            </strong>
+
+                            <span>
+                                Some salt stress
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="high">
+
+                            <strong>
+                                High
+                            </strong>
+
+                            <span>
+                                Strong salt limitation
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DROUGHT -->
+
+                <div class="question">
+
+                    <label class="question-label">
+                        Drought pressure
+                    </label>
+
+                    <div class="option-grid three"
+                         data-group="drought">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="low">
+
+                            <strong>
+                                Low
+                            </strong>
+
+                            <span>
+                                Moisture usually adequate
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="moderate">
+
+                            <strong>
+                                Moderate
+                            </strong>
+
+                            <span>
+                                Periodic moisture limitation
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="high">
+
+                            <strong>
+                                High
+                            </strong>
+
+                            <span>
+                                Frequent moisture limitation
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WINTER -->
+
+                <div class="question">
+
+                    <label class="question-label">
+                        Winter conditions
+                    </label>
+
+                    <div class="option-grid three"
+                         data-group="winter">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="mild">
+
+                            <strong>
+                                Mild
+                            </strong>
+
+                            <span>
+                                Lower winter stress
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="cold">
+
+                            <strong>
+                                Cold
+                            </strong>
+
+                            <span>
+                                Regular severe winter conditions
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="severe">
+
+                            <strong>
+                                Very severe
+                            </strong>
+
+                            <span>
+                                High winter survival requirement
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STEP 2
+            ================================================== -->
+
+            <section class="tool-card">
+
+                <div class="step-heading">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PRODUCTION OBJECTIVE
+                        </p>
+
+                        <h2>
+                            What is your intended use?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="question">
+
+                    <div class="option-grid four"
+                         data-group="use">
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="hay">
+
+                            <strong>
+                                Hay
+                            </strong>
+
+                            <span>
+                                Harvested forage
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="grazing">
+
+                            <strong>
+                                Grazing
+                            </strong>
+
+                            <span>
+                                Pasture or grazing
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="haylage">
+
+                            <strong>
+                                Haylage
+                            </strong>
+
+                            <span>
+                                Stored fermented forage
+                            </span>
+
+                        </button>
+
+
+                        <button type="button"
+                                class="option-button"
+                                data-value="seed">
+
+                            <strong>
+                                Seed production
+                            </strong>
+
+                            <span>
+                                Forage or grass seed crop
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+            <div class="action-area">
+
+                <button type="button"
+                        id="find-species"
+                        class="primary-button">
+
+                    Find Suitable Forage Species
+
+                </button>
+
+
+                <button type="button"
+                        id="reset-tool"
+                        class="secondary-button">
+
+                    Reset
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 3 — RESULTS
+            ================================================== -->
+
+            <section class="results-section"
+                     id="results-section"
+                     aria-live="polite">
+
+                <div class="results-heading">
+
+                    <p class="eyebrow">
+                        RESULTS
+                    </p>
+
+                    <h2>
+                        Forage Species
+                    </h2>
+
+                    <p id="results-summary">
+                        Select your field conditions and intended use
+                        to view forage species.
+                    </p>
+
+                </div>
+
+
+
+                <!-- SEARCH -->
+
+                <div class="results-controls">
+
+                    <label for="result-search">
+                        Search species
+                    </label>
+
+                    <input type="search"
+                           id="result-search"
+                           placeholder="Search forage species..."
+                           autocomplete="off">
+
+                </div>
+
+
+
+                <!-- RESULTS -->
+
+                <div id="results-container"
+                     class="results-grid">
+
+                    <div class="initial-result">
+
+                        <p>
+                            Select your conditions above and click
+                            <strong>
+                                Find Suitable Forage Species
+                            </strong>
+                            to view results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 IMPORTANT NOTE
+            ================================================== -->
+
+            <section class="method-section">
+
+                <p class="eyebrow">
+                    IMPORTANT
+                </p>
+
+                <h2>
+                    Using the results
+                </h2>
+
+                <p>
+                    Species adaptation varies among varieties,
+                    locations, management systems, and years.
+                    The results are intended as a decision-support
+                    starting point rather than a substitute for
+                    local agronomic recommendations or field trials.
+                </p>
+
+                <p>
+                    Soil testing, water availability, winter
+                    conditions, establishment method, intended
+                    harvest or grazing system, and local variety
+                    performance should all be considered before
+                    selecting a forage species.
+                </p>
+
+            </section>
+
+
+        </div>
+
+    </section>
 
 </main>
 
 
 
 <!-- =====================================================
-     FOOTER
+     SHARED FOOTER
 ===================================================== -->
 
-<footer class="site-footer">
-
-    <div class="container footer-inner">
-
-
-        <div>
-
-            <p class="footer-title">
-                Forage Agronomy Lab
-            </p>
-
-
-            <p>
-                Department of Plant Sciences
-                <br>
-                University of Wyoming
-                <br>
-                Laramie, Wyoming 82071
-            </p>
-
-        </div>
-
-
-        <div class="footer-contact">
-
-            <p>
-                <strong>
-                    Dr. Surendra Bhattarai
-                </strong>
-            </p>
-
-
-            <p>
-                Surendra.Bhattarai@uwyo.edu
-                <br>
-                307-766-4151
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        Forage Agronomy Lab · University of Wyoming
-
-    </div>
-
-</footer>
+<div id="footer-placeholder"></div>
 
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/components.js"></script>
+<script src="js/script.js"></script>
 <script src="js/forage-species-selection.js"></script>
+
 
 </body>
 
