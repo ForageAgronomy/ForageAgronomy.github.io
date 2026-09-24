@@ -1,58 +1,79 @@
 ```javascript
-/* =========================================================
-   FORAGE AGRONOMY LAB
-   JavaScript
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ================= MOBILE MENU ================= */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mainNav =
+        document.getElementById("mainNav");
+
 
     if (menuToggle && mainNav) {
 
-        menuToggle.addEventListener("click", function () {
+        menuToggle.addEventListener(
+            "click",
+            function () {
 
-            mainNav.classList.toggle("active");
-
-        });
-
-    }
-
-
-    /* ================= MOBILE DROPDOWN ================= */
-
-    const dropdownButton =
-        document.querySelector(".dropdown-button");
-
-    const dropdown =
-        document.querySelector(".dropdown");
-
-    if (dropdownButton && dropdown) {
-
-        dropdownButton.addEventListener("click", function () {
-
-            if (window.innerWidth <= 900) {
-
-                dropdown.classList.toggle("active");
+                mainNav.classList.toggle("active");
 
             }
-
-        });
+        );
 
     }
 
 
-    /* ================= COPYRIGHT YEAR ================= */
 
-    const yearElement =
+    /* =====================================================
+       EXTENSION DROPDOWN ON MOBILE
+    ===================================================== */
+
+    const extensionButton =
+        document.getElementById("extensionButton");
+
+    const extensionDropdown =
+        document.querySelector(".nav-dropdown");
+
+
+    if (
+        extensionButton &&
+        extensionDropdown
+    ) {
+
+        extensionButton.addEventListener(
+            "click",
+            function () {
+
+                if (window.innerWidth <= 950) {
+
+                    extensionDropdown.classList.toggle(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
+
+    const year =
         document.getElementById("year");
 
-    if (yearElement) {
 
-        yearElement.textContent =
+    if (year) {
+
+        year.textContent =
             new Date().getFullYear();
 
     }
