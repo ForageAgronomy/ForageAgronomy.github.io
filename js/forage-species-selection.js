@@ -308,3 +308,424 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     ];
+    /* =================================================
+       USER SELECTIONS
+    ================================================= */
+
+    const selections = {};
+
+
+    /* =================================================
+       SELECTABLE OPTIONS
+    ================================================= */
+
+    const optionButtons =
+        document.querySelectorAll(".option-button");
+
+    optionButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const group =
+                button.closest(".option-grid").dataset.group;
+
+            const value =
+                button.dataset.value;
+
+            /* Remove selection from other options
+               in the same group */
+
+            const groupButtons =
+                button
+                    .closest(".option-grid")
+                    .querySelectorAll(".option-button");
+
+            groupButtons.forEach(function (otherButton) {
+
+                otherButton.classList.remove("selected");
+
+                otherButton.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+
+            });
+
+            /* Select clicked option */
+
+            button.classList.add("selected");
+
+            button.setAttribute(
+                "aria-pressed",
+                "true"
+            );
+
+            /* Store selection */
+
+            selections[group] = value;
+
+        });
+
+        /* Accessibility */
+
+        button.setAttribute(
+            "aria-pressed",
+            "false"
+        );
+
+    });
+
+
+    /* =================================================
+       FIND SPECIES
+    ================================================= */
+
+    const findButton =
+        document.getElementById("find-species");
+
+    const resultsContainer =
+        document.getElementById("results-container");
+
+    const resultsSummary =
+        document.getElementById("results-summary");
+
+
+    if (findButton) {
+
+        findButton.addEventListener("click", function () {
+
+            const requiredGroups = [
+                "water",
+                "drainage",
+                "texture",
+                "ph",
+                "salinity",
+                "drought",
+                "winter",
+                "use"
+            ];
+
+            const missingGroups =
+                requiredGroups.filter(function (group) {
+
+                    return !selections[group];
+
+                });
+
+
+            /* Make sure all questions are answered */
+
+            if (missingGroups.length > 0) {
+
+                resultsSummary.textContent =
+                    "Please select an option for each field condition and intended use.";
+
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <p>
+                            Please complete all selections above
+                            before finding suitable forage species.
+                        </p>
+                    </div>
+                `;
+
+                return;
+
+            }
+
+
+            /* =================================================
+               SCORE SPECIES
+            ================================================= */
+
+            const scoredSpecies =
+                speciesData.map(function (species) {
+
+                    let score = 0;
+                    let matches = 0;
+
+                    requiredGroups.forEach(function (group) {
+
+                        if (
+                            species[group] &&
+                            species[group].includes(
+                                selections[group]
+                            )
+                        ) {
+
+                            score++;
+                            matches++;
+
+                        }
+
+                    });
+
+                    return {
+                        species: species,
+                        score: score,
+                        matches: matches
+                    };
+
+                });
+
+
+            /* Sort by number of matching characteristics */
+
+            scoredSpecies.sort(function (a, b) {
+
+                return b.score - a.score;
+
+            });
+
+
+            /* Only show species with at least one match */
+
+            const results =
+                scoredSpecies.filter(function (item) {
+
+                    return item.score > 0;
+
+                });
+
+
+            /* =================================================
+               DISPLAY RESULTS
+            ================================================= */
+
+            if (results.length === 0) {
+
+                resultsSummary.textContent =
+                    "No species matched the selected conditions.";
+
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <p>
+                            No forage species in the current database
+                            matched your selected conditions.
+                        </p>
+                    </div>
+                `;
+
+                return;
+
+            }
+
+
+            resultsSummary.textContent =
+                "Species are listed according to how many of your selected conditions they match.";
+
+
+            resultsContainer.innerHTML =
+                results.map(function (item) {
+
+                    const species =
+                        item.species;
+
+                    const matchPercent =
+                        Math.round(
+                            (item.matches /
+                            requiredGroups.length) * 100
+                        );
+
+
+                    return `
+
+                        <article class="species-result-card">
+
+                            <div class="species-top">
+
+                                <div>
+
+                                    <p class="match-label">
+                                        ${item.matches} of
+                                        ${requiredGroups.length}
+                                        conditions matched
+                                    </p>
+
+                                    <h3>
+                                        ${species.name}
+                                    </h3>
+
+                                    <p class="species-group">
+                                        ${species.group}
+                                    </p>
+
+                                </div>
+
+                                <div class="match-score">
+                                    ${matchPercent}%
+                                </div>
+
+                            </div>
+
+
+                            <p class="species-description">
+                                ${species.description}
+                            </p>
+
+
+                            <div class="species-tags">
+
+                                ${species.tags.map(function (tag) {
+
+                                    return `
+                                        <span>
+                                            ${tag}
+                                        </span>
+                                    `;
+
+                                }).join("")}
+
+                            </div>
+
+
+                            <div class="species-details">
+
+                                <div class="detail">
+
+                                    <strong>
+                                        Why it may fit
+                                    </strong>
+
+                                    <span>
+                                        ${species.note}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    `;
+
+                }).join("");
+
+        });
+
+    }
+
+
+    /* =================================================
+       RESET TOOL
+    ================================================= */
+
+    const resetButton =
+        document.getElementById("reset-tool");
+
+
+    if (resetButton) {
+
+        resetButton.addEventListener("click", function () {
+
+            /* Clear selections */
+
+            Object.keys(selections).forEach(function (key) {
+
+                delete selections[key];
+
+            });
+
+
+            /* Remove selected appearance */
+
+            optionButtons.forEach(function (button) {
+
+                button.classList.remove("selected");
+
+                button.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+
+            });
+
+
+            /* Restore results */
+
+            if (resultsSummary) {
+
+                resultsSummary.textContent =
+                    "Select your field conditions and intended use to view forage species.";
+
+            }
+
+
+            if (resultsContainer) {
+
+                resultsContainer.innerHTML = `
+
+                    <div class="initial-result">
+
+                        <p>
+                            Select your conditions above and click
+                            <strong>
+                                Find Suitable Forage Species
+                            </strong>
+                            to view results.
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            /* Clear search */
+
+            const searchInput =
+                document.getElementById("result-search");
+
+            if (searchInput) {
+
+                searchInput.value = "";
+
+            }
+
+        });
+
+    }
+
+
+    /* =================================================
+       SEARCH RESULTS
+    ================================================= */
+
+    const searchInput =
+        document.getElementById("result-search");
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener("input", function () {
+
+            const searchTerm =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const resultCards =
+                document.querySelectorAll(
+                    ".species-result-card"
+                );
+
+
+            resultCards.forEach(function (card) {
+
+                const text =
+                    card.textContent.toLowerCase();
+
+                card.style.display =
+                    text.includes(searchTerm)
+                        ? ""
+                        : "none";
+
+            });
+
+        });
+
+    }
+
+});
