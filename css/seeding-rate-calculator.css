@@ -301,10 +301,12 @@
 
 
 /* =====================================================
-   HELP TEXT
+   HELP TEXT / TOOLTIP
 ===================================================== */
 
 .help-text {
+    position: relative;
+
     display: inline-flex;
 
     align-items: center;
@@ -313,7 +315,7 @@
     width: 16px;
     height: 16px;
 
-    margin-left: 4px;
+    margin-left: 5px;
 
     border-radius: 50%;
 
@@ -321,9 +323,149 @@
 
     color: var(--white);
 
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     font-size: 10px;
+    font-weight: 700;
+
+    line-height: 1;
 
     cursor: help;
+
+    vertical-align: middle;
+
+    outline: none;
+}
+
+
+/* =====================================================
+   TOOLTIP
+===================================================== */
+
+.tooltip-text {
+    position: absolute;
+
+    bottom: calc(100% + 9px);
+    left: 50%;
+
+    width: 290px;
+
+    padding: 11px 13px;
+
+    background: var(--brown-dark);
+    color: var(--white);
+
+    border-radius: 5px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-align: left;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(4px);
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   TOOLTIP ARROW
+===================================================== */
+
+.tooltip-text::after {
+    content: "";
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    margin-left: -6px;
+
+    border-width: 6px;
+    border-style: solid;
+
+    border-color:
+        var(--brown-dark)
+        transparent
+        transparent
+        transparent;
+}
+
+
+/* =====================================================
+   SHOW TOOLTIP ON HOVER OR KEYBOARD FOCUS
+===================================================== */
+
+.help-text:hover .tooltip-text,
+.help-text:focus .tooltip-text {
+    visibility: visible;
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =====================================================
+   KEYBOARD FOCUS
+===================================================== */
+
+.help-text:focus-visible {
+    box-shadow:
+        0 0 0 2px var(--white),
+        0 0 0 4px var(--brown);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .tooltip-text {
+        left: 0;
+
+        width: 250px;
+
+        transform:
+            translateY(4px);
+    }
+
+    .help-text:hover .tooltip-text,
+    .help-text:focus .tooltip-text {
+        transform:
+            translateY(0);
+    }
+
+    .tooltip-text::after {
+        left: 8px;
+    }
+
 }
 
 
