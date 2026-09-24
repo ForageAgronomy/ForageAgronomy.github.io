@@ -22,7 +22,20 @@ document.addEventListener("DOMContentLoaded", function () {
             "click",
             function () {
 
-                mainNav.classList.toggle("open");
+                const isOpen =
+                    mainNav.classList.toggle("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation"
+                        : "Open navigation"
+                );
 
             }
         );
@@ -31,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       CLOSE MOBILE MENU AFTER LINK CLICK
+       CLOSE MOBILE MENU AFTER NAV LINK CLICK
     ================================================= */
 
     const navLinks =
@@ -52,6 +65,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         "open"
                     );
 
+                    if (menuToggle) {
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+
                 }
 
             }
@@ -61,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       CLOSE MENU WHEN CLICKING OUTSIDE
+       CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
     ================================================= */
 
     document.addEventListener(
@@ -69,6 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
         function (event) {
 
             if (!mainNav || !menuToggle) {
+                return;
+            }
+
+
+            if (window.innerWidth > 700) {
                 return;
             }
 
@@ -82,8 +114,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (
                 !clickedInsideNav &&
-                !clickedMenuButton &&
-                window.innerWidth <= 700
+                !clickedMenuButton
+            ) {
+
+                mainNav.classList.remove(
+                    "open"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       RESET MOBILE MENU WHEN WINDOW IS RESIZED
+    ================================================= */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (
+                window.innerWidth > 700 &&
+                mainNav
             ) {
 
                 mainNav.classList.remove(
@@ -113,9 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       IMAGE FALLBACK
-       Prevents broken-image appearance if an image
-       has not yet been uploaded.
+       HANDLE MISSING RESEARCH IMAGES
     ================================================= */
 
     const researchImages =
@@ -132,10 +194,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 image.style.display = "none";
 
+                const parent =
+                    image.closest(
+                        ".research-image"
+                    );
+
+                if (parent) {
+
+                    parent.classList.add(
+                        "image-missing"
+                    );
+
+                }
+
             }
         );
 
     });
 
+
+    /* =================================================
+       HANDLE MISSING FUNDING LOGOS
+    ================================================= */
+
+    const fundingLogos =
+        document.querySelectorAll(
+            ".funding-logo img"
+        );
+
+
+    fundingLogos.forEach(function (logo) {
+
+        logo.addEventListener(
+            "error",
+            function () {
+
+                logo.style.display = "none";
+
+                const parent =
+                    logo.closest(
+                        ".funding-logo"
+                    );
+
+                if (parent) {
+
+                    parent.classList.add(
+                        "logo-missing"
+                    );
+
+                }
+
+            }
+        );
+
+    });
 
 });
