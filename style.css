@@ -462,24 +462,21 @@ p {
     border-bottom: 1px solid #dfe5df;
 }
 
-.photo-placeholder {
+.pi-photo {
     width: 100%;
     height: 390px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 
     background: #e7ece7;
-
     border: 1px solid #d7dfd7;
+}
 
-    color: #7b857d;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
+.pi-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 
 .pi-info {
