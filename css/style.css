@@ -168,24 +168,28 @@ img {
 /* ================= HERO ================= */
 
 .hero {
-    min-height: 720px;
-
-    background:
+    background-image:
         linear-gradient(
             90deg,
-            rgba(73,47,36,0.92) 0%,
-            rgba(73,47,36,0.65) 45%,
-            rgba(73,47,36,0.15) 100%
+            rgba(48,32,24,0.90) 0%,
+            rgba(73,47,36,0.70) 45%,
+            rgba(73,47,36,0.20) 100%
         ),
         url("../images/hero-forage.jpg");
 
     background-size: cover;
     background-position: center;
+
+    padding: 125px 0;
+}
+
+.hero-overlay {
+    display: flex;
+    align-items: center;
 }
 
 .hero-content {
-    color: #ffffff;
-    max-width: 800px;
+    color: white;
 }
 
 .hero-eyebrow {
