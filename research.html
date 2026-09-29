@@ -13,10 +13,7 @@
     <meta name="description"
           content="Research in forage agronomy, abiotic stress physiology, forage seed production, and forage breeding and genetics at the University of Wyoming.">
 
-    <!-- Shared site styles -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Research page styles -->
     <link rel="stylesheet" href="css/research.css">
 
 </head>
@@ -25,12 +22,8 @@
 <body>
 
 
-<!-- =====================================================
-     SHARED HEADER
-===================================================== -->
-
+<!-- SHARED HEADER -->
 <div id="header-placeholder"></div>
-
 
 
 <!-- =====================================================
@@ -41,12 +34,9 @@
 
     <div class="container">
 
-        <p class="eyebrow">
-        </p>
+        <p class="eyebrow"></p>
 
-        <h1>
-            Research
-        </h1>
+        <h1>Research</h1>
 
         <p class="hero-text">
             Our research integrates forage agronomy, forage eco-physiology,
@@ -58,11 +48,6 @@
 
 </section>
 
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
 
 <main>
 
@@ -79,12 +64,9 @@
 
             <div class="research-text">
 
-                <p class="eyebrow">
-                </p>
+                <p class="eyebrow"></p>
 
-                <h2>
-                    Forage Agronomy
-                </h2>
+                <h2>Forage Agronomy</h2>
 
                 <p>
                     Our research examines agronomic practices that
@@ -92,23 +74,14 @@
                     quality, and resource-use efficiency.
                 </p>
 
-                <p>
-
-                </p>
-
-                <p>
-
-                </p>
+                <p></p>
+                <p></p>
 
             </div>
 
-
             <div class="research-image">
-
-                <img
-                    src="images/research-forage-agronomy.jpg"
-                    alt="Forage agronomy research">
-
+                <img src="images/research-forage-agronomy.jpg"
+                     alt="Forage agronomy research">
             </div>
 
         </div>
@@ -118,9 +91,8 @@
 </section>
 
 
-
 <!-- =====================================================
-     ABIOTIC STRESS PHYSIOLOGY
+     FORAGE ECO-PHYSIOLOGY
 ===================================================== -->
 
 <section class="research-section light-section">
@@ -131,12 +103,9 @@
 
             <div class="research-text">
 
-                <p class="eyebrow">
-                </p>
+                <p class="eyebrow"></p>
 
-                <h2>
-                    Forage Eco-physiology
-                </h2>
+                <h2>Forage Eco-physiology</h2>
 
                 <p>
                     We investigate physiological, biochemical, and
@@ -144,23 +113,14 @@
                     responses to environmental conditions.
                 </p>
 
-                <p>
-
-                </p>
-
-                <p>
-
-                </p>
+                <p></p>
+                <p></p>
 
             </div>
 
-
             <div class="research-image">
-
-                <img
-                    src="images/research-stress.jpg"
-                    alt="Forage crop abiotic stress physiology research">
-
+                <img src="images/research-stress.jpg"
+                     alt="Forage crop abiotic stress physiology research">
             </div>
 
         </div>
@@ -168,7 +128,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -183,12 +142,9 @@
 
             <div class="research-text">
 
-                <p class="eyebrow">
-                </p>
+                <p class="eyebrow"></p>
 
-                <h2>
-                    Forage Seed Production
-                </h2>
+                <h2>Forage Seed Production</h2>
 
                 <p>
                     We study agronomic and physiological factors that
@@ -196,23 +152,14 @@
                     quality of forage crops.
                 </p>
 
-                <p>
-
-                </p>
-
-                <p>
-
-                </p>
+                <p></p>
+                <p></p>
 
             </div>
 
-
             <div class="research-image">
-
-                <img
-                    src="images/research-seed-production.jpg"
-                    alt="Forage seed production research">
-
+                <img src="images/research-seed-production.jpg"
+                     alt="Forage seed production research">
             </div>
 
         </div>
@@ -220,7 +167,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -235,35 +181,25 @@
 
             <div class="research-text">
 
-                <p class="eyebrow">
-                </p>
+                <p class="eyebrow"></p>
 
-                <h2>
-                    Forage Breeding &amp; Genetics
-                </h2>
+                <h2>Forage Breeding &amp; Genetics</h2>
 
                 <p>
-                    We use a combination of traditional breeding, field evaluations, and advanced molecular technologies 
-                    to develop and improve forage germplasm for enhanced agronomic performance, environmental adaptation, and stress tolerance.
+                    We use a combination of traditional breeding, field evaluations,
+                    and advanced molecular technologies to develop and improve forage
+                    germplasm for enhanced agronomic performance, environmental
+                    adaptation, and stress tolerance.
                 </p>
 
-                <p>
-
-                </p>
-
-                <p>
-
-                </p>
+                <p></p>
+                <p></p>
 
             </div>
 
-
             <div class="research-image">
-
-                <img
-                    src="images/research-breeding.jpg"
-                    alt="Forage breeding and genetics research">
-
+                <img src="images/research-breeding.jpg"
+                     alt="Forage breeding and genetics research">
             </div>
 
         </div>
@@ -273,551 +209,278 @@
 </section>
 
 
-
 <!-- =====================================================
-     PUBLICATIONS
+     PUBLICATIONS  —  collapsible drawer
+     Triggered by the button below. JS toggles
+     .pub-drawer-open on #pub-drawer.
 ===================================================== -->
 
-<section class="publications-section">
+<section class="pub-trigger-section">
 
     <div class="container">
 
-        <div class="section-heading">
+        <div class="pub-trigger-inner">
 
-            <p class="eyebrow">
-            </p>
+            <!-- Icon + label button -->
+            <button class="pub-trigger-btn"
+                    id="pubTriggerBtn"
+                    aria-expanded="false"
+                    aria-controls="pubDrawer">
 
-            <h2>
-                Publications
-            </h2>
+                <!-- Book / publications icon -->
+                <span class="pub-trigger-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 54V16a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v38"/>
+                        <line x1="12" y1="54" x2="52" y2="54"/>
+                        <line x1="22" y1="22" x2="42" y2="22"/>
+                        <line x1="22" y1="31" x2="42" y2="31"/>
+                        <line x1="22" y1="40" x2="34" y2="40"/>
+                        <!-- Small bookmark -->
+                        <path d="M38 12 v10 l4-3 4 3 V12"/>
+                    </svg>
+                </span>
 
-            <p>
+                <span class="pub-trigger-text">Publications</span>
+
+                <!-- Animated chevron -->
+                <span class="pub-trigger-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </span>
+
+            </button>
+
+            <p class="pub-trigger-count">
+                20 publications · 2016 – 2026
             </p>
 
         </div>
 
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PUBLICATIONS DRAWER
+===================================================== -->
+
+<div class="pub-drawer" id="pubDrawer" aria-hidden="true">
+
+    <div class="container">
 
         <div class="publication-list">
 
 
             <!-- 2026 -->
-
-            <div class="publication-year">
-                2026
-            </div>
-
+            <div class="publication-year">2026</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Sbatella, G., Claypool, D. A.,
-                    Beiermann, C. W., &amp; Kniss, A. R.
-                </p>
-
-                <a href="https://doi.org/10.1002/agg2.70371"
-                   target="_blank"
-                   rel="noopener">
-                    Sainfoin stand termination: Variable herbicide
-                    efficacy in field conditions.
+                <p>Bhattarai, S., Sbatella, G., Claypool, D. A., Beiermann, C. W., &amp; Kniss, A. R.</p>
+                <a href="https://doi.org/10.1002/agg2.70371" target="_blank" rel="noopener">
+                    Sainfoin stand termination: Variable herbicide efficacy in field conditions.
                 </a>
-
-                <span>
-                    Agrosystems, Geosciences &amp; Environment.
-                    9: e70371.
-                </span>
-
+                <span>Agrosystems, Geosciences &amp; Environment. 9: e70371.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Omokanye, A. T., Bhattarai, S.,
-                    Hernandez Ramirez, G., Azuhnwi, B., Zavala, Y.,
-                    Gyamfi, H., &amp; Shrestha, B.
-                </p>
-
-                <a href="https://doi.org/10.1002/agg2.70325"
-                   target="_blank"
-                   rel="noopener">
-                    Multifunctionality of annual forage crop mixtures
-                    for improved biomass, beef cattle diets, and soil
-                    health outcomes.
+                <p>Omokanye, A. T., Bhattarai, S., Hernandez Ramirez, G., Azuhnwi, B., Zavala, Y., Gyamfi, H., &amp; Shrestha, B.</p>
+                <a href="https://doi.org/10.1002/agg2.70325" target="_blank" rel="noopener">
+                    Multifunctionality of annual forage crop mixtures for improved biomass, beef cattle diets, and soil health outcomes.
                 </a>
-
-                <span>
-                    Agrosystems, Geosciences &amp; Environment.
-                    9: e70325.
-                </span>
-
+                <span>Agrosystems, Geosciences &amp; Environment. 9: e70325.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Yamauchi, M., Bhattarai, S., Tanino, K. K.,
-                    Rahman, A., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1002/agg2.70367"
-                   target="_blank"
-                   rel="noopener">
-                    A comparative study on plant growth and ion
-                    accumulation between alfalfa and hybrid wheatgrass
-                    under salt stress.
+                <p>Yamauchi, M., Bhattarai, S., Tanino, K. K., Rahman, A., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1002/agg2.70367" target="_blank" rel="noopener">
+                    A comparative study on plant growth and ion accumulation between alfalfa and hybrid wheatgrass under salt stress.
                 </a>
-
-                <span>
-                    Agrosystems, Geosciences &amp; Environment.
-                    9: e70367.
-                </span>
-
+                <span>Agrosystems, Geosciences &amp; Environment. 9: e70367.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Omokanye, A., Bhattarai, S., Sreekumar, L.,
-                    Hernandez-Ramirez, G., &amp; Lee, A.
-                </p>
-
-                <a href="https://doi.org/10.1080/15427528.2026.2655259"
-                   target="_blank"
-                   rel="noopener">
-                    Forage yield and nutritional values of forage-type
-                    cereal mixtures for beef cattle diets.
+                <p>Omokanye, A., Bhattarai, S., Sreekumar, L., Hernandez-Ramirez, G., &amp; Lee, A.</p>
+                <a href="https://doi.org/10.1080/15427528.2026.2655259" target="_blank" rel="noopener">
+                    Forage yield and nutritional values of forage-type cereal mixtures for beef cattle diets.
                 </a>
-
-                <span>
-                    Journal of Crop Improvement.
-                    40(3): 303–319.
-                </span>
-
+                <span>Journal of Crop Improvement. 40(3): 303–319.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Honari, M., Fu, Y.-B.,
-                    &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1111/grs.70026"
-                   target="_blank"
-                   rel="noopener">
-                    RNA-Seq Analysis Reveals Differentially Expressed
-                    Genes Linked to Seed Size Variation in Sainfoin.
+                <p>Bhattarai, S., Honari, M., Fu, Y.-B., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1111/grs.70026" target="_blank" rel="noopener">
+                    RNA-Seq Analysis Reveals Differentially Expressed Genes Linked to Seed Size Variation in Sainfoin.
                 </a>
-
-                <span>
-                    Grassland Science.
-                    72(2): 123–133.
-                </span>
-
+                <span>Grassland Science. 72(2): 123–133.</span>
             </article>
-
 
 
             <!-- 2025 -->
-
-            <div class="publication-year">
-                2025
-            </div>
-
+            <div class="publication-year">2025</div>
 
             <article class="publication">
-
-                <p>
-                    Wang, H., Lundel, S., Bhattarai, S.,
-                    &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1002/csc2.70177"
-                   target="_blank"
-                   rel="noopener">
-                    De novo transcriptome assembly and candidate gene
-                    discovery for high seedling vigor in cicer milkvetch
-                    (Astragalus cicer L.).
+                <p>Wang, H., Lundel, S., Bhattarai, S., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1002/csc2.70177" target="_blank" rel="noopener">
+                    De novo transcriptome assembly and candidate gene discovery for high seedling vigor in cicer milkvetch (Astragalus cicer L.).
                 </a>
-
-                <span>
-                    Crop Science.
-                    65: e70177.
-                </span>
-
+                <span>Crop Science. 65: e70177.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Poudel, H. P., Anderson, N. P.,
-                    &amp; Yoder, C.
-                </p>
-
-                <a href="https://doi.org/10.1002/csc2.70179"
-                   target="_blank"
-                   rel="noopener">
-                    Plant growth regulator effects on seed yield of
-                    timothy.
+                <p>Bhattarai, S., Poudel, H. P., Anderson, N. P., &amp; Yoder, C.</p>
+                <a href="https://doi.org/10.1002/csc2.70179" target="_blank" rel="noopener">
+                    Plant growth regulator effects on seed yield of timothy.
                 </a>
-
-                <span>
-                    Crop Science.
-                    65: e70179.
-                </span>
-
+                <span>Crop Science. 65: e70179.</span>
             </article>
-
 
 
             <!-- 2024 -->
-
-            <div class="publication-year">
-                2024
-            </div>
-
+            <div class="publication-year">2024</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Khanal, N., Anderson, N. P.,
-                    &amp; Yoder, C.
-                </p>
-
-                <a href="https://doi.org/10.1002/csc2.21386"
-                   target="_blank"
-                   rel="noopener">
-                    Plant growth regulator effects on red fescue seed
-                    crops in diverse production environments.
+                <p>Bhattarai, S., Khanal, N., Anderson, N. P., &amp; Yoder, C.</p>
+                <a href="https://doi.org/10.1002/csc2.21386" target="_blank" rel="noopener">
+                    Plant growth regulator effects on red fescue seed crops in diverse production environments.
                 </a>
-
-                <span>
-                    Crop Science.
-                    64(6): 3608–3618.
-                </span>
-
+                <span>Crop Science. 64(6): 3608–3618.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Wang, H., Poudel, H.,
-                    &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1111/pbr.13194"
-                   target="_blank"
-                   rel="noopener">
-                    Evaluating effectiveness of clonal plant selection
-                    of alfalfa (Medicago sativa L.) and sainfoin
-                    (Onobrychis viciifolia Scop.) in mixed stand:
-                    Mean performance and stability in a multi-environment
-                    trial.
+                <p>Bhattarai, S., Wang, H., Poudel, H., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1111/pbr.13194" target="_blank" rel="noopener">
+                    Evaluating effectiveness of clonal plant selection of alfalfa (Medicago sativa L.) and sainfoin (Onobrychis viciifolia Scop.) in mixed stand: Mean performance and stability in a multi-environment trial.
                 </a>
-
-                <span>
-                    Plant Breeding.
-                    143(5): 713–724.
-                </span>
-
+                <span>Plant Breeding. 143(5): 713–724.</span>
             </article>
-
 
 
             <!-- 2023 -->
-
-            <div class="publication-year">
-                2023
-            </div>
-
+            <div class="publication-year">2023</div>
 
             <article class="publication">
-
-                <p>
-                    Poudel, H., Bhattarai, S., Singer, S.,
-                    Biligetu, B., &amp; Acharya, S.
-                </p>
-
-                <a href="https://doi.org/10.1002/agj2.21439"
-                   target="_blank"
-                   rel="noopener">
-                    An insight into sainfoin breeding:
-                    challenges and achievements.
+                <p>Poudel, H., Bhattarai, S., Singer, S., Biligetu, B., &amp; Acharya, S.</p>
+                <a href="https://doi.org/10.1002/agj2.21439" target="_blank" rel="noopener">
+                    An insight into sainfoin breeding: challenges and achievements.
                 </a>
-
-                <span>
-                    Agronomy Journal.
-                    115: 2843–2858.
-                </span>
-
+                <span>Agronomy Journal. 115: 2843–2858.</span>
             </article>
-
 
 
             <!-- 2022 -->
-
-            <div class="publication-year">
-                2022
-            </div>
-
+            <div class="publication-year">2022</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Lundell, S., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.3390/agronomy12102516"
-                   target="_blank"
-                   rel="noopener">
-                    Effect of sodium chloride salt on germination,
-                    growth, and elemental composition of alfalfa
-                    cultivars with contrasting tolerance to salinity.
+                <p>Bhattarai, S., Lundell, S., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.3390/agronomy12102516" target="_blank" rel="noopener">
+                    Effect of sodium chloride salt on germination, growth, and elemental composition of alfalfa cultivars with contrasting tolerance to salinity.
                 </a>
-
-                <span>
-                    Agronomy.
-                    12: 2516.
-                </span>
-
+                <span>Agronomy. 12: 2516.</span>
             </article>
-
 
 
             <!-- 2021 -->
-
-            <div class="publication-year">
-                2021
-            </div>
-
+            <div class="publication-year">2021</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Fu, Y. B., Coulman, B.,
-                    Tanino, K. K., Karunakaran, C., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1186/s12870-021-03201-4"
-                   target="_blank"
-                   rel="noopener">
-                    Transcriptomic analysis of differentially expressed
-                    genes in leaves and roots of two alfalfa
-                    (Medicago sativa L.) cultivars with different
-                    salt tolerance.
+                <p>Bhattarai, S., Fu, Y. B., Coulman, B., Tanino, K. K., Karunakaran, C., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1186/s12870-021-03201-4" target="_blank" rel="noopener">
+                    Transcriptomic analysis of differentially expressed genes in leaves and roots of two alfalfa (Medicago sativa L.) cultivars with different salt tolerance.
                 </a>
-
-                <span>
-                    BMC Plant Biology.
-                    21: 446.
-                </span>
-
+                <span>BMC Plant Biology. 21: 446.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Liu, N., Karunakaran, C.,
-                    Tanino, K. K., Fu, Y. B., Coulman, B.,
-                    Warkentin, T., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1016/j.jplph.2021.153485"
-                   target="_blank"
-                   rel="noopener">
-                    Tissue specific changes in elements and organic
-                    compounds of alfalfa (Medicago sativa L.) cultivars
-                    differing in salt tolerance under salt stress.
+                <p>Bhattarai, S., Liu, N., Karunakaran, C., Tanino, K. K., Fu, Y. B., Coulman, B., Warkentin, T., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1016/j.jplph.2021.153485" target="_blank" rel="noopener">
+                    Tissue specific changes in elements and organic compounds of alfalfa (Medicago sativa L.) cultivars differing in salt tolerance under salt stress.
                 </a>
-
-                <span>
-                    Journal of Plant Physiology.
-                    264: 153485.
-                </span>
-
+                <span>Journal of Plant Physiology. 264: 153485.</span>
             </article>
-
 
 
             <!-- 2020 -->
-
-            <div class="publication-year">
-                2020
-            </div>
-
+            <div class="publication-year">2020</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Biswas, D., Fu, Y. B.,
-                    &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.3390/agronomy10040577"
-                   target="_blank"
-                   rel="noopener">
-                    Morphological, Physiological, and Genetic Responses
-                    to Salt Stress in Alfalfa: A Review.
+                <p>Bhattarai, S., Biswas, D., Fu, Y. B., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.3390/agronomy10040577" target="_blank" rel="noopener">
+                    Morphological, Physiological, and Genetic Responses to Salt Stress in Alfalfa: A Review.
                 </a>
-
-                <span>
-                    Agronomy.
-                    10(4): 577.
-                </span>
-
+                <span>Agronomy. 10(4): 577.</span>
             </article>
-
 
 
             <!-- 2018 -->
-
-            <div class="publication-year">
-                2018
-            </div>
-
+            <div class="publication-year">2018</div>
 
             <article class="publication">
-
-                <p>
-                    Li, P., Bhattarai, S., Peterson, G. W.,
-                    Coulman, B., Schellenberg, M. P., Biligetu, B.,
-                    &amp; Fu, Y. B.
-                </p>
-
-                <a href="https://doi.org/10.3390/d10020023"
-                   target="_blank"
-                   rel="noopener">
-                    Genetic diversity of northern wheatgrass
-                    (Elymus lanceolatus ssp. lanceolatus) as revealed
-                    by genotyping-by-sequencing.
+                <p>Li, P., Bhattarai, S., Peterson, G. W., Coulman, B., Schellenberg, M. P., Biligetu, B., &amp; Fu, Y. B.</p>
+                <a href="https://doi.org/10.3390/d10020023" target="_blank" rel="noopener">
+                    Genetic diversity of northern wheatgrass (Elymus lanceolatus ssp. lanceolatus) as revealed by genotyping-by-sequencing.
                 </a>
-
-                <span>
-                    Diversity.
-                    10(2): 23.
-                </span>
-
+                <span>Diversity. 10(2): 23.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.15258/sst.2018.46.1.11"
-                   target="_blank"
-                   rel="noopener">
-                    Effects of seed size, seed pod removal and
-                    temperature on seed germination of
-                    Onobrychis viciifolia.
+                <p>Bhattarai, S., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.15258/sst.2018.46.1.11" target="_blank" rel="noopener">
+                    Effects of seed size, seed pod removal and temperature on seed germination of Onobrychis viciifolia.
                 </a>
-
-                <span>
-                    Seed Science and Technology.
-                    46(1): 113–117.
-                </span>
-
+                <span>Seed Science and Technology. 46(1): 113–117.</span>
             </article>
-
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Coulman, B., Beattie, A. D.,
-                    &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1111/gfs.12372"
-                   target="_blank"
-                   rel="noopener">
-                    Assessment of sainfoin (Onobrychis viciifolia
-                    Scop.) germplasm for agro-morphological traits
-                    and nutritive value.
+                <p>Bhattarai, S., Coulman, B., Beattie, A. D., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1111/gfs.12372" target="_blank" rel="noopener">
+                    Assessment of sainfoin (Onobrychis viciifolia Scop.) germplasm for agro-morphological traits and nutritive value.
                 </a>
-
-                <span>
-                    Grass and Forage Science.
-                    73: 958–966.
-                </span>
-
+                <span>Grass and Forage Science. 73: 958–966.</span>
             </article>
-
 
 
             <!-- 2017 -->
-
-            <div class="publication-year">
-                2017
-            </div>
-
+            <div class="publication-year">2017</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Coulman, B., Fu, Y. B.,
-                    Beattie, A. D., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1139/cjps-2017-0094"
-                   target="_blank"
-                   rel="noopener">
-                    Genetic diversity and relationship of sainfoin
-                    (Onobrychis viciifolia Scop.) germplasm as revealed
-                    by amplified fragment length polymorphism markers.
+                <p>Bhattarai, S., Coulman, B., Fu, Y. B., Beattie, A. D., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1139/cjps-2017-0094" target="_blank" rel="noopener">
+                    Genetic diversity and relationship of sainfoin (Onobrychis viciifolia Scop.) germplasm as revealed by amplified fragment length polymorphism markers.
                 </a>
-
-                <span>
-                    Canadian Journal of Plant Sciences.
-                    98(3): 543–551.
-                </span>
-
+                <span>Canadian Journal of Plant Sciences. 98(3): 543–551.</span>
             </article>
 
 
-
             <!-- 2016 -->
-
-            <div class="publication-year">
-                2016
-            </div>
-
+            <div class="publication-year">2016</div>
 
             <article class="publication">
-
-                <p>
-                    Bhattarai, S., Coulman, B., &amp; Biligetu, B.
-                </p>
-
-                <a href="https://doi.org/10.1139/cjps-2015-0378"
-                   target="_blank"
-                   rel="noopener">
-                    Sainfoin (Onobrychis viciifolia Scop.):
-                    Renewed interest as a forage legume for western
-                    Canada.
+                <p>Bhattarai, S., Coulman, B., &amp; Biligetu, B.</p>
+                <a href="https://doi.org/10.1139/cjps-2015-0378" target="_blank" rel="noopener">
+                    Sainfoin (Onobrychis viciifolia Scop.): Renewed interest as a forage legume for western Canada.
                 </a>
-
-                <span>
-                    Canadian Journal of Plant Sciences.
-                    96(5): 748–756.
-                </span>
-
+                <span>Canadian Journal of Plant Sciences. 96(5): 748–756.</span>
             </article>
 
 
         </div>
 
+        <!-- Close button at bottom of drawer -->
+        <div class="pub-drawer-close-wrap">
+            <button class="pub-drawer-close" id="pubDrawerClose">
+                Close Publications ↑
+            </button>
+        </div>
+
     </div>
 
-</section>
-
+</div>
 
 
 <!-- =====================================================
@@ -830,40 +493,32 @@
 
         <div class="section-heading centered">
 
-            <p class="eyebrow">
-            </p>
+            <p class="eyebrow"></p>
 
-            <h2>
-                Acknowledgements
-            </h2>
+            <h2>Acknowledgements</h2>
 
         </div>
-
 
         <div class="logos-grid">
 
             <div class="funding-logo">
-                <img
-                    src="images/logos/logo1.png"
-                    alt="Research support organization">
+                <img src="images/logos/logo1.png"
+                     alt="Research support organization">
             </div>
 
             <div class="funding-logo">
-                <img
-                    src="images/logos/logo2.png"
-                    alt="Research support organization">
+                <img src="images/logos/logo2.png"
+                     alt="Research support organization">
             </div>
 
             <div class="funding-logo">
-                <img
-                    src="images/logos/logo3.png"
-                    alt="Research support organization">
+                <img src="images/logos/logo3.png"
+                     alt="Research support organization">
             </div>
 
             <div class="funding-logo">
-                <img
-                    src="images/logos/uwyo.png"
-                    alt="University of Wyoming">
+                <img src="images/logos/uwyo.png"
+                     alt="University of Wyoming">
             </div>
 
         </div>
@@ -876,23 +531,62 @@
 </main>
 
 
-
-<!-- =====================================================
-     SHARED FOOTER
-===================================================== -->
-
+<!-- SHARED FOOTER -->
 <div id="footer-placeholder"></div>
 
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script src="js/components.js"></script>
 <script src="js/script.js"></script>
 <script src="js/research.js"></script>
 
-</body>
+<!-- Publications drawer toggle -->
+<script>
+(function () {
 
+    var btn     = document.getElementById('pubTriggerBtn');
+    var drawer  = document.getElementById('pubDrawer');
+    var closeBtn = document.getElementById('pubDrawerClose');
+
+    if (!btn || !drawer) { return; }
+
+    function openDrawer() {
+        drawer.classList.add('pub-drawer-open');
+        btn.setAttribute('aria-expanded', 'true');
+        drawer.setAttribute('aria-hidden', 'false');
+        btn.classList.add('active');
+
+        /* Smooth scroll to top of drawer */
+        setTimeout(function () {
+            drawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
+
+    function closeDrawer() {
+        drawer.classList.remove('pub-drawer-open');
+        btn.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        btn.classList.remove('active');
+
+        /* Scroll back up to the trigger button */
+        setTimeout(function () {
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 50);
+    }
+
+    btn.addEventListener('click', function () {
+        if (drawer.classList.contains('pub-drawer-open')) {
+            closeDrawer();
+        } else {
+            openDrawer();
+        }
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDrawer);
+    }
+
+})();
+</script>
+
+</body>
 </html>
