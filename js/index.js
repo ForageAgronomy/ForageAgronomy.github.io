@@ -1,83 +1,56 @@
-/* =========================================================
+/* =====================================================
    FORAGE AGRONOMY LAB
-   HOME PAGE JAVASCRIPT
-========================================================= */
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+   Home Page JavaScript
+   js/index.js
+===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
 
+    /* =====================================================
+       SCROLL REVEAL
+       Fades in elements with class .reveal as they
+       enter the viewport. Respects reduced-motion.
+    ===================================================== */
 
-    if (!revealElements.length) {
-        return;
-    }
+    var revealElements = document.querySelectorAll(".reveal");
 
+    if (!revealElements.length) { return; }
 
-    /*
-     * Respect reduced-motion preferences.
-     */
+    /* Skip animation for users who prefer reduced motion */
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        revealElements.forEach(function (element) {
-
-            element.classList.add("visible");
-
+        revealElements.forEach(function (el) {
+            el.classList.add("visible");
         });
 
         return;
     }
 
+    var observer = new IntersectionObserver(
 
-    /*
-     * Intersection Observer
-     */
+        function (entries) {
 
-    const observer =
-        new IntersectionObserver(
+            entries.forEach(function (entry) {
 
-            function (entries) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
 
-                entries.forEach(function (entry) {
+            });
 
-                    if (entry.isIntersecting) {
+        },
 
-                        entry.target.classList.add("visible");
+        {
+            threshold:  0.12,
+            rootMargin: "0px 0px -40px 0px"
+        }
 
-                        observer.unobserve(
-                            entry.target
-                        );
+    );
 
-                    }
-
-                });
-
-            },
-
-            {
-                threshold: 0.12,
-
-                rootMargin:
-                    "0px 0px -40px 0px"
-            }
-
-        );
-
-
-    revealElements.forEach(function (element) {
-
-        observer.observe(element);
-
+    revealElements.forEach(function (el) {
+        observer.observe(el);
     });
 
 });
