@@ -124,10 +124,10 @@
 
 .art-shape {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 190px;
-    height: 210px;
+    top: -8px;
+    right: -8px;
+    width: 110px;
+    height: 120px;
     pointer-events: none;
     transition: transform 0.5s ease, opacity 0.35s ease;
     opacity: 0.85;
@@ -146,39 +146,27 @@
    two lateral leaflets below at ~45 deg angles.
 */
 
-/* Left card: green tint */
-.art-card-left  .alfalfa-leaflet { fill: rgba(83, 107, 69, 0.12); }
-.art-card-left  .alfalfa-stem    { stroke: rgba(83, 107, 69, 0.20); }
-.art-card-left:hover  .alfalfa-leaflet { fill: rgba(83, 107, 69, 0.22); }
+/* Left card: green tint shape */
+.art-card-left .art-shape-fill {
+    fill: rgba(83, 107, 69, 0.08);
+}
 
-/* Right card: gold tint */
-.art-card-right .alfalfa-leaflet { fill: rgba(255, 196, 37, 0.18); }
-.art-card-right .alfalfa-stem    { stroke: rgba(255, 196, 37, 0.30); }
-.art-card-right:hover .alfalfa-leaflet { fill: rgba(255, 196, 37, 0.30); }
+.art-card-left:hover .art-shape-fill {
+    fill: rgba(83, 107, 69, 0.16);
+}
 
-.alfalfa-leaflet {
+/* Right card: gold tint shape */
+.art-card-right .art-shape-fill {
+    fill: rgba(73, 47, 36, 0.06);
+}
+
+.art-card-right:hover .art-shape-fill {
+    fill: rgba(255, 196, 37, 0.14);
+}
+
+.art-shape-fill {
     transition: fill 0.35s ease;
 }
-
-.alfalfa-stem {
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    transition: stroke 0.35s ease;
-}
-
-.alfalfa-vein {
-    fill: none;
-    stroke-width: 1;
-    stroke-linecap: round;
-    opacity: 0.4;
-}
-
-/* Left card: green veins */
-.art-card-left  .alfalfa-vein { stroke: rgba(83, 107, 69, 0.5); }
-
-/* Right card: gold veins */
-.art-card-right .alfalfa-vein { stroke: rgba(180, 140, 20, 0.5); }
 
 
 /* =====================================================
@@ -398,10 +386,10 @@
     }
 
     .art-shape {
-        width: 140px;
-        height: 155px;
-        top: -8px;
-        right: -8px;
+        width: 90px;
+        height: 100px;
+        top: -6px;
+        right: -6px;
     }
 
     .art-content h3 { font-size: 28px; }
