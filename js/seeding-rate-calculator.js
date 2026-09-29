@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const SQFT_PER_ACRE = 43560;
 
-    const GRAMS_PER_POUND = 453.59237;
-
     const KG_PER_HECTARE_PER_LB_PER_ACRE =
         1.120851156;
 
@@ -22,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
     /*
        Excel file expected here:
 
-       data/1000-seed-weight.xlsx
+       data/seeds-per-pound.xlsx
     */
 
     const EXCEL_FILE =
-        "data/1000-seed-weight.xlsx";
+        "data/seeds-per-pound.xlsx";
 
 
     /* =================================================
@@ -219,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 throw new Error(
-                    "No usable species and 1,000-seed-weight data were found in the spreadsheet."
+                    "No usable species and seeds-per-pound data were found in the spreadsheet."
                 );
 
             }
@@ -228,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (dataStatus) {
 
                 dataStatus.textContent =
-                    `${speciesData.length} forage species loaded from the seed-weight spreadsheet.`;
+                    `${speciesData.length} forage species loaded from the seed data spreadsheet.`;
 
                 dataStatus.classList.remove(
                     "warning"
@@ -248,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (dataStatus) {
 
                 dataStatus.textContent =
-                    "Seed-weight data could not be loaded. Upload the Excel file to data/1000-seed-weight.xlsx.";
+                    "Seed data could not be loaded. Upload the Excel file to data/seeds-per-pound.xlsx.";
 
                 dataStatus.classList.add(
                     "warning"
@@ -274,6 +272,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =================================================
        PARSE EXCEL DATA
+
+       Expected columns:
+         - Species name  →  "Species", "Forage", "Name",
+                            "Common Name", "Forage Species"
+         - Seeds / lb    →  "Seeds per Pound", "Seeds/lb",
+                            "Seeds per lb", "Seedsperlb",
+                            "Seeds/Pound"
     ================================================= */
 
     function parseSeedData(rows) {
@@ -300,23 +305,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-            const weightKey =
+            /*
+               Look for a seeds-per-pound column.
+               Accepts common header variants.
+            */
+
+            const seedsPerLbKey =
                 findColumn(
                     keys,
                     [
-                        "1000seedweight",
-                        "1000seedweightg",
-                        "thousandseedweight",
-                        "thousandseedweightg",
-                        "tkw",
-                        "thousandkernelweight"
+                        "seedsperpound",
+                        "seedsperlb",
+                        "seedsperlb",
+                        "seedslb",
+                        "seedspound",
+                        "numberofseedsperpound",
+                        "seedcount"
                     ]
                 );
 
 
             if (
                 !speciesKey ||
-                !weightKey
+                !seedsPerLbKey
             ) {
 
                 return;
@@ -330,10 +341,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 ).trim();
 
 
-            const weight =
+            const seedsPerLb =
                 Number(
                     String(
-                        row[weightKey]
+                        row[seedsPerLbKey]
                     )
                     .replace(
                         /[^0-9.-]/g,
@@ -344,8 +355,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (
                 species &&
-                Number.isFinite(weight) &&
-                weight > 0
+                Number.isFinite(seedsPerLb) &&
+                seedsPerLb > 0
             ) {
 
                 output.push({
@@ -353,8 +364,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     species:
                         species,
 
-                    oneThousandSeedWeightG:
-                        weight
+                    /*
+                       Store seeds/lb directly.
+                       No conversion needed at
+                       calculation time.
+                    */
+
+                    seedsPerLb:
+                        seedsPerLb
 
                 });
 
@@ -569,14 +586,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="species-field">
 
                         <label class="field-label">
-                            1,000 Seed Weight (g)
+                            Seeds / lb
                         </label>
 
                         <input
                             type="number"
-                            class="seed-weight"
+                            class="seeds-per-lb-input"
                             min="0"
-                            step="0.01"
+                            step="1"
                             readonly>
 
                     </div>
@@ -687,7 +704,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="result-box">
 
                         <span>
-                            Seeds / lb
+                            Seeds / lb (adjusted)
                         </span>
 
                         <strong class="seeds-per-pound">
@@ -783,8 +800,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     item.species;
 
 
-                option.dataset.weight =
-                    item.oneThousandSeedWeightG;
+                /*
+                   Store seeds/lb on the option
+                   element so it is available
+                   instantly on select change
+                   without re-scanning speciesData.
+                */
+
+                option.dataset.seedsPerLb =
+                    item.seedsPerLb;
 
 
                 select.appendChild(
@@ -813,9 +837,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 ".stand-percentage"
             );
 
-        const weightInput =
+        /*
+           The seeds-per-lb display field.
+           Read-only; populated from the dropdown.
+        */
+
+        const seedsPerLbInput =
             card.querySelector(
-                ".seed-weight"
+                ".seeds-per-lb-input"
             );
 
         const coating =
@@ -861,22 +890,29 @@ document.addEventListener("DOMContentLoaded", function () {
                         ];
 
 
-                    const weight =
+                    const seedsPerLb =
                         Number(
-                            option.dataset.weight
+                            option.dataset.seedsPerLb
                         );
 
 
+                    /*
+                       Populate the read-only display
+                       field with the raw seeds/lb
+                       value from the spreadsheet.
+                    */
+
                     if (
-                        Number.isFinite(weight)
+                        Number.isFinite(seedsPerLb) &&
+                        seedsPerLb > 0
                     ) {
 
-                        weightInput.value =
-                            weight;
+                        seedsPerLbInput.value =
+                            seedsPerLb;
 
                     } else {
 
-                        weightInput.value =
+                        seedsPerLbInput.value =
                             "";
 
                     }
@@ -1068,9 +1104,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         ".stand-percentage"
                     );
 
-                const weightInput =
+                const seedsPerLbInput =
                     card.querySelector(
-                        ".seed-weight"
+                        ".seeds-per-lb-input"
                     );
 
                 const coatingInput =
@@ -1103,10 +1139,16 @@ document.addEventListener("DOMContentLoaded", function () {
                         : 0;
 
 
-                const weight =
-                    weightInput
+                /*
+                   Read seeds/lb directly from
+                   the display field, which was
+                   populated from the spreadsheet.
+                */
+
+                const baseSeedsPerLb =
+                    seedsPerLbInput
                         ? Number(
-                            weightInput.value
+                            seedsPerLbInput.value
                         )
                         : NaN;
 
@@ -1141,8 +1183,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (
                     !species ||
-                    !Number.isFinite(weight) ||
-                    weight <= 0 ||
+                    !Number.isFinite(baseSeedsPerLb) ||
+                    baseSeedsPerLb <= 0 ||
                     !Number.isFinite(pls) ||
                     pls <= 0
                 ) {
@@ -1158,21 +1200,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /*
-                   Base seeds per pound:
+                   Adjust seeds/lb downward for
+                   coating weight. Coating adds
+                   mass without adding seeds, so
+                   a coated pound contains fewer
+                   viable seeds than an uncoated
+                   pound of the same species.
 
-                   seeds/lb =
-                   453.59237 × 1000 /
-                   1,000-seed weight (g)
-                */
-
-                const baseSeedsPerLb =
-                    GRAMS_PER_POUND *
-                    1000 /
-                    weight;
-
-
-                /*
-                   Adjust seeds per pound for coating.
+                   adjustedSeedsPerLb =
+                   baseSeedsPerLb /
+                   (1 + coatingFraction)
                 */
 
                 const adjustedSeedsPerLb =
@@ -1204,7 +1241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 /*
                    Target live seed density allocated
-                   to this species.
+                   to this species (seeds / ft²).
                 */
 
                 const speciesTargetSeeds =
@@ -1213,13 +1250,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /*
-                   Base bulk seeding rate:
+                   Bulk seeding rate:
 
                    lb/ac =
-                   target seeds/ft² ×
-                   43,560 /
-                   seeds/lb /
-                   PLS
+                   (target seeds/ft² × 43,560 ft²/ac)
+                   ÷ (adjustedSeedsPerLb × PLS)
+
+                   Dividing by PLS accounts for the
+                   fraction of seeds that are both
+                   pure and germinable.
                 */
 
                 const baseRateLbAc =
@@ -1296,8 +1335,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     percentage:
                         standPercentage,
 
-                    seedWeight:
-                        weight,
+                    seedsPerLb:
+                        baseSeedsPerLb,
 
                     pls:
                         pls,
@@ -1422,6 +1461,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        /*
+           Show the coating-adjusted seeds/lb
+           in the result box so users can see
+           the effect of any coating applied.
+        */
+
         seedsPerLb.textContent =
             formatNumber(
                 result.adjustedSeedsPerLb,
@@ -1483,7 +1528,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         class="empty-summary">
 
                         Add a forage species and select
-                        a valid seed-weight value.
+                        a valid seed data value.
 
                     </td>
 
@@ -1540,9 +1585,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         <td>
                             ${formatNumber(
-                                row.seedWeight,
-                                2
-                            )} g
+                                row.seedsPerLb,
+                                0
+                            )} seeds/lb
                         </td>
 
                         <td>
