@@ -13,13 +13,8 @@
     <meta name="description"
           content="Producer resources from the Forage Agronomy Lab, including forage seeding rate calculation and forage species selection tools.">
 
-    <!-- Shared site styles -->
-    <link rel="stylesheet"
-          href="css/style.css">
-
-    <!-- Page-specific styles -->
-    <link rel="stylesheet"
-          href="css/producer-resources.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/producer-resources.css">
 
 </head>
 
@@ -27,12 +22,8 @@
 <body>
 
 
-<!-- =====================================================
-     SHARED HEADER
-===================================================== -->
-
+<!-- SHARED HEADER -->
 <div id="header-placeholder"></div>
-
 
 
 <!-- =====================================================
@@ -43,18 +34,13 @@
 
     <div class="container">
 
-        <p class="eyebrow">
-            EXTENSION
-        </p>
+        <p class="eyebrow">EXTENSION</p>
 
-        <h1>
-            Producer Resources
-        </h1>
+        <h1>Producer Resources</h1>
 
         <p class="hero-text">
-
-            Research-based tools to support forage species selection, seeding-rate decisions, and successful forage establishment.
-
+            Research-based tools to support forage species selection,
+            seeding-rate decisions, and successful forage establishment.
         </p>
 
     </div>
@@ -62,9 +48,8 @@
 </section>
 
 
-
 <!-- =====================================================
-     PRODUCER RESOURCES
+     RESOURCES
 ===================================================== -->
 
 <main>
@@ -73,131 +58,284 @@
 
     <div class="container">
 
-
-        <!-- =================================================
-             SECTION INTRODUCTION
-        ================================================== -->
+        <div class="res-bg-ring res-bg-ring-1"></div>
+        <div class="res-bg-ring res-bg-ring-2"></div>
 
         <div class="section-heading">
-
-            <p class="eyebrow">
-            </p>
-
-            <h2>
-                Producer Resources
-            </h2>
-
-            <p>
-                Use these tools to support forage production
-                decisions.
-            </p>
-
+            <h2>Producer Resources</h2>
+            <p>Use these tools to support forage production decisions.</p>
         </div>
 
+        <div class="resources-art-grid">
 
 
-        <!-- =================================================
-             RESOURCE CARDS
-        ================================================== -->
-
-        <div class="resources-grid">
-
-
-            <!-- =================================================
-                 SEEDING RATE CALCULATOR
-            ================================================== -->
+            <!-- ── SEEDING RATE CALCULATOR ── -->
 
             <a href="seeding-rate-calculator.html"
-               class="resource-card">
+               class="art-card art-card-left">
+
+                <!--
+                    TRIFOLIATE ALFALFA LEAF
+                    Morphology: three obovate leaflets, each with a
+                    slightly serrated tip and a clear midvein. The
+                    terminal leaflet sits at top-center on a longer
+                    petiolule; two lateral leaflets angle outward
+                    below. All three meet at the top of the petiole.
+                -->
+                <div class="art-shape" aria-hidden="true">
+                    <svg viewBox="0 0 190 210"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- PETIOLE (main stem) -->
+                        <path class="alfalfa-stem"
+                              d="M95,205 C95,195 95,175 95,155"/>
+
+                        <!-- LATERAL PETIOLULES -->
+                        <path class="alfalfa-stem"
+                              d="M95,155 C85,148 70,138 55,125"/>
+                        <path class="alfalfa-stem"
+                              d="M95,155 C105,148 120,138 135,125"/>
+
+                        <!-- TERMINAL PETIOLULE -->
+                        <path class="alfalfa-stem"
+                              d="M95,155 C95,145 95,132 95,118"/>
+
+                        <!--
+                            TERMINAL LEAFLET
+                            Obovate: wider at the top, tapering to
+                            the base, with a slightly notched tip.
+                        -->
+                        <path class="alfalfa-leaflet"
+                              d="M95,118
+                                 C95,118 88,112 82,102
+                                 C76,90  76,78  82,68
+                                 C86,60  90,54  94,50
+                                 C94.5,49.5 95,49 95.5,49
+                                 C96,49 96.5,49.5 97,50
+                                 C101,54 105,60 109,68
+                                 C115,78 115,90 109,102
+                                 C103,112 96,118 95,118 Z"/>
+
+                        <!-- Terminal midvein -->
+                        <path class="alfalfa-vein"
+                              d="M95,118 C95,100 95,70 95,50"/>
+
+                        <!-- Terminal lateral veins -->
+                        <path class="alfalfa-vein"
+                              d="M95,105 C91,100 85,97 80,96"/>
+                        <path class="alfalfa-vein"
+                              d="M95,105 C99,100 105,97 110,96"/>
+                        <path class="alfalfa-vein"
+                              d="M95,92 C91,87 86,85 81,84"/>
+                        <path class="alfalfa-vein"
+                              d="M95,92 C99,87 104,85 109,84"/>
+                        <path class="alfalfa-vein"
+                              d="M95,79 C92,74 88,72 84,72"/>
+                        <path class="alfalfa-vein"
+                              d="M95,79 C98,74 102,72 106,72"/>
 
 
-                <div class="resource-number">
+                        <!--
+                            LEFT LATERAL LEAFLET
+                            Slightly smaller, rotated ~45 deg left.
+                        -->
+                        <path class="alfalfa-leaflet"
+                              d="M55,125
+                                 C55,125 46,122 38,115
+                                 C29,106 26,95  30,84
+                                 C33,76  38,69  43,64
+                                 C43.5,63.5 44,63 44.8,63
+                                 C45.5,63.2 46,64  47,65
+                                 C52,71  57,79  60,89
+                                 C64,100 62,113 55,125 Z"/>
+
+                        <!-- Left lateral midvein -->
+                        <path class="alfalfa-vein"
+                              d="M55,125 C52,110 44,85 44,64"/>
+
+                        <!-- Left lateral veins -->
+                        <path class="alfalfa-vein"
+                              d="M51,113 C46,110 40,110 36,111"/>
+                        <path class="alfalfa-vein"
+                              d="M48,102 C43,99 38,99 34,101"/>
+                        <path class="alfalfa-vein"
+                              d="M46,91 C42,88 38,89 35,91"/>
+
+
+                        <!--
+                            RIGHT LATERAL LEAFLET
+                            Mirror of left, rotated ~45 deg right.
+                        -->
+                        <path class="alfalfa-leaflet"
+                              d="M135,125
+                                 C135,125 144,122 152,115
+                                 C161,106 164,95  160,84
+                                 C157,76  152,69  147,64
+                                 C146.5,63.5 146,63 145.2,63
+                                 C144.5,63.2 144,64  143,65
+                                 C138,71  133,79  130,89
+                                 C126,100 128,113 135,125 Z"/>
+
+                        <!-- Right lateral midvein -->
+                        <path class="alfalfa-vein"
+                              d="M135,125 C138,110 146,85 146,64"/>
+
+                        <!-- Right lateral veins -->
+                        <path class="alfalfa-vein"
+                              d="M139,113 C144,110 150,110 154,111"/>
+                        <path class="alfalfa-vein"
+                              d="M142,102 C147,99  152,99  156,101"/>
+                        <path class="alfalfa-vein"
+                              d="M144,91 C148,88  152,89  155,91"/>
+
+                    </svg>
                 </div>
 
+                <div class="art-icon-wrap">
+                    <svg class="art-icon" viewBox="0 0 64 64" aria-hidden="true">
+                        <rect x="14" y="8" width="36" height="48" rx="4"
+                              fill="none" stroke="currentColor" stroke-width="2.5"/>
+                        <line x1="22" y1="20" x2="42" y2="20"
+                              stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="22" y1="29" x2="38" y2="29"
+                              stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="22" y1="38" x2="34" y2="38"
+                              stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="22" y1="47" x2="30" y2="47"
+                              stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
 
-                <div class="resource-content">
-
-                    <p class="resource-category">
-                        CALCULATOR
-                    </p>
-
-
-                    <h3>
-                        Seeding Rate Calculator
-                    </h3>
-
-
+                <div class="art-content">
+                    <p class="art-category">CALCULATOR</p>
+                    <h3>Seeding Rate<br>Calculator</h3>
                     <p>
-
-                        Calculate recommended forage seeding
-                        rates based on species, seed size,
-                        germination, purity, target plant
+                        Calculate recommended forage seeding rates based on
+                        species, seed size, germination, purity, target plant
                         density, and other establishment factors.
-
                     </p>
-
-
-                    <span class="resource-link">
-
-                        Open Calculator
-
-                        <span aria-hidden="true">
-                            →
-                        </span>
-
-                    </span>
-
+                    <span class="art-cta">Open Calculator →</span>
                 </div>
+
+                <div class="art-corner"></div>
 
             </a>
 
 
-
-            <!-- =================================================
-                 FORAGE SPECIES SELECTION
-            ================================================== -->
+            <!-- ── FORAGE SPECIES SELECTION ── -->
 
             <a href="forage-species-selection.html"
-               class="resource-card">
+               class="art-card art-card-right">
 
+                <!-- Same trifoliate alfalfa leaf, gold tint via CSS -->
+                <div class="art-shape" aria-hidden="true">
+                    <svg viewBox="0 0 190 210"
+                         xmlns="http://www.w3.org/2000/svg">
 
-                <div class="resource-number">
+                        <path class="alfalfa-stem"
+                              d="M95,205 C95,195 95,175 95,155"/>
+                        <path class="alfalfa-stem"
+                              d="M95,155 C85,148 70,138 55,125"/>
+                        <path class="alfalfa-stem"
+                              d="M95,155 C105,148 120,138 135,125"/>
+                        <path class="alfalfa-stem"
+                              d="M95,155 C95,145 95,132 95,118"/>
+
+                        <path class="alfalfa-leaflet"
+                              d="M95,118
+                                 C95,118 88,112 82,102
+                                 C76,90  76,78  82,68
+                                 C86,60  90,54  94,50
+                                 C94.5,49.5 95,49 95.5,49
+                                 C96,49 96.5,49.5 97,50
+                                 C101,54 105,60 109,68
+                                 C115,78 115,90 109,102
+                                 C103,112 96,118 95,118 Z"/>
+
+                        <path class="alfalfa-vein"
+                              d="M95,118 C95,100 95,70 95,50"/>
+                        <path class="alfalfa-vein"
+                              d="M95,105 C91,100 85,97 80,96"/>
+                        <path class="alfalfa-vein"
+                              d="M95,105 C99,100 105,97 110,96"/>
+                        <path class="alfalfa-vein"
+                              d="M95,92 C91,87 86,85 81,84"/>
+                        <path class="alfalfa-vein"
+                              d="M95,92 C99,87 104,85 109,84"/>
+                        <path class="alfalfa-vein"
+                              d="M95,79 C92,74 88,72 84,72"/>
+                        <path class="alfalfa-vein"
+                              d="M95,79 C98,74 102,72 106,72"/>
+
+                        <path class="alfalfa-leaflet"
+                              d="M55,125
+                                 C55,125 46,122 38,115
+                                 C29,106 26,95  30,84
+                                 C33,76  38,69  43,64
+                                 C43.5,63.5 44,63 44.8,63
+                                 C45.5,63.2 46,64  47,65
+                                 C52,71  57,79  60,89
+                                 C64,100 62,113 55,125 Z"/>
+
+                        <path class="alfalfa-vein"
+                              d="M55,125 C52,110 44,85 44,64"/>
+                        <path class="alfalfa-vein"
+                              d="M51,113 C46,110 40,110 36,111"/>
+                        <path class="alfalfa-vein"
+                              d="M48,102 C43,99 38,99 34,101"/>
+                        <path class="alfalfa-vein"
+                              d="M46,91 C42,88 38,89 35,91"/>
+
+                        <path class="alfalfa-leaflet"
+                              d="M135,125
+                                 C135,125 144,122 152,115
+                                 C161,106 164,95  160,84
+                                 C157,76  152,69  147,64
+                                 C146.5,63.5 146,63 145.2,63
+                                 C144.5,63.2 144,64  143,65
+                                 C138,71  133,79  130,89
+                                 C126,100 128,113 135,125 Z"/>
+
+                        <path class="alfalfa-vein"
+                              d="M135,125 C138,110 146,85 146,64"/>
+                        <path class="alfalfa-vein"
+                              d="M139,113 C144,110 150,110 154,111"/>
+                        <path class="alfalfa-vein"
+                              d="M142,102 C147,99  152,99  156,101"/>
+                        <path class="alfalfa-vein"
+                              d="M144,91 C148,88  152,89  155,91"/>
+
+                    </svg>
                 </div>
 
+                <div class="art-icon-wrap">
+                    <svg class="art-icon" viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="M32 54
+                                 C31 40 27 27 15 14
+                                 C29 17 39 24 42 35
+                                 C45 26 51 21 57 19
+                                 C55 34 48 45 35 49
+                                 L32 54Z"
+                              fill="none" stroke="currentColor" stroke-width="2.5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M32 53 C34 40 38 30 48 23"
+                              fill="none" stroke="currentColor" stroke-width="2.5"
+                              stroke-linecap="round"/>
+                    </svg>
+                </div>
 
-                <div class="resource-content">
-
-                    <p class="resource-category">
-                        DECISION TOOL
-                    </p>
-
-
-                    <h3>
-                        Forage Species Selection
-                    </h3>
-
-
+                <div class="art-content">
+                    <p class="art-category">DECISION TOOL</p>
+                    <h3>Forage Species<br>Selection</h3>
                     <p>
-
-                        Explore forage species based on
-                        production environment, irrigation,
-                        soil conditions, intended use, and
-                        other agronomic considerations.
-
+                        Explore forage species based on production environment,
+                        irrigation, soil conditions, intended use, and other
+                        agronomic considerations.
                     </p>
-
-
-                    <span class="resource-link">
-
-                        Explore Species
-
-                        <span aria-hidden="true">
-                            →
-                        </span>
-
-                    </span>
-
+                    <span class="art-cta">Explore Species →</span>
                 </div>
+
+                <div class="art-corner"></div>
 
             </a>
 
@@ -207,7 +345,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -218,35 +355,33 @@
 
     <div class="container">
 
-        <div class="info-content">
+        <div class="info-layout">
 
-            <p class="eyebrow">
-                ABOUT THESE TOOLS
-            </p>
+            <div class="info-aside">
+                <div class="info-aside-line"></div>
+                <p class="info-aside-label">ABOUT<br>THESE<br>TOOLS</p>
+            </div>
 
+            <div class="info-content">
 
-            <h2>
-                Research-based resources for forage producers
-            </h2>
+                <h2>Research-based resources for forage producers</h2>
 
+                <p>
+                    These tools are being developed to translate forage research
+                    into practical information that can support producers,
+                    agricultural professionals, and other decision-makers.
+                </p>
 
-            <p>
+                <p>
+                    The tools and information provided by the Forage Agronomy Lab
+                    are intended for educational and general planning purposes.
+                    Results are estimates and may vary depending on local conditions,
+                    management practices, and other factors. Producers should
+                    consider their specific circumstances and consult with local
+                    agronomic professionals when making management decisions.
+                </p>
 
-                These tools are being developed to translate
-                forage research into practical information that
-                can support producers, agricultural professionals,
-                and other decision-makers.
-
-            </p>
-
-
-            <p>
-
-                The tools and information provided by the Forage Agronomy Lab are intended 
-                for educational and general planning purposes. Results are estimates and may vary depending on local conditions, management practices, and other factors.
-                Producers should consider their specific circumstances and consult with local agronomic professionals when making management decisions.
-
-            </p>
+            </div>
 
         </div>
 
@@ -254,35 +389,15 @@
 
 </section>
 
-
 </main>
 
 
-
-<!-- =====================================================
-     SHARED FOOTER
-===================================================== -->
-
+<!-- SHARED FOOTER -->
 <div id="footer-placeholder"></div>
 
-
-
-<!-- =====================================================
-     SHARED JAVASCRIPT
-===================================================== -->
-
 <script src="js/components.js"></script>
-
 <script src="js/script.js"></script>
-
-
-<!-- =====================================================
-     PAGE-SPECIFIC JAVASCRIPT
-===================================================== -->
-
 <script src="js/producer-resources.js"></script>
 
-
 </body>
-
 </html>
