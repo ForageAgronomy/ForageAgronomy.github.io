@@ -1,28 +1,29 @@
 /* =====================================================
    FORAGE AGRONOMY LAB
    Main Site JavaScript
+   js/script.js
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
+
     /* =====================================================
-       MOBILE MENU
+       MOBILE MENU TOGGLE
+       (fallback — primary logic is in components.js
+        after the header loads; this covers pages that
+        inline the header directly)
     ===================================================== */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    var menuToggle = document.getElementById("menuToggle");
+    var mainNav    = document.getElementById("mainNav");
 
     if (menuToggle && mainNav) {
 
         menuToggle.addEventListener("click", function () {
 
-            const isOpen =
-                mainNav.classList.toggle("active");
+            var isOpen = mainNav.classList.toggle("open");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
+            menuToggle.setAttribute("aria-expanded", isOpen);
 
         });
 
@@ -30,81 +31,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       EXTENSION DROPDOWN
+       EXTENSION DROPDOWN  (mobile)
     ===================================================== */
 
-    const extensionButton =
-        document.getElementById("extensionButton");
+    var extensionButton   = document.getElementById("extensionButton");
+    var extensionDropdown = document.querySelector(".nav-dropdown");
 
-    const extensionDropdown =
-        document.querySelector(".nav-dropdown");
+    if (extensionButton && extensionDropdown) {
 
-    if (
-        extensionButton &&
-        extensionDropdown
-    ) {
+        extensionButton.addEventListener("click", function () {
 
-        extensionButton.addEventListener(
-            "click",
-            function () {
-
-                /* Mobile only */
-
-                if (window.innerWidth <= 950) {
-
-                    extensionDropdown.classList.toggle(
-                        "active"
-                    );
-
-                }
-
+            if (window.innerWidth <= 700) {
+                extensionDropdown.classList.toggle("open");
             }
-        );
+
+        });
 
     }
 
 
     /* =====================================================
-       CURRENT PAGE NAVIGATION
-       Automatically highlights the current page
+       ACTIVE PAGE HIGHLIGHT
     ===================================================== */
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop() || "index.html";
+    var currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
-    const navLinks =
-        document.querySelectorAll(
-            ".main-nav a"
-        );
+    var navLinks = document.querySelectorAll(".main-nav a");
 
     navLinks.forEach(function (link) {
 
-        const linkPage =
-            link.getAttribute("href");
-
-        if (linkPage === currentPage) {
-
+        if (link.getAttribute("href") === currentPage) {
             link.classList.add("active");
-
         }
 
     });
 
 
     /* =====================================================
-       CURRENT YEAR
+       CURRENT YEAR IN FOOTER
     ===================================================== */
 
-    const year =
-        document.getElementById("year");
+    var year = document.getElementById("year");
 
     if (year) {
-
-        year.textContent =
-            new Date().getFullYear();
-
+        year.textContent = new Date().getFullYear();
     }
 
 });
