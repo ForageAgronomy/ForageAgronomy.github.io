@@ -3,122 +3,77 @@
 ===================================================== -->
 
 <div class="uw-topbar">
-
     <div class="container topbar-inner">
-
     </div>
-
 </div>
 
 
 <!-- =====================================================
-     HEADER
+     HEADER  —  Option C
+     Row 1: UW-brown brand bar
+     Row 2: white nav strip
 ===================================================== -->
 
 <header class="site-header">
 
-    <div class="container header-inner">
+    <!-- Row 1: Brand -->
+    <div class="header-brand-bar">
+        <div class="container header-brand-inner">
 
+            <div class="brand">
+                <a href="index.html">
+                    <span class="brand-title">Forage Agronomy Lab</span>
+                    <span class="brand-subtitle">University of Wyoming</span>
+                </a>
+            </div>
 
-        <!-- LAB NAME -->
-
-        <div class="brand">
-
-            <a href="index.html">
-
-                <span class="brand-title">
-                    Forage Agronomy Lab
-                </span>
-
-                <span class="brand-subtitle">
-                    University of Wyoming
-                </span>
-
-            </a>
+            <!-- Mobile menu button (sits in brand bar on mobile) -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+                ☰
+            </button>
 
         </div>
+    </div>
 
+    <!-- Row 2: Navigation -->
+    <div class="header-nav-bar">
+        <div class="container">
 
-        <!-- MOBILE MENU BUTTON -->
+            <nav class="main-nav" id="mainNav">
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Open navigation menu"
-            aria-expanded="false">
+                <a href="index.html">Home</a>
 
-            ☰
+                <a href="people.html">People</a>
 
-        </button>
+                <a href="research.html">Research</a>
 
+                <!-- Extension dropdown -->
+                <div class="nav-dropdown">
 
-        <!-- NAVIGATION -->
+                    <button
+                        class="dropdown-button"
+                        id="extensionButton"
+                        type="button">
+                        Extension
+                        <span>▾</span>
+                    </button>
 
-        <nav
-            class="main-nav"
-            id="mainNav">
-
-
-            <a href="index.html">
-                Home
-            </a>
-
-
-            <a href="people.html">
-                People
-            </a>
-
-
-            <a href="research.html">
-                Research
-            </a>
-
-
-            <!-- EXTENSION DROPDOWN -->
-
-            <div class="nav-dropdown">
-
-                <button
-                    class="dropdown-button"
-                    id="extensionButton"
-                    type="button">
-
-                    Extension
-
-                    <span>
-                        ▾
-                    </span>
-
-                </button>
-
-
-                <div
-                    class="dropdown-menu"
-                    id="extensionMenu">
-
-
-                    <a href="extension-articles.html">
-                        Extension Articles
-                    </a>
-
-
-                    <a href="producer-resources.html">
-                        Producer Resources
-                    </a>
-
+                    <div class="dropdown-menu" id="extensionMenu">
+                        <a href="extension-articles.html">Extension Articles</a>
+                        <a href="producer-resources.html">Producer Resources</a>
+                    </div>
 
                 </div>
 
-            </div>
+                <a href="links.html">Links</a>
 
+            </nav>
 
-            <a href="links.html">
-                Links
-            </a>
-
-
-        </nav>
-
+        </div>
     </div>
 
 </header>
