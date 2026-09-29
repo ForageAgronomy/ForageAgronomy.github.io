@@ -1,8 +1,11 @@
 /* =====================================================
-   SHARED HEADER AND FOOTER
+   FORAGE AGRONOMY LAB
+   Shared Header and Footer Loader
+   js/components.js
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
+
 
     /* =====================================================
        LOAD HEADER
@@ -12,9 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (response) {
 
             if (!response.ok) {
-                throw new Error(
-                    "Could not load header.html"
-                );
+                throw new Error("Could not load header.html");
             }
 
             return response.text();
@@ -22,26 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(function (data) {
 
-            const header =
-                document.getElementById(
-                    "header-placeholder"
-                );
+            var header = document.getElementById("header-placeholder");
 
             if (header) {
                 header.innerHTML = data;
             }
 
-            /* Initialize site navigation */
             initializeNavigation();
 
         })
         .catch(function (error) {
-
-            console.error(
-                "Header loading error:",
-                error
-            );
-
+            console.error("Header loading error:", error);
         });
 
 
@@ -53,9 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (response) {
 
             if (!response.ok) {
-                throw new Error(
-                    "Could not load footer.html"
-                );
+                throw new Error("Could not load footer.html");
             }
 
             return response.text();
@@ -63,34 +53,21 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(function (data) {
 
-            const footer =
-                document.getElementById(
-                    "footer-placeholder"
-                );
+            var footer = document.getElementById("footer-placeholder");
 
             if (footer) {
                 footer.innerHTML = data;
             }
 
-            /* Set current year */
-            const year =
-                document.getElementById("year");
+            var year = document.getElementById("year");
 
             if (year) {
-
-                year.textContent =
-                    new Date().getFullYear();
-
+                year.textContent = new Date().getFullYear();
             }
 
         })
         .catch(function (error) {
-
-            console.error(
-                "Footer loading error:",
-                error
-            );
-
+            console.error("Footer loading error:", error);
         });
 
 });
@@ -102,96 +79,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initializeNavigation() {
 
+
     /* =====================================================
-       MOBILE MENU
+       MOBILE MENU TOGGLE
     ===================================================== */
 
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const mainNav =
-        document.getElementById("mainNav");
+    var menuToggle = document.getElementById("menuToggle");
+    var mainNav    = document.getElementById("mainNav");
 
     if (menuToggle && mainNav) {
 
-        menuToggle.addEventListener(
-            "click",
-            function () {
+        menuToggle.addEventListener("click", function () {
 
-                const isOpen =
-                    mainNav.classList.toggle("active");
+            var isOpen = mainNav.classList.toggle("open");
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    isOpen
-                );
+            menuToggle.setAttribute("aria-expanded", isOpen);
 
-            }
-        );
+        });
 
     }
 
 
     /* =====================================================
-       EXTENSION DROPDOWN
+       EXTENSION DROPDOWN  (mobile tap / desktop hover)
     ===================================================== */
 
-    const extensionButton =
-        document.getElementById(
-            "extensionButton"
-        );
+    var extensionButton  = document.getElementById("extensionButton");
+    var extensionDropdown = document.querySelector(".nav-dropdown");
 
-    const extensionDropdown =
-        document.querySelector(
-            ".nav-dropdown"
-        );
+    if (extensionButton && extensionDropdown) {
 
-    if (
-        extensionButton &&
-        extensionDropdown
-    ) {
+        /* Mobile: toggle on button click */
+        extensionButton.addEventListener("click", function () {
 
-        extensionButton.addEventListener(
-            "click",
-            function () {
-
-                if (window.innerWidth <= 950) {
-
-                    extensionDropdown.classList.toggle(
-                        "active"
-                    );
-
-                }
-
+            if (window.innerWidth <= 700) {
+                extensionDropdown.classList.toggle("open");
             }
-        );
+
+        });
+
+        /* Desktop: open on hover (CSS handles the visual,
+           this handles keyboard / touch edge cases) */
+        extensionDropdown.addEventListener("mouseleave", function () {
+            extensionDropdown.classList.remove("open");
+        });
 
     }
 
 
     /* =====================================================
-       CURRENT PAGE
+       ACTIVE PAGE HIGHLIGHT
     ===================================================== */
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop() || "index.html";
+    var currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
-    const navLinks =
-        document.querySelectorAll(
-            ".main-nav a"
-        );
+    var navLinks = document.querySelectorAll(".main-nav a");
 
     navLinks.forEach(function (link) {
 
-        const linkPage =
-            link.getAttribute("href");
-
-        if (linkPage === currentPage) {
-
+        if (link.getAttribute("href") === currentPage) {
             link.classList.add("active");
-
         }
 
     });
