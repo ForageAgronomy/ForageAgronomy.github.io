@@ -1,613 +1,187 @@
 /* =====================================================
-   FORAGE AGRONOMY LAB — RESEARCH PAGE
-   Page-specific styles only
+   PUBLICATIONS TRIGGER SECTION
+   Sits between last research section and acknowledgements
 ===================================================== */
 
-
-/* =====================================================
-   RESEARCH SECTIONS
-===================================================== */
-
-.research-section {
-    padding: 105px 0 115px;
-
-    background: var(--cream);
-}
-
-.research-section.light-section {
-    background: var(--cream-dark);
-}
-
-
-/* =====================================================
-   RESEARCH CONTENT
-===================================================== */
-
-.research-content {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    gap: 70px;
-
-    align-items: center;
-}
-
-
-/* =====================================================
-   ALTERNATING LAYOUT
-===================================================== */
-
-.research-content.reverse .research-text {
-    order: 2;
-}
-
-.research-content.reverse .research-image {
-    order: 1;
-}
-
-
-/* =====================================================
-   RESEARCH TEXT
-===================================================== */
-
-.research-text {
-    position: relative;
-}
-
-.research-text h2 {
-    max-width: 650px;
-
-    margin-bottom: 25px;
-
-    color: var(--brown-dark);
-
-    font-size:
-        clamp(34px, 4vw, 52px);
-
-    font-weight: 500;
-
-    line-height: 1.1;
-
-    letter-spacing: -0.5px;
-}
-
-.research-text p:not(.eyebrow) {
-    max-width: 620px;
-
-    margin-bottom: 17px;
-
-    color: var(--text-light);
-
-    font-size: 17px;
-
-    line-height: 1.75;
-}
-
-.research-text p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =====================================================
-   RESEARCH IMAGES
-===================================================== */
-
-.research-image {
-    position: relative;
-
-    height: 450px;
-
-    background: var(--cream-dark);
-
-    border: 1px solid var(--border-light);
-
-    overflow: hidden;
-
-    box-shadow:
-        0 15px 35px
-        rgba(59, 42, 32, 0.08);
-}
-
-.research-image::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 22%;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(59, 42, 32, 0.10),
-            transparent
-        );
-
-    pointer-events: none;
-}
-
-.research-image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.5s ease;
-}
-
-.research-image:hover img {
-    transform:
-        scale(1.025);
-}
-
-
-/* =====================================================
-   PUBLICATIONS SECTION
-===================================================== */
-
-.publications-section {
-    padding: 105px 0 115px;
-
+.pub-trigger-section {
+    padding: 70px 0;
     background: var(--white);
-
-    border-top:
-        1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
 }
 
-
-/* =====================================================
-   PUBLICATION HEADING
-===================================================== */
-
-.publications-section .section-heading {
-    max-width: 800px;
-
-    margin-bottom: 55px;
-}
-
-.publications-section .section-heading h2 {
-    margin-bottom: 18px;
-
-    color: var(--brown-dark);
-
-    font-size:
-        clamp(36px, 5vw, 52px);
-
-    font-weight: 500;
-
-    line-height: 1.1;
-
-    letter-spacing: -0.6px;
-}
-
-.publications-section .section-heading > p:last-child {
-    color: var(--text-light);
-
-    font-size: 17px;
-
-    line-height: 1.75;
-}
-
-.publications-section .section-heading.centered {
-    margin-left: auto;
-    margin-right: auto;
-
+.pub-trigger-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
     text-align: center;
 }
 
-
-/* =====================================================
-   PUBLICATION LIST
-===================================================== */
-
-.publication-list {
-    max-width: 950px;
-}
-
-
-/* =====================================================
-   PUBLICATION YEAR
-===================================================== */
-
-.publication-year {
-    padding:
-        30px 0 12px;
-
-    margin-top: 20px;
-
-    color: var(--green);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    border-bottom:
-        2px solid var(--brown-dark);
-}
-
-.publication-list .publication-year:first-child {
-    margin-top: 0;
-}
-
-
-/* =====================================================
-   PUBLICATION
-===================================================== */
-
-.publication {
-    padding:
-        25px 0 27px;
-
-    border-bottom:
-        1px solid var(--border);
-
-    transition:
-        padding-left 0.2s ease,
-        background-color 0.2s ease;
-}
-
-.publication p {
-    margin-bottom: 6px;
-
-    color: var(--text);
-
-    font-size: 14px;
-
-    line-height: 1.6;
-}
-
-.publication a {
-    display: inline;
-
-    color: var(--brown);
-
-    font-size: 18px;
-
-    line-height: 1.5;
-
-    border-bottom:
-        1px solid transparent;
-
-    transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.publication a:hover {
-    color: var(--green-dark);
-
-    border-bottom-color:
-        var(--green-dark);
-}
-
-.publication span {
-    display: block;
-
-    margin-top: 6px;
-
-    color: var(--text-light);
-
-    font-size: 14px;
-
-    line-height: 1.55;
-}
-
-
-/* =====================================================
-   FUNDING SECTION
-===================================================== */
-
-.funding-section {
-    padding: 95px 0 105px;
-
-    background: var(--cream);
-
-    border-top:
-        1px solid var(--border);
-}
-
-
-/* =====================================================
-   FUNDING HEADING
-===================================================== */
-
-.funding-section .section-heading {
-    max-width: 800px;
-}
-
-.funding-section .section-heading h2 {
-    margin-bottom: 18px;
-
+/* The clickable button */
+.pub-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
     color: var(--brown-dark);
-
-    font-size:
-        clamp(34px, 4vw, 48px);
-
-    font-weight: 500;
-
-    line-height: 1.12;
+    transition: color 0.25s ease;
 }
 
-.funding-section .section-heading > p:last-child {
-    color: var(--text-light);
-
-    font-size: 17px;
-
-    line-height: 1.75;
+.pub-trigger-btn:hover {
+    color: var(--green-dark);
 }
 
-
-/* =====================================================
-   FUNDING LOGO GRID
-===================================================== */
-
-.logos-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 24px;
-
-    align-items: stretch;
-
-    margin-top: 45px;
-}
-
-
-/* =====================================================
-   FUNDING LOGO
-===================================================== */
-
-.funding-logo {
-    position: relative;
-
-    height: 145px;
-
+/* Icon circle */
+.pub-trigger-icon {
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    padding: 20px;
-
-    background: var(--white);
-
-    border:
-        1px solid var(--border);
-
-    overflow: hidden;
-
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--border);
+    color: var(--brown-dark);
+    flex-shrink: 0;
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.funding-logo::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background: var(--green);
-
-    transform:
-        scaleX(0);
-
-    transform-origin:
-        left;
-
-    transition:
-        transform 0.25s ease;
+.pub-trigger-icon svg {
+    width: 32px;
+    height: 32px;
 }
 
-.funding-logo:hover {
-    border-color:
-        rgba(83, 107, 69, 0.30);
-
-    box-shadow:
-        0 12px 30px
-        rgba(59, 42, 32, 0.09);
-
-    transform:
-        translateY(-3px);
+.pub-trigger-btn:hover .pub-trigger-icon {
+    background: var(--brown-dark);
+    border-color: var(--brown-dark);
+    color: var(--white);
+    transform: scale(1.06);
 }
 
-.funding-logo:hover::before {
-    transform:
-        scaleX(1);
+.pub-trigger-btn.active .pub-trigger-icon {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--white);
 }
 
-.funding-logo img {
-    width: auto;
-    height: auto;
+/* Label */
+.pub-trigger-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
 
-    max-width: 180px;
-    max-height: 85px;
+/* Animated chevron */
+.pub-trigger-chevron svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
 
-    object-fit: contain;
+.pub-trigger-btn.active .pub-trigger-chevron svg {
+    transform: rotate(180deg);
+}
+
+/* Sub-label */
+.pub-trigger-count {
+    margin: 0;
+    color: var(--text-muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
 }
 
 
 /* =====================================================
-   TABLET
+   PUBLICATIONS DRAWER
+   Hidden by default; .pub-drawer-open reveals it
 ===================================================== */
 
-@media (max-width: 950px) {
+.pub-drawer {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--white);
+    border-top: 0 solid transparent;
+    transition:
+        max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease,
+        padding 0.3s ease;
+}
 
-    .research-content {
-        grid-template-columns: 1fr;
+.pub-drawer-open {
+    max-height: 9000px;  /* large enough for all content */
+    border-top: 1px solid var(--border-light);
+    padding: 70px 0 0;
+}
 
-        gap: 42px;
-    }
+/* Close button at the bottom of the drawer */
+.pub-drawer-close-wrap {
+    padding: 50px 0 70px;
+    text-align: center;
+}
 
-    .research-content.reverse .research-text {
-        order: 1;
-    }
+.pub-drawer-close {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    color: var(--brown);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
 
-    .research-content.reverse .research-image {
-        order: 2;
-    }
-
-    .research-image {
-        height: 390px;
-    }
-
-    .logos-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
+.pub-drawer-close:hover {
+    background: var(--brown-dark);
+    border-color: var(--brown-dark);
+    color: var(--white);
 }
 
 
 /* =====================================================
-   MOBILE
+   MOBILE ADJUSTMENTS FOR TRIGGER + DRAWER
 ===================================================== */
 
 @media (max-width: 700px) {
 
-    .research-section,
-    .publications-section {
-        padding: 65px 0 75px;
+    .pub-trigger-section {
+        padding: 55px 0;
     }
 
-    .research-text h2 {
-        font-size: 36px;
+    .pub-trigger-icon {
+        width: 58px;
+        height: 58px;
     }
 
-    .research-text p:not(.eyebrow) {
-        font-size: 16px;
+    .pub-trigger-icon svg {
+        width: 26px;
+        height: 26px;
     }
 
-    .research-image {
-        height: 310px;
+    .pub-trigger-text {
+        font-size: 28px;
     }
 
-
-    /* Publications */
-
-    .publications-section .section-heading {
-        margin-bottom: 38px;
-    }
-
-    .publications-section .section-heading h2 {
-        font-size: 36px;
-    }
-
-    .publication {
-        padding:
-            22px 0 24px;
-    }
-
-    .publication a {
-        font-size: 17px;
-    }
-
-
-    /* Funding */
-
-    .funding-section {
-        padding: 65px 0 75px;
-    }
-
-    .funding-section .section-heading h2 {
-        font-size: 35px;
-    }
-
-    .logos-grid {
-        gap: 15px;
-
-        margin-top: 35px;
-    }
-
-    .funding-logo {
-        height: 120px;
-    }
-
-    .funding-logo img {
-        max-width: 145px;
-        max-height: 70px;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 450px) {
-
-    .research-section,
-    .publications-section {
-        padding:
-            55px 0 65px;
-    }
-
-    .research-text h2 {
-        font-size: 32px;
-    }
-
-    .research-image {
-        height: 255px;
-    }
-
-
-    /* Publications */
-
-    .publications-section .section-heading h2 {
-        font-size: 32px;
-    }
-
-    .publication a {
-        font-size: 16px;
-    }
-
-    .publication span {
-        font-size: 13px;
-    }
-
-
-    /* Funding */
-
-    .funding-section {
-        padding:
-            55px 0 65px;
-    }
-
-    .logos-grid {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-    .funding-logo {
-        height: 115px;
+    .pub-drawer-open {
+        padding: 50px 0 0;
     }
 
 }
