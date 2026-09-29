@@ -1,10 +1,100 @@
 /* =====================================================
+   FORAGE AGRONOMY LAB — RESEARCH PAGE
+   css/research.css
+===================================================== */
+
+
+/* =====================================================
+   RESEARCH SECTIONS
+   Alternating cream / cream-dark backgrounds
+===================================================== */
+
+.research-section {
+    padding: 100px 0;
+    background: var(--cream);
+}
+
+.research-section.light-section {
+    background: var(--cream-dark);
+}
+
+
+/* =====================================================
+   RESEARCH CONTENT
+   Two-column grid: text + image side by side
+===================================================== */
+
+.research-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Alternating layout: image left, text right */
+.research-content.reverse .research-text {
+    order: 2;
+}
+
+.research-content.reverse .research-image {
+    order: 1;
+}
+
+
+/* =====================================================
+   RESEARCH TEXT
+===================================================== */
+
+.research-text h2 {
+    margin: 0 0 22px;
+    color: var(--brown-dark);
+    font-size: clamp(30px, 3.5vw, 44px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.4px;
+}
+
+.research-text p {
+    margin: 0;
+    color: var(--text-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   RESEARCH IMAGE
+===================================================== */
+
+.research-image {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    background: var(--cream-dark);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 12px 35px rgba(59, 42, 32, 0.09);
+}
+
+.research-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+}
+
+.research-image:hover img {
+    transform: scale(1.03);
+}
+
+
+/* =====================================================
    PUBLICATIONS TRIGGER SECTION
-   Sits between last research section and acknowledgements
 ===================================================== */
 
 .pub-trigger-section {
-    padding: 70px 0;
+    padding: 80px 0;
     background: var(--white);
     border-top: 1px solid var(--border-light);
 }
@@ -13,15 +103,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     text-align: center;
 }
 
-/* The clickable button */
 .pub-trigger-btn {
     display: inline-flex;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
     padding: 0;
     border: none;
     background: none;
@@ -34,7 +123,6 @@
     color: var(--green-dark);
 }
 
-/* Icon circle */
 .pub-trigger-icon {
     display: flex;
     align-items: center;
@@ -71,7 +159,6 @@
     color: var(--white);
 }
 
-/* Label */
 .pub-trigger-text {
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(28px, 4vw, 42px);
@@ -80,7 +167,6 @@
     line-height: 1;
 }
 
-/* Animated chevron */
 .pub-trigger-chevron svg {
     width: 24px;
     height: 24px;
@@ -91,7 +177,6 @@
     transform: rotate(180deg);
 }
 
-/* Sub-label */
 .pub-trigger-count {
     margin: 0;
     color: var(--text-muted);
@@ -103,27 +188,117 @@
 
 /* =====================================================
    PUBLICATIONS DRAWER
-   Hidden by default; .pub-drawer-open reveals it
 ===================================================== */
 
 .pub-drawer {
     max-height: 0;
     overflow: hidden;
     background: var(--white);
-    border-top: 0 solid transparent;
-    transition:
-        max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 0.3s ease,
-        padding 0.3s ease;
+    transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pub-drawer-open {
-    max-height: 9000px;  /* large enough for all content */
+    max-height: 12000px;
+    padding: 60px 0 0;
     border-top: 1px solid var(--border-light);
-    padding: 70px 0 0;
 }
 
-/* Close button at the bottom of the drawer */
+.publication-list {
+    max-width: 860px;
+}
+
+
+/* ── Year label ── */
+
+.publication-year {
+    margin: 40px 0 0;
+    padding: 0 0 12px;
+    color: var(--brown-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--brown-dark);
+}
+
+.publication-list .publication-year:first-child {
+    margin-top: 0;
+}
+
+
+/* ── Publication card — full row is clickable ── */
+
+.pub-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 20px;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--white);
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.pub-card:hover {
+    background: var(--cream);
+    border-bottom-color: var(--border);
+    padding-left: 26px;
+}
+
+.pub-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.pub-authors {
+    margin: 0 0 5px;
+    color: var(--text-muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.pub-title {
+    margin: 0 0 6px;
+    color: var(--brown-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.pub-card:hover .pub-title {
+    color: var(--green-dark);
+}
+
+.pub-journal {
+    margin: 0;
+    color: var(--text-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Arrow indicator on the right */
+.pub-card-arrow {
+    flex-shrink: 0;
+    font-size: 20px;
+    color: var(--border);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pub-card:hover .pub-card-arrow {
+    color: var(--green-dark);
+    transform: translateX(4px);
+}
+
+
+/* ── Close button ── */
+
 .pub-drawer-close-wrap {
     padding: 50px 0 70px;
     text-align: center;
@@ -133,7 +308,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 28px;
+    padding: 12px 30px;
     border: 1px solid var(--border);
     background: var(--cream);
     color: var(--brown);
@@ -157,31 +332,204 @@
 
 
 /* =====================================================
-   MOBILE ADJUSTMENTS FOR TRIGGER + DRAWER
+   ACKNOWLEDGEMENTS / FUNDING SECTION
+===================================================== */
+
+.funding-section {
+    padding: 90px 0 100px;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+}
+
+.funding-heading {
+    max-width: 600px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.funding-heading h2 {
+    margin: 0 0 12px;
+    color: var(--brown-dark);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.funding-heading p {
+    margin: 0;
+    color: var(--text-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ── Logo grid ── */
+
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.funding-logo {
+    position: relative;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Green top accent line animates in on hover */
+.funding-logo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.funding-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(59, 42, 32, 0.10);
+    border-color: rgba(83, 107, 69, 0.25);
+}
+
+.funding-logo:hover::before {
+    transform: scaleX(1);
+}
+
+.funding-logo img {
+    width: auto;
+    height: auto;
+    max-width: 160px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/*
+   If a logo image is missing, show a placeholder label
+   so the grid layout is preserved while you upload logos.
+*/
+.funding-logo img[src=""],
+.funding-logo img:not([src]) {
+    display: none;
+}
+
+.funding-logo::after {
+    content: attr(data-label);
+    position: absolute;
+    color: var(--text-muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .research-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* On tablet, always show text first then image */
+    .research-content.reverse .research-text { order: 1; }
+    .research-content.reverse .research-image { order: 2; }
+
+    .research-image { height: 360px; }
+
+    .logos-grid { grid-template-columns: repeat(2, 1fr); }
+
+}
+
+
+/* =====================================================
+   MOBILE
 ===================================================== */
 
 @media (max-width: 700px) {
 
-    .pub-trigger-section {
-        padding: 55px 0;
+    .research-section { padding: 65px 0; }
+
+    .research-content { gap: 30px; }
+
+    .research-text h2 { font-size: 30px; }
+
+    .research-text p { font-size: 16px; }
+
+    .research-image { height: 280px; }
+
+    .pub-trigger-section { padding: 60px 0; }
+
+    .pub-trigger-icon { width: 58px; height: 58px; }
+    .pub-trigger-icon svg { width: 26px; height: 26px; }
+    .pub-trigger-text { font-size: 28px; }
+
+    .pub-drawer-open { padding: 40px 0 0; }
+
+    .pub-card { padding: 18px 14px; }
+    .pub-title { font-size: 15px; }
+
+    .funding-section { padding: 65px 0 75px; }
+    .logos-grid { gap: 14px; }
+    .funding-logo { height: 110px; padding: 18px; }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .research-section { padding: 50px 0; }
+    .research-image { height: 230px; }
+
+    .logos-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .funding-logo { height: 100px; }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .research-image img,
+    .pub-card,
+    .pub-trigger-icon,
+    .pub-trigger-chevron svg,
+    .funding-logo,
+    .funding-logo::before {
+        transition: none;
     }
 
-    .pub-trigger-icon {
-        width: 58px;
-        height: 58px;
-    }
-
-    .pub-trigger-icon svg {
-        width: 26px;
-        height: 26px;
-    }
-
-    .pub-trigger-text {
-        font-size: 28px;
-    }
-
-    .pub-drawer-open {
-        padding: 50px 0 0;
+    .pub-drawer {
+        transition: none;
     }
 
 }
