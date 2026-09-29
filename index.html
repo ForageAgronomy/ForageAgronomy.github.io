@@ -29,7 +29,7 @@
 
 
 <!-- =====================================================
-     HERO
+     HERO  —  scroll indicator removed
 ===================================================== -->
 
 <section class="home-hero">
@@ -73,10 +73,7 @@
 
     </div>
 
-    <a href="#about" class="hero-scroll" aria-label="Scroll to learn more">
-        <span>SCROLL TO EXPLORE</span>
-        <span class="scroll-arrow">↓</span>
-    </a>
+    <!-- REMOVED: hero-scroll / "Scroll to Explore" arrow -->
 
 </section>
 
@@ -178,8 +175,75 @@
 
 
 <!-- =====================================================
+     WORK IN ACTION — 10-second crossfade slideshow
+     (moved above Producer Resources)
+
+     TO ADD a photo:    copy a <div class="slide"> block
+                        and update src and alt.
+     TO REMOVE a photo: delete that <div class="slide"> block.
+     Dot indicators rebuild automatically.
+===================================================== -->
+
+<section class="home-gallery">
+
+    <div class="container">
+
+        <div class="gallery-heading reveal">
+            <p class="eyebrow">FIELD · GREENHOUSE · LABORATORY</p>
+            <h2>Our Work in Action</h2>
+        </div>
+
+        <div class="slideshow-wrap">
+
+            <div class="slideshow" id="slideshow" aria-label="Lab photo slideshow">
+
+                <div class="slide active">
+                    <img src="images/slide-1.jpg"
+                         alt="Forage Agronomy Lab research">
+                </div>
+
+                <div class="slide">
+                    <img src="images/slide-2.jpg"
+                         alt="Forage research in the field">
+                </div>
+
+                <div class="slide">
+                    <img src="images/slide-3.jpg"
+                         alt="Forage research and plant evaluation">
+                </div>
+
+                <div class="slide">
+                    <img src="images/slide-4.jpg"
+                         alt="Forage Agronomy Lab field research">
+                </div>
+
+                <div class="slide">
+                    <img src="images/slide-5.jpg"
+                         alt="Forage plants and agricultural research">
+                </div>
+
+                <!--
+                    Add more slides here:
+                    <div class="slide">
+                        <img src="images/slide-6.jpg" alt="Description">
+                    </div>
+                -->
+
+            </div>
+
+            <!-- Dots built automatically by JS to match slide count -->
+            <div class="slideshow-dots" id="slideshow-dots" aria-hidden="true"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      PRODUCER RESOURCES
-     Single artistic circle linking to producer-resources.html
+     (moved below Work in Action)
 ===================================================== -->
 
 <section class="producer-section">
@@ -271,71 +335,6 @@
 </section>
 
 
-<!-- =====================================================
-     WORK IN ACTION — 10-second crossfade slideshow
-
-     TO ADD a photo:    copy a <div class="slide"> block
-                        and update the src and alt text.
-     TO REMOVE a photo: delete that <div class="slide"> block.
-     Dot indicators rebuild automatically to match slide count.
-===================================================== -->
-
-<section class="home-gallery">
-
-    <div class="container">
-
-        <div class="gallery-heading reveal">
-            <p class="eyebrow">FIELD · GREENHOUSE · LABORATORY</p>
-            <h2>Our Work in Action</h2>
-        </div>
-
-        <div class="slideshow-wrap">
-
-            <div class="slideshow" id="slideshow" aria-label="Lab photo slideshow">
-
-                <div class="slide active">
-                    <img src="images/slide-1.jpg"
-                         alt="Forage Agronomy Lab research">
-                </div>
-
-                <div class="slide">
-                    <img src="images/slide-2.jpg"
-                         alt="Forage research in the field">
-                </div>
-
-                <div class="slide">
-                    <img src="images/slide-3.jpg"
-                         alt="Forage research and plant evaluation">
-                </div>
-
-                <div class="slide">
-                    <img src="images/slide-4.jpg"
-                         alt="Forage Agronomy Lab field research">
-                </div>
-
-                <div class="slide">
-                    <img src="images/slide-5.jpg"
-                         alt="Forage plants and agricultural research">
-                </div>
-
-                <!--
-                    Add more slides here, e.g.:
-                    <div class="slide">
-                        <img src="images/slide-6.jpg" alt="Description">
-                    </div>
-                -->
-
-            </div>
-
-            <div class="slideshow-dots" id="slideshow-dots" aria-hidden="true"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
 <!-- SHARED FOOTER -->
 <div id="footer-placeholder"></div>
 
@@ -348,6 +347,7 @@
 <script src="js/script.js"></script>
 <script src="js/index.js"></script>
 
+<!-- Slideshow -->
 <script>
 (function () {
 
@@ -397,6 +397,7 @@
 
 })();
 </script>
+
 
 </body>
 </html>
