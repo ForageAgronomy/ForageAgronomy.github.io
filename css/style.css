@@ -91,27 +91,6 @@ strong { color: var(--brown-dark); }
     text-transform: uppercase;
 }
 
-
-/* =========================================================
-   5. TOP BAR
-========================================================= */
-
-.uw-topbar {
-    background: var(--brown-dark);
-    color: rgba(255,255,255,0.82);
-    border-bottom: 1px solid rgba(255,255,255,0.10);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-}
-
-.topbar-inner {
-    min-height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
 /* =========================================================
    6. SITE HEADER
 ========================================================= */
