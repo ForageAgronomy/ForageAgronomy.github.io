@@ -1,141 +1,88 @@
 /* =====================================================
    FORAGE AGRONOMY LAB
-   Shared Header and Footer Loader
    js/components.js
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =====================================================
-       LOAD HEADER
-    ===================================================== */
-
+    /* Load header */
     fetch("components/header.html")
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("Could not load header.html");
-            }
-            return response.text();
+        .then(function (r) {
+            if (!r.ok) throw new Error("header load failed");
+            return r.text();
         })
-        .then(function (data) {
-
-            var placeholder = document.getElementById("header-placeholder");
-            if (placeholder) {
-                placeholder.innerHTML = data;
-            }
-
-            /* Nav must init AFTER header HTML is in the DOM */
-            initializeNavigation();
-
+        .then(function (html) {
+            var el = document.getElementById("header-placeholder");
+            if (el) el.innerHTML = html;
+            initNav();
         })
-        .catch(function (error) {
-            console.error("Header loading error:", error);
-        });
+        .catch(function (e) { console.error(e); });
 
-
-    /* =====================================================
-       LOAD FOOTER
-    ===================================================== */
-
+    /* Load footer */
     fetch("components/footer.html")
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("Could not load footer.html");
-            }
-            return response.text();
+        .then(function (r) {
+            if (!r.ok) throw new Error("footer load failed");
+            return r.text();
         })
-        .then(function (data) {
-
-            var placeholder = document.getElementById("footer-placeholder");
-            if (placeholder) {
-                placeholder.innerHTML = data;
-            }
-
-            var year = document.getElementById("year");
-            if (year) {
-                year.textContent = new Date().getFullYear();
-            }
-
+        .then(function (html) {
+            var el = document.getElementById("footer-placeholder");
+            if (el) el.innerHTML = html;
+            var yr = document.getElementById("year");
+            if (yr) yr.textContent = new Date().getFullYear();
         })
-        .catch(function (error) {
-            console.error("Footer loading error:", error);
-        });
+        .catch(function (e) { console.error(e); });
 
 });
 
 
-/* =====================================================
-   NAVIGATION  —  called after header is injected
-===================================================== */
+function initNav() {
 
-function initializeNavigation() {
+    var toggle  = document.getElementById("menuToggle");
+    var mobileNav = document.getElementById("mainNav");
 
-    var menuToggle = document.getElementById("menuToggle");
-    var mainNav    = document.getElementById("mainNav");
-    var siteHeader = document.querySelector(".site-header");
+    /* ── Mobile hamburger ── */
+    if (toggle && mobileNav) {
 
-    /* ── Mobile menu toggle ── */
-    if (menuToggle && mainNav) {
-
-        menuToggle.addEventListener("click", function (e) {
+        toggle.addEventListener("click", function (e) {
             e.stopPropagation();
-
-            var isOpen = mainNav.classList.toggle("open");
-
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
-            menuToggle.textContent = isOpen ? "✕" : "☰";
+            var open = mobileNav.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", String(open));
+            toggle.textContent = open ? "✕" : "☰";
         });
 
-        /* Close when clicking outside the header */
+        /* Tap outside → close */
         document.addEventListener("click", function (e) {
             if (
-                mainNav.classList.contains("open") &&
-                siteHeader &&
-                !siteHeader.contains(e.target)
+                mobileNav.classList.contains("open") &&
+                !mobileNav.contains(e.target) &&
+                e.target !== toggle
             ) {
-                mainNav.classList.remove("open");
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.textContent = "☰";
+                mobileNav.classList.remove("open");
+                toggle.setAttribute("aria-expanded", "false");
+                toggle.textContent = "☰";
             }
         });
-
     }
 
+    /* ── Mobile Extension dropdown ── */
+    var extBtn  = document.getElementById("extensionButton");
+    var extDrop = extBtn
+        ? extBtn.closest(".nav-dropdown")
+        : null;
 
-    /* ── Extension dropdown (mobile tap) ── */
-
-    var extensionBtn      = document.getElementById("extensionButton");
-    var extensionDropdown = document.querySelector(".nav-dropdown");
-
-    if (extensionBtn && extensionDropdown) {
-
-        extensionBtn.addEventListener("click", function (e) {
+    if (extBtn && extDrop) {
+        extBtn.addEventListener("click", function (e) {
             e.stopPropagation();
-            extensionDropdown.classList.toggle("open");
+            extDrop.classList.toggle("open");
         });
-
-        /* Close dropdown when clicking elsewhere inside the nav */
-        document.addEventListener("click", function (e) {
-            if (
-                extensionDropdown.classList.contains("open") &&
-                !extensionDropdown.contains(e.target)
-            ) {
-                extensionDropdown.classList.remove("open");
-            }
-        });
-
     }
 
+    /* ── Active page highlight (desktop nav) ── */
+    var page = window.location.pathname.split("/").pop() || "index.html";
 
-    /* ── Highlight active page ── */
-
-    var currentPage =
-        window.location.pathname.split("/").pop() || "index.html";
-
-    document.querySelectorAll(".main-nav a").forEach(function (link) {
-        if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
+    document.querySelectorAll(".desktop-nav a").forEach(function (a) {
+        if (a.getAttribute("href") === page) {
+            a.classList.add("active");
         }
     });
-
 }
