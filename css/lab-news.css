@@ -1,0 +1,219 @@
+/* =====================================================
+   FORAGE AGRONOMY LAB — LAB NEWS
+   Page-specific styles only
+===================================================== */
+
+
+/* =====================================================
+   NEWS SECTION
+===================================================== */
+
+.news-section {
+    padding: 100px 0 120px;
+    background: var(--cream);
+}
+
+
+/* =====================================================
+   TIMELINE CONTAINER
+===================================================== */
+
+.news-timeline {
+    position: relative;
+    max-width: 860px;
+    padding-left: 38px;
+}
+
+
+/* Vertical line */
+
+.news-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        var(--green),
+        rgba(83, 107, 69, 0.15)
+    );
+}
+
+
+/* =====================================================
+   NEWS ITEM
+===================================================== */
+
+.news-item {
+    position: relative;
+    padding: 0 0 52px 36px;
+}
+
+.news-item:last-child {
+    padding-bottom: 0;
+}
+
+
+/* Dot on the timeline */
+
+.news-item::before {
+    content: "";
+    position: absolute;
+    left: -43px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--green);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.news-item:hover::before {
+    background: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold);
+    transform: scale(1.2);
+}
+
+
+/* =====================================================
+   NEWS META  (date + tag)
+===================================================== */
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.news-date {
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.news-tag {
+    padding: 3px 10px;
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    color: var(--brown);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   NEWS CONTENT
+===================================================== */
+
+.news-content {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    padding: 32px 36px;
+    box-shadow: 0 8px 24px rgba(59, 42, 32, 0.06);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.news-item:hover .news-content {
+    transform: translateX(5px);
+    box-shadow: 0 14px 35px rgba(59, 42, 32, 0.10);
+    border-color: rgba(83, 107, 69, 0.35);
+}
+
+.news-content h3 {
+    margin: 0 0 14px;
+    color: var(--brown-dark);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+}
+
+.news-content p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.news-content p + p {
+    margin-top: 12px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .news-section {
+        padding: 65px 0 80px;
+    }
+
+    .news-timeline {
+        padding-left: 28px;
+    }
+
+    .news-item {
+        padding: 0 0 40px 24px;
+    }
+
+    .news-item::before {
+        left: -33px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .news-content {
+        padding: 24px 22px;
+    }
+
+    .news-content h3 {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .news-section {
+        padding: 55px 0 65px;
+    }
+
+    .news-timeline {
+        padding-left: 22px;
+    }
+
+    .news-item {
+        padding-left: 20px;
+    }
+
+    .news-item::before {
+        left: -27px;
+    }
+
+    .news-content {
+        padding: 20px 18px;
+    }
+
+}
