@@ -142,7 +142,7 @@ strong { color: var(--brown-dark); }
 /* =========================================================
    6. HEADER  —  two-row layout
    Row 1: .header-brand-bar  (UW brown)
-   Row 2: .header-nav-bar    (white)
+   Row 2: .header-nav-bar    (white, desktop only)
 ========================================================= */
 
 .site-header {
@@ -150,9 +150,9 @@ strong { color: var(--brown-dark); }
     z-index: 1000;
 }
 
-/* ── Row 1: Brand bar ── */
-
+/* Row 1: brown brand bar — always visible */
 .header-brand-bar {
+    position: relative;   /* anchor for mobile nav dropdown */
     background: var(--brown-dark);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -164,8 +164,7 @@ strong { color: var(--brown-dark); }
     justify-content: space-between;
 }
 
-/* ── Row 2: Nav bar ── */
-
+/* Row 2: white nav strip — desktop only */
 .header-nav-bar {
     background: var(--white);
     border-bottom: 1px solid var(--border);
@@ -212,7 +211,7 @@ strong { color: var(--brown-dark); }
 
 
 /* =========================================================
-   8. NAVIGATION
+   8. NAVIGATION  (desktop)
 ========================================================= */
 
 .main-nav {
@@ -245,7 +244,7 @@ strong { color: var(--brown-dark); }
     background: var(--cream);
 }
 
-/* Active page indicator — bottom border tab */
+/* Active page — green bottom tab */
 .main-nav > a.active {
     color: var(--green-dark);
 }
@@ -332,12 +331,13 @@ strong { color: var(--brown-dark); }
    10. MOBILE MENU BUTTON
 ========================================================= */
 
+/* Hidden on desktop */
 .menu-toggle {
     display: none;
     width: 40px;
     height: 40px;
     padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.30);
     background: transparent;
     color: var(--white);
     font-size: 20px;
@@ -346,8 +346,8 @@ strong { color: var(--brown-dark); }
 }
 
 .menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.55);
 }
 
 
@@ -517,8 +517,7 @@ strong { color: var(--brown-dark); }
 
 
 /* =========================================================
-   17. FOOTER  —  Option B
-   Cream top strip with gold top border + dark bottom bar
+   17. FOOTER  —  cream top strip + dark bottom bar
 ========================================================= */
 
 .site-footer {
@@ -538,7 +537,6 @@ strong { color: var(--brown-dark); }
     align-items: start;
 }
 
-/* Brand column */
 .footer-brand-name {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 22px;
@@ -566,7 +564,6 @@ strong { color: var(--brown-dark); }
     margin: 0;
 }
 
-/* Links column */
 .footer-links-col h4 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
@@ -591,7 +588,6 @@ strong { color: var(--brown-dark); }
     padding-left: 5px;
 }
 
-/* Contact column */
 .footer-contact-col h4 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
@@ -610,11 +606,11 @@ strong { color: var(--brown-dark); }
     padding: 10px 16px;
     border: 1px solid var(--border);
     border-radius: 3px;
+    word-break: break-all;
     transition:
         background var(--transition),
         border-color var(--transition),
         color var(--transition);
-    word-break: break-all;
 }
 
 .footer-email-link:hover {
@@ -689,76 +685,93 @@ textarea:focus-visible {
         width: min(calc(100% - 34px), var(--max-width));
     }
 
-    /* Brand bar */
+    /* Brand bar — anchor for the mobile nav */
+    .header-brand-bar {
+        position: relative;
+    }
+
     .header-brand-inner { min-height: 60px; }
 
-    .brand a { gap: 12px; }
+    .brand a { gap: 10px; }
 
     .brand-title   { font-size: 19px; }
 
     .brand-subtitle {
         font-size: 9px;
         letter-spacing: 1.2px;
-        padding-left: 12px;
+        padding-left: 10px;
     }
 
-    /* Show hamburger */
+    /* Show the hamburger button */
     .menu-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    /* Hide nav bar row on mobile — nav goes into dropdown */
+    /* Hide the desktop nav bar row */
     .header-nav-bar { display: none; }
 
-    /* Mobile nav: drop down below brand bar */
+    /*
+       Mobile nav panel — drops below the brand bar.
+       Hidden until JS adds .open class.
+    */
     .main-nav {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
+        z-index: 999;
         display: none;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 8px 17px 16px;
+        padding: 6px 16px 14px;
         background: var(--white);
-        border-top: 1px solid var(--border);
+        border-top: 3px solid var(--green);
         border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow-medium);
-        z-index: 999;
+        box-shadow: 0 8px 24px rgba(59, 42, 32, 0.14);
     }
 
+    /* JS adds .open to reveal the menu */
     .main-nav.open { display: flex; }
 
     .main-nav > a,
     .dropdown-button {
         width: 100%;
-        height: 48px;
-        padding: 0 4px;
+        height: 50px;
+        padding: 0 6px;
         justify-content: space-between;
         border-bottom: 1px solid var(--border-light);
-        font-size: 12px;
+        font-size: 13px;
         background: transparent;
+        color: var(--brown-dark);
     }
 
     .main-nav > a:hover,
     .dropdown-button:hover {
         background: var(--cream);
+        color: var(--green-dark);
     }
 
+    .main-nav > a.active {
+        color: var(--green-dark);
+        font-weight: 700;
+    }
+
+    /* No underline indicator on mobile */
     .main-nav > a.active::after { display: none; }
 
+    /* Dropdown */
     .nav-dropdown { width: 100%; }
 
     .dropdown-menu {
         position: static;
         display: none;
         min-width: 0;
-        padding: 4px 0 8px;
+        padding: 4px 0 6px;
         border: 0;
-        border-top: 3px solid var(--green);
+        border-top: 2px solid var(--green);
         box-shadow: none;
         opacity: 1;
         visibility: visible;
@@ -768,13 +781,16 @@ textarea:focus-visible {
     .nav-dropdown.open .dropdown-menu { display: block; }
 
     .dropdown-menu a {
-        padding: 11px 16px 11px 24px;
+        padding: 12px 16px 12px 24px;
         background: var(--cream);
         border-bottom: 1px solid var(--border-light);
-        font-size: 12px;
+        font-size: 13px;
     }
 
-    .dropdown-menu a:hover { padding-left: 30px; }
+    .dropdown-menu a:hover {
+        padding-left: 30px;
+        color: var(--green-dark);
+    }
 
     /* Page hero */
     .page-hero { padding: 70px 0 75px; }
@@ -793,6 +809,7 @@ textarea:focus-visible {
     }
 
     .footer-cream { padding: 48px 0 40px; }
+
 }
 
 
@@ -806,7 +823,7 @@ textarea:focus-visible {
 
     .uw-topbar { display: none; }
 
-    .brand-title   { font-size: 17px; }
+    .brand-title    { font-size: 17px; }
     .brand-subtitle { display: none; }
 
     .page-hero { padding: 58px 0 65px; }
@@ -814,6 +831,7 @@ textarea:focus-visible {
     .hero-text { font-size: 15px; }
 
     .footer-bottom .container { padding: 16px 0; }
+
 }
 
 
@@ -831,4 +849,5 @@ textarea:focus-visible {
         transition-duration: 0.01ms !important;
         animation-duration:  0.01ms !important;
     }
+
 }
