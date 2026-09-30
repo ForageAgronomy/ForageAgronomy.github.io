@@ -82,6 +82,9 @@ function initializeNavigation() {
 
     /* =====================================================
        MOBILE MENU TOGGLE
+       The hamburger lives in .header-brand-bar.
+       On mobile, .header-nav-bar is hidden so we move
+       the nav into a popup below the brand bar instead.
     ===================================================== */
 
     var menuToggle = document.getElementById("menuToggle");
@@ -95,33 +98,46 @@ function initializeNavigation() {
 
             menuToggle.setAttribute("aria-expanded", isOpen);
 
+            /* Keep hamburger icon as X when open */
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+
+        });
+
+        /* Close menu when clicking outside */
+        document.addEventListener("click", function (e) {
+
+            if (
+                mainNav.classList.contains("open") &&
+                !mainNav.contains(e.target) &&
+                !menuToggle.contains(e.target)
+            ) {
+                mainNav.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            }
+
         });
 
     }
 
 
     /* =====================================================
-       EXTENSION DROPDOWN  (mobile tap / desktop hover)
+       EXTENSION DROPDOWN  (mobile tap)
     ===================================================== */
 
-    var extensionButton  = document.getElementById("extensionButton");
+    var extensionButton   = document.getElementById("extensionButton");
     var extensionDropdown = document.querySelector(".nav-dropdown");
 
     if (extensionButton && extensionDropdown) {
 
-        /* Mobile: toggle on button click */
-        extensionButton.addEventListener("click", function () {
+        extensionButton.addEventListener("click", function (e) {
 
+            /* On mobile, toggle; on desktop CSS hover handles it */
             if (window.innerWidth <= 700) {
+                e.stopPropagation();
                 extensionDropdown.classList.toggle("open");
             }
 
-        });
-
-        /* Desktop: open on hover (CSS handles the visual,
-           this handles keyboard / touch edge cases) */
-        extensionDropdown.addEventListener("mouseleave", function () {
-            extensionDropdown.classList.remove("open");
         });
 
     }
