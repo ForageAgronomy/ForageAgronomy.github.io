@@ -9,17 +9,18 @@
 
 
 <!-- =====================================================
-     HEADER  —  Option C
-     Row 1: UW-brown brand bar
-     Row 2: white nav strip
+     HEADER
 ===================================================== -->
 
 <header class="site-header">
 
-    <!-- Row 1: Brand -->
+    <!-- Row 1: Brown brand bar — always visible.
+         Also contains the nav (hidden on desktop via CSS,
+         shown as dropdown on mobile via JS). -->
     <div class="header-brand-bar">
         <div class="container header-brand-inner">
 
+            <!-- Lab name -->
             <div class="brand">
                 <a href="index.html">
                     <span class="brand-title">Forage Agronomy Lab</span>
@@ -27,7 +28,7 @@
                 </a>
             </div>
 
-            <!-- Mobile menu button (sits in brand bar on mobile) -->
+            <!-- Mobile hamburger -->
             <button
                 class="menu-toggle"
                 id="menuToggle"
@@ -37,13 +38,44 @@
             </button>
 
         </div>
+
+        <!-- Mobile nav panel — child of brand bar so it is
+             never inside a display:none parent -->
+        <nav class="main-nav" id="mainNav">
+
+            <a href="index.html">Home</a>
+
+            <a href="people.html">People</a>
+
+            <a href="research.html">Research</a>
+
+            <div class="nav-dropdown">
+                <button
+                    class="dropdown-button"
+                    id="extensionButton"
+                    type="button">
+                    Extension
+                    <span>▾</span>
+                </button>
+                <div class="dropdown-menu" id="extensionMenu">
+                    <a href="extension-articles.html">Extension Articles</a>
+                    <a href="producer-resources.html">Producer Resources</a>
+                </div>
+            </div>
+
+            <a href="links.html">Links</a>
+
+        </nav>
+
     </div>
 
-    <!-- Row 2: Navigation -->
-    <div class="header-nav-bar">
+    <!-- Row 2: White nav strip — desktop only.
+         On desktop the nav above is hidden and this
+         strip shows the same links via CSS. -->
+    <div class="header-nav-bar" aria-hidden="true">
         <div class="container">
 
-            <nav class="main-nav" id="mainNav">
+            <nav class="desktop-nav">
 
                 <a href="index.html">Home</a>
 
@@ -51,22 +83,17 @@
 
                 <a href="research.html">Research</a>
 
-                <!-- Extension dropdown -->
-                <div class="nav-dropdown">
-
+                <div class="nav-dropdown desktop-dropdown">
                     <button
                         class="dropdown-button"
-                        id="extensionButton"
                         type="button">
                         Extension
                         <span>▾</span>
                     </button>
-
-                    <div class="dropdown-menu" id="extensionMenu">
+                    <div class="dropdown-menu">
                         <a href="extension-articles.html">Extension Articles</a>
                         <a href="producer-resources.html">Producer Resources</a>
                     </div>
-
                 </div>
 
                 <a href="links.html">Links</a>
