@@ -6,29 +6,25 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
     /* =====================================================
        LOAD HEADER
     ===================================================== */
 
     fetch("components/header.html")
         .then(function (response) {
-
             if (!response.ok) {
                 throw new Error("Could not load header.html");
             }
-
             return response.text();
-
         })
         .then(function (data) {
 
-            var header = document.getElementById("header-placeholder");
-
-            if (header) {
-                header.innerHTML = data;
+            var placeholder = document.getElementById("header-placeholder");
+            if (placeholder) {
+                placeholder.innerHTML = data;
             }
 
+            /* Nav must init AFTER header HTML is in the DOM */
             initializeNavigation();
 
         })
@@ -43,24 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetch("components/footer.html")
         .then(function (response) {
-
             if (!response.ok) {
                 throw new Error("Could not load footer.html");
             }
-
             return response.text();
-
         })
         .then(function (data) {
 
-            var footer = document.getElementById("footer-placeholder");
-
-            if (footer) {
-                footer.innerHTML = data;
+            var placeholder = document.getElementById("footer-placeholder");
+            if (placeholder) {
+                placeholder.innerHTML = data;
             }
 
             var year = document.getElementById("year");
-
             if (year) {
                 year.textContent = new Date().getFullYear();
             }
@@ -74,90 +65,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =====================================================
-   NAVIGATION
+   NAVIGATION  —  called after header is injected
 ===================================================== */
 
 function initializeNavigation() {
 
-
-    /* =====================================================
-       MOBILE MENU TOGGLE
-       The hamburger lives in .header-brand-bar.
-       On mobile, .header-nav-bar is hidden so we move
-       the nav into a popup below the brand bar instead.
-    ===================================================== */
-
     var menuToggle = document.getElementById("menuToggle");
     var mainNav    = document.getElementById("mainNav");
+    var siteHeader = document.querySelector(".site-header");
 
+    /* ── Mobile menu toggle ── */
     if (menuToggle && mainNav) {
 
-        menuToggle.addEventListener("click", function () {
+        menuToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
 
             var isOpen = mainNav.classList.toggle("open");
 
-            menuToggle.setAttribute("aria-expanded", isOpen);
-
-            /* Keep hamburger icon as X when open */
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
             menuToggle.textContent = isOpen ? "✕" : "☰";
-
         });
 
-        /* Close menu when clicking outside */
+        /* Close when clicking outside the header */
         document.addEventListener("click", function (e) {
-
             if (
                 mainNav.classList.contains("open") &&
-                !mainNav.contains(e.target) &&
-                !menuToggle.contains(e.target)
+                siteHeader &&
+                !siteHeader.contains(e.target)
             ) {
                 mainNav.classList.remove("open");
                 menuToggle.setAttribute("aria-expanded", "false");
                 menuToggle.textContent = "☰";
             }
-
         });
 
     }
 
 
-    /* =====================================================
-       EXTENSION DROPDOWN  (mobile tap)
-    ===================================================== */
+    /* ── Extension dropdown (mobile tap) ── */
 
-    var extensionButton   = document.getElementById("extensionButton");
+    var extensionBtn      = document.getElementById("extensionButton");
     var extensionDropdown = document.querySelector(".nav-dropdown");
 
-    if (extensionButton && extensionDropdown) {
+    if (extensionBtn && extensionDropdown) {
 
-        extensionButton.addEventListener("click", function (e) {
+        extensionBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            extensionDropdown.classList.toggle("open");
+        });
 
-            /* On mobile, toggle; on desktop CSS hover handles it */
-            if (window.innerWidth <= 700) {
-                e.stopPropagation();
-                extensionDropdown.classList.toggle("open");
+        /* Close dropdown when clicking elsewhere inside the nav */
+        document.addEventListener("click", function (e) {
+            if (
+                extensionDropdown.classList.contains("open") &&
+                !extensionDropdown.contains(e.target)
+            ) {
+                extensionDropdown.classList.remove("open");
             }
-
         });
 
     }
 
 
-    /* =====================================================
-       ACTIVE PAGE HIGHLIGHT
-    ===================================================== */
+    /* ── Highlight active page ── */
 
     var currentPage =
         window.location.pathname.split("/").pop() || "index.html";
 
-    var navLinks = document.querySelectorAll(".main-nav a");
-
-    navLinks.forEach(function (link) {
-
+    document.querySelectorAll(".main-nav a").forEach(function (link) {
         if (link.getAttribute("href") === currentPage) {
             link.classList.add("active");
         }
-
     });
 
 }
