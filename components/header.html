@@ -1,20 +1,14 @@
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="site-header">
 
-    <!-- Row 1: Brown brand bar — always visible.
-         Also contains the nav (hidden on desktop via CSS,
-         shown as dropdown on mobile via JS). -->
     <div class="header-brand-bar">
         <div class="container header-brand-inner">
 
-            <!-- Lab name -->
+            <!-- Logo -->
             <div class="brand">
                 <a href="index.html">
-                    <span class="brand-title">Forage Agronomy Lab</span>
-                    <span class="brand-subtitle">University of Wyoming</span>
+                    <img src="images/lablogo.png"
+                         alt="ForAgLab"
+                         style="height: 42px; width: auto; display: block;">
                 </a>
             </div>
 
@@ -29,8 +23,7 @@
 
         </div>
 
-        <!-- Mobile nav panel — child of brand bar so it is
-             never inside a display:none parent -->
+        <!-- Mobile nav -->
         <nav class="main-nav" id="mainNav">
 
             <a href="index.html">Home</a>
@@ -52,16 +45,16 @@
                     <a href="producer-resources.html">Producer Resources</a>
                 </div>
             </div>
-          <a href="lab-news.html">Lab News</a>
+
+            <a href="lab-news.html">Lab News</a>
+
             <a href="links.html">Links</a>
 
         </nav>
 
     </div>
 
-    <!-- Row 2: White nav strip — desktop only.
-         On desktop the nav above is hidden and this
-         strip shows the same links via CSS. -->
+    <!-- Desktop nav strip -->
     <div class="header-nav-bar" aria-hidden="true">
         <div class="container">
 
@@ -85,7 +78,9 @@
                         <a href="producer-resources.html">Producer Resources</a>
                     </div>
                 </div>
-               <a href="lab-news.html">Lab News</a>
+
+                <a href="lab-news.html">Lab News</a>
+
                 <a href="links.html">Links</a>
 
             </nav>
