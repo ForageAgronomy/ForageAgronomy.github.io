@@ -1,0 +1,213 @@
+/* =====================================================
+   FORAGE AGRONOMY LAB — EXTENSION HUB
+   Page-specific styles only
+===================================================== */
+
+
+/* =====================================================
+   EXTENSION HUB SECTION
+===================================================== */
+
+.extension-hub {
+    padding: 100px 0 120px;
+    background: var(--cream);
+}
+
+
+/* =====================================================
+   HUB GRID
+===================================================== */
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 960px;
+}
+
+
+/* =====================================================
+   HUB CARD
+===================================================== */
+
+.hub-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 52px 46px;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 12px 35px rgba(59, 42, 32, 0.07);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.hub-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.hub-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px rgba(59, 42, 32, 0.13);
+    border-color: rgba(83, 107, 69, 0.30);
+}
+
+.hub-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =====================================================
+   HUB ICON
+===================================================== */
+
+.hub-icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(83, 107, 69, 0.10);
+    border-radius: 50%;
+    margin-bottom: 28px;
+    color: var(--green-dark);
+    transition: background 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.hub-icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.hub-card:hover .hub-icon {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+
+/* =====================================================
+   HUB CONTENT
+===================================================== */
+
+.hub-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.hub-category {
+    margin: 0 0 10px;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+.hub-content h2 {
+    margin: 0 0 16px;
+    color: var(--brown-dark);
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+}
+
+.hub-content p {
+    margin: 0 0 28px;
+    color: var(--text-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.78;
+    flex: 1;
+}
+
+.hub-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    width: fit-content;
+    padding: 12px 24px;
+    background: rgba(83, 107, 69, 0.10);
+    color: var(--green-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.hub-card:hover .hub-cta {
+    background: var(--green-dark);
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .extension-hub {
+        padding: 70px 0 85px;
+    }
+
+    .hub-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+    }
+
+    .hub-card {
+        padding: 40px 32px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .extension-hub {
+        padding: 55px 0 65px;
+    }
+
+    .hub-card {
+        padding: 32px 24px;
+    }
+
+    .hub-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 22px;
+    }
+
+    .hub-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+}
